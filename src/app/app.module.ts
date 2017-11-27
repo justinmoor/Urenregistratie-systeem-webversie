@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { UserComponent } from './compoments/user/user.component';
+import { LoginComponent } from './compoments/login/login.component';
 
 import { DataService } from './services/data.service';
 
@@ -12,7 +12,7 @@ import { DataService } from './services/data.service';
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

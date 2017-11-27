@@ -3,10 +3,10 @@ import { DataService } from '../../services/data.service';
 import { post } from 'selenium-webdriver/http';
 @Component({
   selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class UserComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   name:string;
   password:string;
