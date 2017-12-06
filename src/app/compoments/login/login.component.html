@@ -1,16 +1,17 @@
-
+<html>
 <div id="login">
-  <h1>Login</h1>
+  <h1>Urenregistratie</h1>
   <form>
     <div>
-      <label for="name">Email adres: </label><br>
-      <input type="tekst">
+      <label for="name">Emailadres: </label><br>
+      <input ng-model="tekst">
     </div>
     <div>
-        <label for="wachtwoord">Wachtwoord</label><br>
-        <input type="password">
+        <label for="wachtwoord">Wachtwoord:</label><br>
+        <input ng-model="password">
     </div>
     
     <button (click)="onClick()">Log in</button>
 </form>
 </div>
+</html>
