@@ -9,9 +9,13 @@ export class DataService {
     console.log("Dataservice connected.");
    }
 
-   getPosts(){
-     return this.http.get('https://jsonplaceholder.typicode.com/posts')
-      .map(res => res.json());
+   getPosts(id:number, user_id:number){
+    
+    //test/demo_form.php?name1=value1&name2=value2
+    user_id = user_id
+    return this.http.get('https://jsonplaceholder.typicode.com/posts?userId=user_id')
+    
+    .map(res => res.json());
    }
     
 }

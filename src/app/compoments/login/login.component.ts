@@ -6,26 +6,25 @@ import { post } from 'selenium-webdriver/http';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  name:string;
+  name:string = 'Stan';
+  id:number = 91;
+  userId:number = 10;
   password:string;
 
   constructor(private dataService:DataService) {
       console.log("Constructor ran...")
    }
 
-  ngOnInit() {
-    console.log("ngOnInit ran..")
+  onClick() {
+    console.log("onClick ran..")
 
-    
-
-    this.dataService.getPosts().subscribe((post) => {
-      console.log(post);
+    this.dataService.getPosts(this.id, this.userId).subscribe((posts) => {
+      console.log(posts);
     });
   }
 
-  onClick(){
-    this.name="Nieuw naam"
-  }
+  //onClick(){
+ //   this.name="Nieuw naam"
 }
