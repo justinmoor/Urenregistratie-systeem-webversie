@@ -1,17 +1,26 @@
-<html>
-<div id="login">
-  <h1>Urenregistratie</h1>
-  <form>
-    <div>
-      <label for="name">Emailadres: </label><br>
-      <input ng-model="tekst">
+<div ng-app="myApp" ng-controller="myController" class="container">
+  <form name="myForm">
+    <div class="login-container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" ng-model="user.username" required class="form-control">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="pass" ng-model="user.password" required class="form-control">
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <button ng-click="authenticate()" ng-disabled="myForm.$invalid" class="btn btn-success pull-right">Login</button>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-        <label for="wachtwoord">Wachtwoord:</label><br>
-        <input ng-model="password">
-    </div>
-    
-    <button (click)="onClick()">Log in</button>
-</form>
+  </form>
 </div>
-</html>
