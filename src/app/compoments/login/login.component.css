@@ -1,0 +1,49 @@
+h1 {
+    margin-top: 200px;
+    font-family: sans-serif;
+    font-size: 32px;
+    /* color: #343434; */
+    color: #5A5A5A;
+}
+
+label {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #5A5A5A;
+}
+
+input {
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #484848;
+    width: 280px;
+    height: 20px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 20px;
+    margin-top: 4px;
+    padding: 10px;
+}
+
+#login {
+    margin-top: 400px;
+    width: 21%;
+    margin: auto;
+}
+
+button {
+    background-color: #F9F9F9;
+    width: 300px;
+    height: 40px;
+    font-family: sans-serif;
+    font-size: 12px;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+button:hover {
+    background-color: #F1F1F1;
+    transition: all 0.2s ease-in-out;
+}
