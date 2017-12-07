@@ -12,6 +12,7 @@ import { UserService } from './components/user/user.service';
 import { ApiService } from './components/services/api.service';
 import {HttpClientModule} from '@angular/common/http';
 import { AuthorizationService } from './components/services/authorization.service';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
 //import { ApiService } from './services/api.service';
@@ -19,7 +20,7 @@ import { AuthorizationService } from './components/services/authorization.servic
 
 // Create ruotes
 const appRoutes:Routes = [
-  { path:'', component: LoginComponent },
+  { path:'', component:LoginComponent },
   { path:'Registratie', component:RegistratieComponent}
 ];
 
@@ -28,7 +29,8 @@ const appRoutes:Routes = [
     AppComponent,
     LoginComponent,
     ServicesComponent,
-    RegistratieComponent
+    RegistratieComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

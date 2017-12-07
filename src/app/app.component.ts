@@ -8,4 +8,6 @@ import { LoginComponent } from './components/login/login.component';
 })
 export class AppComponent {
   title = 'Urenregistratiesysteem';
+  Ingelogd:boolean = false;
+  
 }

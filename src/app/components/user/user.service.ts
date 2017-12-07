@@ -37,7 +37,8 @@ public login(user:User, remember:boolean):void{
 }
 
 private goHome() {
-    this.router.navigate(['Registratie']);
+    console.log('goHome ran ..');
+    this.router.navigate(['/Registratie']);
 }
 
 }
