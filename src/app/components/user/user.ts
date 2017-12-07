@@ -9,6 +9,7 @@ export class User
         public wachtwoord?:string,
         public rechten?:string,
         public werkzaam?:string
+        //hoi
     ){
         
     }
