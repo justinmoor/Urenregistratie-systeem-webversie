@@ -16,15 +16,18 @@ export class LoginComponent {
   email = "";
   wachtwoord = "";
 
+  persoon = {
+    email: "",
+    wachtwoord: ""
+  }
+
   constructor(private userService:UserService, private apiService:ApiService) {
       console.log("Constructor ran...")
    }
 
   logIn() {
-    let data = new URLSearchParams();
-    data.append('email', this.email)
-    data.append('wachtwoord', this.wachtwoord);
-    this.apiService.post(data);
+
+    this.userService.login(this.user, false)
     
   }
 }

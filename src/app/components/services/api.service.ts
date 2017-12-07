@@ -46,24 +46,13 @@ export class ApiService{
     {
         let queryString = this.createQueryString(queryParameters);
         
-        return `/api/${path}${queryString}`;
+        return `/personeel/${path}${queryString}`;
     }
 
     public get<T>(path:string, queryParameters?:Object):Observable<T>{
         let uri = this.createURI(path, queryParameters);
         let headers = this.createRequestHeaders();
 
-        return this.http.get<T>(uri, {headers:headers});
+        return this.http.get<T>("http://localhost:8080/personeel/login", {headers:headers});
     }
-
-    public post(data){
-    {
-        this.http.post('http://localhost:8080/personeel/login', data).subscribe(data =>{
-            alert("OK");
-        }, error => {
-            console.log("FOUT");
-        });
-    
-    }
-}
 }
