@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 import { AuthorizationService } from './authorization.service';
+import { error } from 'selenium-webdriver';
 
 @Injectable()
 export class ApiService{
@@ -55,12 +56,14 @@ export class ApiService{
         return this.http.get<T>(uri, {headers:headers});
     }
 
-    public post<T>(path: string, data: Object, queryParameters?: Object): Observable<object>
+    public post(data){
     {
-        let uri = this.createURI(path, queryParameters);
-        let headers = this.createRequestHeaders();
-
-        return this.http.post(uri, data, { headers: headers });
+        this.http.post('http://localhost:8080/personeel/login', data).subscribe(data =>{
+            alert("OK");
+        }, error => {
+            console.log("FOUT");
+        });
+    
     }
-
+}
 }
