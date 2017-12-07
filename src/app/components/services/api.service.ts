@@ -55,5 +55,12 @@ export class ApiService{
         return this.http.get<T>(uri, {headers:headers});
     }
 
+    public post<T>(path: string, data: Object, queryParameters?: Object): Observable<object>
+    {
+        let uri = this.createURI(path, queryParameters);
+        let headers = this.createRequestHeaders();
+
+        return this.http.post(uri, data, { headers: headers });
+    }
 
 }

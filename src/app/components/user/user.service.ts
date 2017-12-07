@@ -9,7 +9,8 @@ import { User } from './user';
 
 @Injectable()
 export class UserService{
-    constructor(private api: ApiService,
+    constructor(
+    private api: ApiService,
     private authService: AuthorizationService,
     private router:Router
     )
