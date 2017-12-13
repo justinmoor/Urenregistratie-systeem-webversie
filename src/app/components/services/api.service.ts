@@ -59,6 +59,9 @@ export class ApiService{
         return this.http.get<T>("http://localhost:8080/personeel/login", {headers:headers});
     }
 
+    public getUrenVanUser(id:number){
+        return this.http.get('http://localhost:8080/uren/getbyid?=' + id);
+    }
     public getUsers<T>(queryParameters?: Object): Observable<T>{
         return this.http.get<T>('http://localhost:8080/personeel/getall')
     }

@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Begindatum</th>
+      <th scope="col">Begintijd</th>
+      <th scope="col">Einddatum</th>
+      <th scope="col">Eindtijd</th>
+      <th scope="col">Commentaar</th>
+      <th scope="col">Personeelslid</th>
+      <th scope="col">Klant</th>
+      <th scope="col">Project</th>
+      <th scope="col">Onderwerp</th>
+      <th scope="col">Goedgekeurd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let uur of uren" >
+      <td>{{uren.begindatum}}</td>
+      <td>{{uren.begintijd}}</td>
+      <td>{{uren.einddatum}}</td>
+      <td>{{uren.eindtijd}}</td>
+      <td>{{uren.commentaar}}</td>
+      <td>{{uren.personeelsnaam}}</td>
+      <td>{{uren.klantnaam}}</td>
+      <td>{{uren.projectnaam}}</td>
+      <td>{{uren.onderwerpnaam}}</td>
+      <td *ngIf="uren.goedgekeurd == true">Ja</td>
+      <td *ngIf="uren.rechten == false">Nee</td>     
+    </tr>
+  </tbody>
+</table>
