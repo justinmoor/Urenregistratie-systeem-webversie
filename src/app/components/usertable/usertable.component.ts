@@ -10,12 +10,11 @@ import { User } from '../user/user';
 })
 export class UsertableComponent implements OnInit {
 
-  users:any;
+  users:User[];
 
   constructor(private userService:UserService) {
     this.userService.getAll().subscribe(users => {
       this.users = users;
-    
     })
   }
 

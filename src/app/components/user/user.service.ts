@@ -17,8 +17,8 @@ export class UserService{
 {
 
 }
-public getAll(){
-    return this.api.getUsers();
+public getAll(): Observable<User[]>{
+    return this.api.getUsers<User[]>();
 }
 
 public login(user:User, remember:boolean):void{
