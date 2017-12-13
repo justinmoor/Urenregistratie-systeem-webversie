@@ -36,6 +36,11 @@ public login(user:User, remember:boolean):void{
     )
 }
 
+public setWerkzaam(user:User){
+    this.api.setWerkzaam(user);
+    console.log("userService")
+}
+
 private goHome() {
     console.log('goHome ran ..');
     this.router.navigate(['/Registratie']);
