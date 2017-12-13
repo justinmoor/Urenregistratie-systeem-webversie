@@ -59,7 +59,11 @@ export class ApiService{
     }
 
     public getUsers(){
-        return this.http.get('http://localhost:8080/personeel/getall')
+        return this.http.get('http://localhost:8080/personeel/getall');
+    }
+
+    public getUrenVanUser(id:number){
+        return this.http.get('http://localhost:8080/uren/getbyid?=' + id);
     }
 
 }
