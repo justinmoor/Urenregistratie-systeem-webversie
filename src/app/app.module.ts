@@ -23,7 +23,7 @@ import { UsertableComponent } from './components/usertable/usertable.component';
 const appRoutes:Routes = [
   { path:'', component:LoginComponent },
   { path:'Registratie', component:RegistratieComponent},
-  { path:'Account_maken', component:AccountAanmakenComponent}
+  { path:'Account_maken', component:AccountAanmakenComponent},
   { path: 'gebruikers', component: UsertableComponent}
 ];
 
@@ -34,8 +34,8 @@ const appRoutes:Routes = [
     ServicesComponent,
     RegistratieComponent,
     NavBarComponent,
-    AccountAanmakenComponent
-    UsertableComponent,
+    AccountAanmakenComponent,
+    UsertableComponent
   ],
   imports: [
     BrowserModule,

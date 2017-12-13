@@ -12,4 +12,12 @@ export class User
     ){
         
     }
+    public setRechten(rechten){
+        this.rechten = rechten;
+    }
+
+    public setWerkzaam(werkzaam){
+        this.werkzaam = werkzaam;
+    }
+
 }
