@@ -13,7 +13,8 @@ import { ApiService } from './components/services/api.service';
 import {HttpClientModule} from '@angular/common/http';
 import { AuthorizationService } from './components/services/authorization.service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-
+import { AccountAanmakenComponent } from './components/account-aanmaken/account-aanmaken.component';
+import { UsertableComponent } from './components/usertable/usertable.component';
 
 //import { ApiService } from './services/api.service';
 //import { AuthorizationService } from './services/authorization.service';
@@ -21,7 +22,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 // Create ruotes
 const appRoutes:Routes = [
   { path:'', component:LoginComponent },
-  { path:'Registratie', component:RegistratieComponent}
+  { path:'Registratie', component:RegistratieComponent},
+  { path:'Account_maken', component:AccountAanmakenComponent}
+  { path: 'gebruikers', component: UsertableComponent}
 ];
 
 @NgModule({
@@ -30,14 +33,15 @@ const appRoutes:Routes = [
     LoginComponent,
     ServicesComponent,
     RegistratieComponent,
-    NavBarComponent
+    NavBarComponent,
+    AccountAanmakenComponent
+    UsertableComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
-    
   ],
   providers: [UserService, ApiService, AuthorizationService],
   bootstrap: [AppComponent]

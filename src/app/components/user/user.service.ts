@@ -17,18 +17,18 @@ export class UserService{
 {
 
 }
-public getAll(): Observable<User[]>{
-    return this.api.get<User[]>('users');
+public getAll(){
+    return this.api.getUsers();
 }
 
 public login(user:User, remember:boolean):void{
     this.authService.setAuthorization(user.email, user.wachtwoord);
 
-    this.api.get<User>('user/me').subscribe(
+    this.api.get<User>('personeel/login').subscribe(
         authenticator => {
             this.authService.storeAuthorization(authenticator, remember);
 
-            this.goHome();
+            alert("Ingelogd");
         },
         error => {
             alert('Inloggen is mislukt!');

@@ -58,4 +58,15 @@ export class AuthorizationService
         
         this.authorized$.next(false);
     }
+
+    public getAuthenticator(): Object
+    {
+        return this.authenticator;
+    }
+    
+    public setAuthenticator(authenticator: Object): void
+    {
+        this.authenticator = authenticator;
+    }
+
 }

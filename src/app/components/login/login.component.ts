@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../user/user';
 import { UserService } from '../user/user.service';
 import { ApiService } from '../services/api.service';
-import { URLSearchParams } from "@angular/http"
-
+import { URLSearchParams } from '@angular/http';
 
 @Component({
   selector: 'app-login',
@@ -12,22 +11,13 @@ import { URLSearchParams } from "@angular/http"
 })
 export class LoginComponent {
 
-  user: User = new User();
-  email = "";
-  wachtwoord = "";
-
-  persoon = {
-    email: "",
-    wachtwoord: ""
-  }
+  user:User = new User();
 
   constructor(private userService:UserService, private apiService:ApiService) {
       console.log("Constructor ran...")
    }
 
   logIn() {
-
-    this.userService.login(this.user, false)
-    
+    this.userService.login(this.user, false);
   }
 }

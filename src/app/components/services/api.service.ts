@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { AuthorizationService } from './authorization.service';
 import { error } from 'selenium-webdriver';
 
+import { User } from '../user/user'
+
 @Injectable()
 export class ApiService{
 
@@ -55,4 +57,9 @@ export class ApiService{
 
         return this.http.get<T>("http://localhost:8080/personeel/login", {headers:headers});
     }
+
+    public getUsers(){
+        return this.http.get('http://localhost:8080/personeel/getall')
+    }
+
 }
