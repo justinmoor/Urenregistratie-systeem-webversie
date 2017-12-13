@@ -24,7 +24,8 @@ const appRoutes:Routes = [
   { path:'', component:LoginComponent },
   { path:'Registratie', component:RegistratieComponent},
   { path:'Account_maken', component:AccountAanmakenComponent},
-  { path: 'gebruikers', component: UsertableComponent}
+  { path: 'gebruikers', component: UsertableComponent},
+  { path: 'week-overzicht', component: ServicesComponent}
 ];
 
 @NgModule({
