@@ -14,7 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { AuthorizationService } from './components/services/authorization.service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AccountAanmakenComponent } from './components/account-aanmaken/account-aanmaken.component';
-
+import { UsertableComponent } from './components/usertable/usertable.component';
 
 //import { ApiService } from './services/api.service';
 //import { AuthorizationService } from './services/authorization.service';
@@ -23,7 +23,8 @@ import { AccountAanmakenComponent } from './components/account-aanmaken/account-
 const appRoutes:Routes = [
   { path:'', component:LoginComponent },
   { path:'Registratie', component:RegistratieComponent},
-  { path:'Account_maken', component:AccountAanmakenComponent}
+  { path:'Account_maken', component:AccountAanmakenComponent},
+  { path: 'gebruikers', component: UsertableComponent}
 ];
 
 @NgModule({
@@ -33,7 +34,8 @@ const appRoutes:Routes = [
     ServicesComponent,
     RegistratieComponent,
     NavBarComponent,
-    AccountAanmakenComponent
+    AccountAanmakenComponent,
+    UsertableComponent
   ],
   imports: [
     BrowserModule,

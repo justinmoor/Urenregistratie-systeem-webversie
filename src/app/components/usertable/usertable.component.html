@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Voornaam</th>
+      <th scope="col">Tussenvoegsel</th>
+      <th scope="col">Achternaam</th>
+      <th scope="col">E-mailadres</th>
+      <th scope="col">Rechten</th>
+      <th scope="col">Werkzaam</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users" >
+      <td>{{user.achternaam}}</td>
+      <td>{{user.tussenvoegsel}}</td>
+      <td>{{user.voornaam}}</td> <!-- Voornaam en achternaam worden omgedraaid -->
+      <td>{{user.email}}</td>
+      <td *ngIf="user.rechten == 1">Administrator</td>
+      <td *ngIf="user.rechten != 1">Personeel</td>
+      <td *ngIf="user.werkzaam == 1">Ja</td>
+      <td *ngIf="user.werkzaam != 1">Nee</td>
+    </tr>
+  </tbody>
+</table>

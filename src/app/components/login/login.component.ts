@@ -11,17 +11,10 @@ import { URLSearchParams } from '@angular/http';
 })
 export class LoginComponent {
 
-  user: User = new User();
-  email = '';
-  wachtwoord = '';
+  user:User = new User();
 
-  persoon = {
-    email: '',
-    wachtwoord: ''
-  };
-
-  constructor(private userService: UserService, private apiService: ApiService) {
-      console.log('Constructor ran...');
+  constructor(private userService:UserService, private apiService:ApiService) {
+      console.log("Constructor ran...")
    }
 
   logIn() {
