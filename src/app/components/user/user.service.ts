@@ -28,7 +28,7 @@ public login(user: User, remember: boolean): void{
         authenticator => {
             this.authService.storeAuthorization(authenticator, remember);
             sessionStorage.setItem('activeUser', JSON.stringify(authenticator));
-            this.router.navigate(['registratie']);
+            this.router.navigate(['/registratie']);
         },
         error => {
             alert('Inloggen is mislukt!');

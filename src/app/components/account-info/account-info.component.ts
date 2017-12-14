@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user/user.service';
+import { User } from '../user/user';
 
 @Component({
   selector: 'app-account-info',
@@ -8,9 +9,18 @@ import { UserService } from '../user/user.service';
 })
 export class AccountInfoComponent implements OnInit {
 
-  constructor(private userService:UserService) { }
+  user:User
+
+  constructor(private userService:UserService) { 
+    this.user = JSON.parse(sessionStorage.getItem('activeUser'));
+    console.log(this.user);
+    
+  }
 
   ngOnInit() {
   }
 
+  OpslaanGegevens() {
+    console.log('OpslaanGegevens doet het');
+  }
 }
