@@ -6,6 +6,7 @@ import { AuthorizationService } from './authorization.service';
 import { error } from 'selenium-webdriver';
 
 import { User } from '../user/user'
+import { URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class ApiService{
@@ -48,24 +49,29 @@ export class ApiService{
     {
         let queryString = this.createQueryString(queryParameters);
         
-        return `http://localhost:8080/${path}${queryString}`;
+        return `http://localhost:8080/${path}/${queryString}`;
     }
 
     public get<T>(path:string, queryParameters?:Object):Observable<T>{
-        let uri = this.createURI(path, queryParameters);
+  //      let uri = this.createURI(path, queryParameters);
         let headers = this.createRequestHeaders();
 
         return this.http.get<T>("http://localhost:8080/personeel/login", {headers:headers});
     }
-    public getUrenVanUser<T>(id:number): Observable<T>{
-        let tijd = {
-            id : id 							
-        }
-        let uri = this.createURI("uren/getbyid",tijd)
-        return this.http.get<T>(uri)
+
+    public getUrenVanUser(id:number){
+        return this.http.get('http://localhost:8080/uren/getbyid?=' + id);
     }
     public getUsers<T>(queryParameters?: Object): Observable<T>{
         return this.http.get<T>('http://localhost:8080/personeel/getall')
     }
 
+    public setWerkzaam( userModel: User){
+        let user = {
+            id : userModel.personeelID,
+            werkzaam : userModel.werkzaam
+        }
+        let uri = this.createURI("personeel/werkzaam",user);
+        return this.http.post(uri, null).subscribe();
+    }
 }
