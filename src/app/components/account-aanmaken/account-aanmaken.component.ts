@@ -20,7 +20,7 @@ export class AccountAanmakenComponent implements OnInit {
   }
 
   voegAccountToe() {
-    this.user.setWerkzaam('1');
+    this.user.setWerkzaam('1'); // 1 = werkzaam
     this.user.setWachtwoord('ipsen123');
     console.log(this.user);
     this.userService.voegAccountToe(this.user);
