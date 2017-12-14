@@ -11,14 +11,15 @@ export class UrenService {
 
   }
 
-  public getAll(): Observable<Uren[]>{
-    return this.api.getUrenVanUser<Uren[]>(this.getActiveUserId());
+  public getAll(): Observable<Uren[]> {
+    return this.api.getUrenVanUser<Uren[]>(1);
   }
 
-  private getActiveUserId(): number{
+  private getActiveUserId() {
     sessionStorage.getItem('activeUser');
-
-    return 1;
+    this.id = 1;
+    return this.id;
   }
 
 }
+
