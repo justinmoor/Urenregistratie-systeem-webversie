@@ -18,6 +18,7 @@ import { UsertableComponent } from './components/usertable/usertable.component';
 import { UrenoverzichtComponent } from './components/urenoverzicht/urenoverzicht.component';
 import { UrenService } from './services/uren.service';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
+import { UrenoverzichtFilterComponent } from './components/urenoverzicht-filter/urenoverzicht-filter.component';
 
 // import { ApiService } from './services/api.service';
 // import { AuthorizationService } from './services/authorization.service';
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     AccountAanmakenComponent,
     UsertableComponent,
     UrenoverzichtComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    UrenoverzichtFilterComponent
   ],
   imports: [
     BrowserModule,
