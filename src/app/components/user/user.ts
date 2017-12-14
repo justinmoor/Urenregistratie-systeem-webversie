@@ -1,16 +1,18 @@
 export class User
 {
     constructor(
-        public personeelID?:string,
-        public achternaam?:string,
-        public tussenvoegsel?:string,
-        public voornaam?:string,
-        public email?:string,
-        public wachtwoord?:string,
-        public rechten?:string,
-        public werkzaam?:string
+        public personeelID?: number,
+        public voornaam?: string,
+        public tussenvoegsel?: string,
+        public achternaam?: string,
+        public email?: string,
+        public wachtwoord?: string,
+        public rechten?: number,
+        public werkzaam?: number,
+        public password?: string,
+        public name?: string
     ){
-        
+
     }
     public setRechten(rechten){
         this.rechten = rechten;
