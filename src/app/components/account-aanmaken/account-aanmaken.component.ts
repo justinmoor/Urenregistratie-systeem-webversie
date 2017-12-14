@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../user/user';
+import { UserService } from '../user/user.service';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-account-aanmaken',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountAanmakenComponent implements OnInit {
 
-  constructor() { }
+  user: User = new User;
+
+  constructor(private userService: UserService, private apiService: ApiService) {
+    console.log('Dingen gebeurde');
+  }
 
   ngOnInit() {
+  }
+
+  voegAccountToe() {
+    this.user.setWerkzaam('1');
+    this.user.setWachtwoord('ipsen123');
+    console.log(this.user);
   }
 
 }

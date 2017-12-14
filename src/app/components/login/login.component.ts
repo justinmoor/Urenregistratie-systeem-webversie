@@ -11,7 +11,7 @@ import { URLSearchParams } from '@angular/http';
 })
 export class LoginComponent {
 
-  user:User = new User();
+  user: User = new User();
 
   constructor(private userService:UserService, private apiService:ApiService) {
       console.log("Constructor ran...")

@@ -45,11 +45,10 @@ export class ApiService{
         return headers;
     }
 
-    private createURI(queryParameters: Object): string
-    {
+    private createURI(path: string, queryParameters: Object): string {
         let queryString = this.createQueryString(queryParameters);
         
-        return `http://localhost:8080/personeel/werkzaam/${queryString}`;
+        return `http://localhost:8080/${path}${queryString}`;
     }
 
     public get<T>(path:string, queryParameters?:Object):Observable<T>{
@@ -75,4 +74,11 @@ export class ApiService{
         let uri = this.createURI(user);
         return this.http.post(uri, null).subscribe();
     }
+
+    public voegAccountToe(userModel: User){
+        let uri = this.createURI('personeel/add',user);
+        return this.http.post(uri, userModel);
+    }
+
+
 }

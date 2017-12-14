@@ -20,4 +20,8 @@ export class User
         this.werkzaam = werkzaam;
     }
 
+    public setWachtwoord(wachtwoord){
+        this.wachtwoord = wachtwoord;
+    }
+
 }
