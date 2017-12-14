@@ -2,6 +2,8 @@
 <div ng-app="myApp" ng-controller="myController" class="container">
   <form name="myForm">
     <div class="login-container">
+      <h1>Log in</h1>
+      <div class = "card" style="width: 20rem; padding: 0.5em;">
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
@@ -17,10 +19,11 @@
         </div>
         <div class="col-md-12">
           <div class="form-group">
-            <button (click)='logIn()'>Login</button>
+            <button class="btn btn-primary" (click)='logIn()'>Login</button>
             <div class="clearfix"></div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </form>
