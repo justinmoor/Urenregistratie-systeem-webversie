@@ -11,7 +11,6 @@ import { User } from '../user/user';
 export class UsertableComponent implements OnInit {
 
   users:User[];
-  test:string
 
   constructor(private userService:UserService) {
     this.userService.getAll().subscribe(users => {

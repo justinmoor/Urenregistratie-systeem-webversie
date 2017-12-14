@@ -65,13 +65,12 @@ export class ApiService{
         return this.http.get<T>('http://localhost:8080/personeel/getall')
     }
 
-
     public setWerkzaam( userModel: User){
         let user = {
             id : userModel.personeelID,
             werkzaam : userModel.werkzaam
         }
-        let uri = this.createURI(user);
+        let uri = this.createURI("personeel/werkzaam",user);
         return this.http.post(uri, null).subscribe();
     }
 

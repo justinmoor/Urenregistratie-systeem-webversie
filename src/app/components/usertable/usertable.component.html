@@ -1,3 +1,4 @@
+<div class = "card">
 <table class="table">
   <thead>
     <tr>
@@ -11,9 +12,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let user of users" >
-      <td >{{user.voornaam}}</td>
+      <td >{{user.achternaam}}</td>
       <td>{{user.tussenvoegsel}}</td>
-      <td>{{user.achternaam}}</td> <!-- Voornaam en achternaam worden omgedraaid -->
+      <td>{{user.voornaam}}</td> <!-- Voornaam en achternaam worden omgedraaid -->
       <td>{{user.email}}</td>
       <td *ngIf="user.rechten == 1">Administrator</td>
       <td *ngIf="user.rechten != 1">Personeel</td>
@@ -32,3 +33,4 @@
     </tr>
   </tbody>
 </table>
+</div>
