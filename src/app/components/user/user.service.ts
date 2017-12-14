@@ -47,4 +47,8 @@ private goHome() {
     this.router.navigate(['/Registratie']);
 }
 
+public voegAccountToe(user: User){
+    this.api.voegAccountToe(user);
+}
+
 }

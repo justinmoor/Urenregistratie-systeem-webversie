@@ -66,18 +66,27 @@ export class ApiService{
     }
 
     public setWerkzaam( userModel: User){
-        let user = {
+        let data = {
             id : userModel.personeelID,
             werkzaam : userModel.werkzaam
         }
-        let uri = this.createURI("personeel/werkzaam",user);
+        let uri = this.createURI("personeel/werkzaam",data);
         return this.http.post(uri, null).subscribe();
     }
 
-    public voegAccountToe(userModel: User){
-        let uri = this.createURI('personeel/add',user);
-        return this.http.post(uri, userModel);
+    public voegAccountToe(user: User){
+        let data = {
+            achternaam : user.achternaam,
+            tussenvoegsel: user.tussenvoegsel,
+            voornaam: user.voornaam,
+            email: user.email,
+            wachtwoord: user.wachtwoord,
+            rechten: user.rechten,
+            werkzaam: user.werkzaam
+        }
+        let uri = this.createURI('personeel/add', null);
+        console.log("api")
+        return this.http.post(uri, data).subscribe();
     }
-
 
 }
