@@ -18,18 +18,18 @@ export class ApiService{
     private createQueryString(queryParameters: Object): string
     {
         let queryString = '';
-        
+
         if (typeof queryParameters === 'object')
         {
             for (let key in queryParameters)
             {
                 let value = queryParameters[key];
                 let prefix = queryString.length === 0 ? '?' : '&';
-                
+
                 queryString += `${prefix}${key}=${value}`;
             }
         }
-        
+
         return queryString;
     }
 
@@ -41,14 +41,15 @@ export class ApiService{
         {
             headers = headers.set('Authorization', this.authService.createAuthorizationString());
         }
-        
+
         return headers;
     }
 
-    private createURI(path: string, queryParameters: Object): string {
+    private createURI(path: string, queryParameters: Object): string
+    {
         let queryString = this.createQueryString(queryParameters);
-        
-        return `http://localhost:8080/${path}${queryString}`;
+
+        return `http://localhost:8080/${path}/${queryString}`;
     }
 
     public get<T>(path:string, queryParameters?:Object):Observable<T>{
@@ -66,11 +67,11 @@ export class ApiService{
     }
 
     public setWerkzaam( userModel: User){
-        let data = {
+        let user = {
             id : userModel.personeelID,
             werkzaam : userModel.werkzaam
         }
-        let uri = this.createURI("personeel/werkzaam",data);
+        let uri = this.createURI("personeel/werkzaam",user);
         return this.http.post(uri, null).subscribe();
     }
 
