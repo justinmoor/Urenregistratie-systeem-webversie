@@ -9,13 +9,13 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./urenoverzicht.component.css']
 })
 export class UrenoverzichtComponent implements OnInit {
-  uren:Uren;
+  uren: Uren[];
 
-  constructor(private urenService:UrenService) {
-    this.urenService.getAll().subscribe(uren =>{
+  constructor(private urenService: UrenService) {
+    this.urenService.getAll().subscribe(uren => {
       this.uren = uren;
-    })
-   }
+    });
+  }
 
   ngOnInit() {
   }

@@ -19,14 +19,14 @@ import { UrenoverzichtComponent } from './components/urenoverzicht/urenoverzicht
 import { UrenService } from './services/uren.service';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
 
-//import { ApiService } from './services/api.service';
-//import { AuthorizationService } from './services/authorization.service';
+// import { ApiService } from './services/api.service';
+// import { AuthorizationService } from './services/authorization.service';
 
 // Create ruotes
-const appRoutes:Routes = [
-  { path:'', component:LoginComponent },
-  { path:'Registratie', component:RegistratieComponent},
-  { path:'Account_maken', component:AccountAanmakenComponent},
+const appRoutes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'registratie', component: RegistratieComponent},
+  { path: 'account_maken', component: AccountAanmakenComponent},
   { path: 'gebruikers', component: UsertableComponent},
   { path: 'urenoverzicht', component: UrenoverzichtComponent},
   { path: 'accountinfo', component: AccountInfoComponent}

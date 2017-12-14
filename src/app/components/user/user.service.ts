@@ -8,38 +8,37 @@ import { AuthorizationService } from '../services/authorization.service';
 import { User } from './user';
 
 @Injectable()
-export class UserService{
+export class UserService {
     constructor(
     private api: ApiService,
     private authService: AuthorizationService,
-    private router:Router
-    )
-{
+    private router: Router
+    ) {
 
 }
-public getAll(): Observable<User[]>{
+public getAll(): Observable<User[]> {
     return this.api.getUsers<User[]>();
 }
 
 
-public login(user:User, remember:boolean):void{
+public login(user: User, remember: boolean): void{
     this.authService.setAuthorization(user.email, user.wachtwoord);
 
     this.api.get<User>('personeel/login').subscribe(
         authenticator => {
             this.authService.storeAuthorization(authenticator, remember);
-
-            alert("Ingelogd");
+            sessionStorage.setItem('activeUser', JSON.stringify(authenticator));
+            this.router.navigate(['registratie']);
         },
         error => {
             alert('Inloggen is mislukt!');
         }
-    )
+    );
 }
 
-public setWerkzaam(user:User){
+public setWerkzaam(user: User) {
     this.api.setWerkzaam(user);
-    console.log("userService")
+    console.log('userService');
 }
 
 private goHome() {
@@ -47,7 +46,7 @@ private goHome() {
     this.router.navigate(['/Registratie']);
 }
 
-public voegAccountToe(user: User){
+public voegAccountToe(user: User) {
     this.api.voegAccountToe(user);
 }
 
