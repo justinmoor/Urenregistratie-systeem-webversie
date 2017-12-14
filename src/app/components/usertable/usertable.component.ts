@@ -20,5 +20,9 @@ export class UsertableComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
+  setWerkzaam(user:User){
+    this.userService.setWerkzaam(user);
+    console.log("userTable")
+  }
 }

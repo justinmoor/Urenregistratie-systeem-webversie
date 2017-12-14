@@ -1,3 +1,4 @@
+<div class = "card">
 <table class="table">
   <thead>
     <tr>
@@ -9,16 +10,28 @@
       <th scope="col">Werkzaam</th>
     </tr>
   </thead>
+  
   <tbody>
     <tr *ngFor="let user of users" >
-      <td>{{user.achternaam}}</td>
+      <td >{{user.voornaam}}</td>
       <td>{{user.tussenvoegsel}}</td>
-      <td>{{user.voornaam}}</td> <!-- Voornaam en achternaam worden omgedraaid -->
+      <td>{{user.achternaam}}</td> <!-- Voornaam en achternaam worden omgedraaid -->
       <td>{{user.email}}</td>
       <td *ngIf="user.rechten == 1">Administrator</td>
       <td *ngIf="user.rechten != 1">Personeel</td>
-      <td *ngIf="user.werkzaam == 1">Ja</td>
-      <td *ngIf="user.werkzaam != 1">Nee</td>
+      <td *ngIf="user.werkzaam == 1">
+      <select #selectElement (change)="setWerkzaam(user)"> 
+          <option>Nee</option>
+          <option>Ja</option>
+        </select>
+        </td>
+      <td *ngIf="user.werkzaam != 1">
+        <select #selectElement (change)="setWerkzaam(user)">
+          <option>Ja</option>
+          <option>Nee</option>
+        </select>
+      </td>
     </tr>
   </tbody>
 </table>
+</div>

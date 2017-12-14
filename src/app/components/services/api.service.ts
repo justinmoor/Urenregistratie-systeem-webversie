@@ -57,7 +57,6 @@ export class ApiService{
 
         return this.http.get<T>("http://localhost:8080/personeel/login", {headers:headers});
     }
-
     public getUrenVanUser<T>(id:number): Observable<T>{
         let tijd = {
             id : id 							
