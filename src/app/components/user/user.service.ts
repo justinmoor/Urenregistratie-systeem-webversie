@@ -28,12 +28,13 @@ public login(user:User, remember:boolean):void{
     this.api.get<User>('personeel/login').subscribe(
         authenticator => {
             this.authService.storeAuthorization(authenticator, remember);
-
-            alert("Ingelogd");
+            sessionStorage.setItem('activeUser', JSON.stringify(authenticator));
+            this.router.navigate(['registratie']);
         },
         error => {
             alert('Inloggen is mislukt!');
         }
+
     )
 }
 

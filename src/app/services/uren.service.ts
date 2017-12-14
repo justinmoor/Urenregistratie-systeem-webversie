@@ -16,6 +16,8 @@ export class UrenService {
   }
 
   private getActiveUserId(): number{
+    sessionStorage.getItem('activeUser');
+
     return 1;
   }
 

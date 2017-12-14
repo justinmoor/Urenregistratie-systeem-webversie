@@ -25,8 +25,8 @@ import { AccountInfoComponent } from './components/account-info/account-info.com
 // Create ruotes
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'Registratie', component: RegistratieComponent},
-  { path: 'Account_maken', component: AccountAanmakenComponent},
+  { path: 'registratie', component: RegistratieComponent},
+  { path: 'account_maken', component: AccountAanmakenComponent},
   { path: 'gebruikers', component: UsertableComponent},
   { path: 'urenoverzicht', component: UrenoverzichtComponent},
   { path: 'accountinfo', component: AccountInfoComponent}
