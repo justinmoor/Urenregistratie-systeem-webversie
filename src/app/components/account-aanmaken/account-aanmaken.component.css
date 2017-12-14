@@ -1,15 +1,11 @@
 .account-container{
   max-width: 400px; 
-  margin: 60px auto 0;
-  margin-top: 60px;
+  margin:  auto;
+ 
 }
 
 td {
     padding-bottom: 20px;
-}
-
-h2 {
-    margin-bottom: 40px;
 }
 
 label {
@@ -17,8 +13,21 @@ label {
     margin-top: 4px;
 }
 
-button {
-    margin-top: 20px;
-    height: 50px;
+.btn-primary:hover {
+    background-color: #00675b;
+    border-color: #00675b;
+    transition: 0.2s, ease-in-out;
+    
+  }
+  
+  .btn-primary {
+    color: #fff;
+    background-color: #009688;
+    border-color: #009688;
     width: 100%;
+    height: 50px;
+  }
+
+.card{
+    box-shadow: 0 2px 4px 0 #a3a3a3
 }

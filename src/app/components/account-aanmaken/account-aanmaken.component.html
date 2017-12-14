@@ -1,14 +1,11 @@
+
 <div ng-app="myApp" ng-controller="myController" class="container">
-  <form name="myForm">
+  <form name="myForm"> 
     <div class="account-container">
       <div class="row">
-        
+          <h1>Account aanmaken</h1>
+          <div class="card" style="padding: 20px;">
         <table>
-          <tr>
-            <td colspan="2">
-              <h2>Account aanmaken</h2>
-            </td>
-          </tr>
           <tr>
             <td>
               <label>Voornaam:</label>
@@ -56,15 +53,17 @@
             <td colspan="2">
               <div class="form-group">
                 <button type="button" class="btn btn-primary btn-block" (click)='voegAccountToe()'>Toevoegen</button>
-                <div class="clearfix"></div>
               </div>
             </td>
           </tr> 
         </table>
-
+        </div>
       </div>
     </div>
-
+    
   </form>
+
 </div>
+
+
 
