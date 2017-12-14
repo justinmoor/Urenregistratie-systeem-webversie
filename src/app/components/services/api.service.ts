@@ -18,18 +18,18 @@ export class ApiService{
     private createQueryString(queryParameters: Object): string
     {
         let queryString = '';
-        
+
         if (typeof queryParameters === 'object')
         {
             for (let key in queryParameters)
             {
                 let value = queryParameters[key];
                 let prefix = queryString.length === 0 ? '?' : '&';
-                
+
                 queryString += `${prefix}${key}=${value}`;
             }
         }
-        
+
         return queryString;
     }
 
@@ -41,14 +41,14 @@ export class ApiService{
         {
             headers = headers.set('Authorization', this.authService.createAuthorizationString());
         }
-        
+
         return headers;
     }
 
     private createURI(path: string, queryParameters: Object): string
     {
         let queryString = this.createQueryString(queryParameters);
-        
+
         return `http://localhost:8080/${path}/${queryString}`;
     }
 
@@ -59,11 +59,12 @@ export class ApiService{
         return this.http.get<T>("http://localhost:8080/personeel/login", {headers:headers});
     }
 
-    public getUrenVanUser(id:number){
-        return this.http.get('http://localhost:8080/uren/getbyid?=' + id);
+    public getUrenVanUser<T>(id: number): Observable<T> {
+
+        return this.http.get<T>('http://localhost:8080/uren/getbyid?id=' + id);
     }
     public getUsers<T>(queryParameters?: Object): Observable<T>{
-        return this.http.get<T>('http://localhost:8080/personeel/getall')
+        return this.http.get<T>('http://localhost:8080/personeel/getall');
     }
 
     public setWerkzaam( userModel: User){
