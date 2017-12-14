@@ -21,6 +21,7 @@ public getAll(): Observable<User[]>{
     return this.api.getUsers<User[]>();
 }
 
+
 public login(user:User, remember:boolean):void{
     this.authService.setAuthorization(user.email, user.wachtwoord);
 

@@ -17,6 +17,7 @@ import { AccountAanmakenComponent } from './components/account-aanmaken/account-
 import { UsertableComponent } from './components/usertable/usertable.component';
 import { UrenoverzichtComponent } from './components/urenoverzicht/urenoverzicht.component';
 import { UrenService } from './services/uren.service';
+import { AccountInfoComponent } from './components/account-info/account-info.component';
 
 //import { ApiService } from './services/api.service';
 //import { AuthorizationService } from './services/authorization.service';
@@ -27,7 +28,8 @@ const appRoutes:Routes = [
   { path:'Registratie', component:RegistratieComponent},
   { path:'Account_maken', component:AccountAanmakenComponent},
   { path: 'gebruikers', component: UsertableComponent},
-  { path: 'urenoverzicht', component: UrenoverzichtComponent}
+  { path: 'urenoverzicht', component: UrenoverzichtComponent},
+  { path: 'accountinfo', component: AccountInfoComponent}
 ];
 
 @NgModule({
@@ -39,7 +41,8 @@ const appRoutes:Routes = [
     NavBarComponent,
     AccountAanmakenComponent,
     UsertableComponent,
-    UrenoverzichtComponent
+    UrenoverzichtComponent,
+    AccountInfoComponent
   ],
   imports: [
     BrowserModule,
