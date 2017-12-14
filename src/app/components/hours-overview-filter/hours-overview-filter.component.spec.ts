@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UrenoverzichtFilterComponent } from './hours-overview-filter.component';
+import { HoursOverviewFilterComponent } from './hours-overview-filter.component';
 
-describe('UrenoverzichtFilterComponent', () => {
-  let component: UrenoverzichtFilterComponent;
-  let fixture: ComponentFixture<UrenoverzichtFilterComponent>;
+describe('HoursOverviewFilterComponent', () => {
+  let component: HoursOverviewFilterComponent;
+  let fixture: ComponentFixture<HoursOverviewFilterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UrenoverzichtFilterComponent ]
+      declarations: [ HoursOverviewFilterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UrenoverzichtFilterComponent);
+    fixture = TestBed.createComponent(HoursOverviewFilterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Uren } from "../../models/uren"
-import { UrenService } from '../../services/uren.service'
+import { Hours } from "../../models/hours"
+import { HoursService } from '../../services/hours.service'
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-urenoverzicht',
+  selector: 'app-hours-overview',
   templateUrl: './hours-overview.component.html',
   styleUrls: ['./hours-overview.component.css']
 })
-export class UrenoverzichtComponent implements OnInit {
-  uren: Uren[];
+export class HoursOverviewComponent implements OnInit {
+  hours: Hours[];
 
-  constructor(private urenService: UrenService) {
-    this.urenService.getAll().subscribe(uren => {
-      this.uren = uren;
+  constructor(private hoursService: HoursService) {
+    this.hoursService.getAll().subscribe(hours => {
+      this.hours = hours;
     });
   }
 

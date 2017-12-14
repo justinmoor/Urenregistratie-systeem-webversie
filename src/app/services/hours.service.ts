@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Uren } from '../models/uren'
+import { Hours } from '../models/hours'
 import { ApiService } from './api.service';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../models/user';
 
 @Injectable()
-export class UrenService {
+export class HoursService {
   id: number;
   constructor(private api: ApiService) {
 
   }
 
-  public getAll(): Observable<Uren[]> {
-    return this.api.getUrenVanUser<Uren[]>(this.getActiveUserId());
+  public getAll(): Observable<Hours[]> {
+    return this.api.getUrenVanUser<Hours[]>(this.getActiveUserId());
   }
 
   private getActiveUserId() {

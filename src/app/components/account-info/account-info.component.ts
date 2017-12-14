@@ -19,8 +19,4 @@ export class AccountInfoComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  OpslaanGegevens() {
-    console.log('OpslaanGegevens doet het');
-  }
 }

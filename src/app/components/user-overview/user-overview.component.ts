@@ -4,13 +4,13 @@ import { Observable } from 'rxjs/Observable';
 import { User } from '../../models/user';
 
 @Component({
-  selector: 'app-usertable',
+  selector: 'app-user-overview',
   templateUrl: './user-overview.component.html',
   styleUrls: ['./user-overview.component.css']
 })
-export class UsertableComponent implements OnInit {
+export class UserOverviewComponent implements OnInit {
 
-  users:User[];
+  users: User[];
 
   constructor(private userService:UserService) {
     this.userService.getAll().subscribe(users => {
@@ -21,7 +21,7 @@ export class UsertableComponent implements OnInit {
   ngOnInit() {
   }
 
-  setWerkzaam(user:User){
+  setAsEmployed(user: User){
     this.userService.setWerkzaam(user);
     console.log("userTable")
   }
