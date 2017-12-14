@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-registratie',
-  templateUrl: './registratie.component.html',
-  styleUrls: ['./registratie.component.css']
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css']
 })
 export class RegistratieComponent implements OnInit {
 

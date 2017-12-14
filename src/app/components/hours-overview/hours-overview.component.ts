@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-urenoverzicht',
-  templateUrl: './urenoverzicht.component.html',
-  styleUrls: ['./urenoverzicht.component.css']
+  templateUrl: './hours-overview.component.html',
+  styleUrls: ['./hours-overview.component.css']
 })
 export class UrenoverzichtComponent implements OnInit {
   uren: Uren[];

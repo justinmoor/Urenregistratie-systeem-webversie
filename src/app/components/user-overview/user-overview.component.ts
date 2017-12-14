@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService } from '../user/user.service';
+import {UserService } from '../../services/user.service';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../user/user';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-usertable',
-  templateUrl: './usertable.component.html',
-  styleUrls: ['./usertable.component.css']
+  templateUrl: './user-overview.component.html',
+  styleUrls: ['./user-overview.component.css']
 })
 export class UsertableComponent implements OnInit {
 
@@ -20,7 +20,7 @@ export class UsertableComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   setWerkzaam(user:User){
     this.userService.setWerkzaam(user);
     console.log("userTable")

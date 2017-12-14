@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UrenoverzichtComponent } from './urenoverzicht.component';
+import { UrenoverzichtComponent } from './hours-overview.component';
 
 describe('UrenoverzichtComponent', () => {
   let component: UrenoverzichtComponent;

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { AuthorizationService } from './authorization.service';
 import { error } from 'selenium-webdriver';
 
-import { User } from '../user/user'
+import { User } from '../models/user'
 import { URLSearchParams } from '@angular/http';
 
 @Injectable()

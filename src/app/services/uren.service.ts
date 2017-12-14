@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Uren } from '../models/uren'
-import { ApiService } from '../components/services/api.service';
+import { ApiService } from './api.service';
 import {Observable} from 'rxjs/Observable';
-import {User} from '../components/user/user';
+import {User} from '../models/user';
 
 @Injectable()
 export class UrenService {

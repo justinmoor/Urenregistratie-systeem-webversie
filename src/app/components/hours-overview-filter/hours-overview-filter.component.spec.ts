@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UrenoverzichtFilterComponent } from './urenoverzicht-filter.component';
+import { UrenoverzichtFilterComponent } from './hours-overview-filter.component';
 
 describe('UrenoverzichtFilterComponent', () => {
   let component: UrenoverzichtFilterComponent;

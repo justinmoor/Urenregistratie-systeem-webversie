@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 
-import { ApiService } from '../services/api.service';
-import { AuthorizationService } from '../services/authorization.service';
+import { ApiService } from './api.service';
+import { AuthorizationService } from './authorization.service';
 
-import { User } from './user';
+import { User } from '../models/user';
 
 @Injectable()
 export class UserService {
