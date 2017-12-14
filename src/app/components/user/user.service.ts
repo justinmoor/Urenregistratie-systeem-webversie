@@ -21,6 +21,7 @@ public getAll(): Observable<User[]>{
     return this.api.getUsers<User[]>();
 }
 
+
 public login(user:User, remember:boolean):void{
     this.authService.setAuthorization(user.email, user.wachtwoord);
 
@@ -34,6 +35,11 @@ public login(user:User, remember:boolean):void{
             alert('Inloggen is mislukt!');
         }
     )
+}
+
+public setWerkzaam(user:User){
+    this.api.setWerkzaam(user);
+    console.log("userService")
 }
 
 private goHome() {

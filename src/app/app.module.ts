@@ -10,11 +10,14 @@ import { ServicesComponent} from './components/services/services.component';
 import { RegistratieComponent } from './components/registratie/registratie.component';
 import { UserService } from './components/user/user.service';
 import { ApiService } from './components/services/api.service';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AuthorizationService } from './components/services/authorization.service';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { AccountAanmakenComponent } from './components/account-aanmaken/account-aanmaken.component';
 import { UsertableComponent } from './components/usertable/usertable.component';
+import { UrenoverzichtComponent } from './components/urenoverzicht/urenoverzicht.component';
+import { UrenService } from './services/uren.service';
+import { AccountInfoComponent } from './components/account-info/account-info.component';
 
 //import { ApiService } from './services/api.service';
 //import { AuthorizationService } from './services/authorization.service';
@@ -25,7 +28,8 @@ const appRoutes:Routes = [
   { path:'Registratie', component:RegistratieComponent},
   { path:'Account_maken', component:AccountAanmakenComponent},
   { path: 'gebruikers', component: UsertableComponent},
-  { path: 'week-overzicht', component: ServicesComponent}
+  { path: 'urenoverzicht', component: UrenoverzichtComponent},
+  { path: 'accountinfo', component: AccountInfoComponent}
 ];
 
 @NgModule({
@@ -36,7 +40,9 @@ const appRoutes:Routes = [
     RegistratieComponent,
     NavBarComponent,
     AccountAanmakenComponent,
-    UsertableComponent
+    UsertableComponent,
+    UrenoverzichtComponent,
+    AccountInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,7 @@ const appRoutes:Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService, ApiService, AuthorizationService],
+  providers: [UserService, ApiService, AuthorizationService, UrenService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

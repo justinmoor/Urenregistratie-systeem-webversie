@@ -2,9 +2,9 @@ export class User
 {
     constructor(
         public personeelID?:string,
-        public voornaam?:string,
-        public tussenvoegsel?:string,
         public achternaam?:string,
+        public tussenvoegsel?:string,
+        public voornaam?:string,
         public email?:string,
         public wachtwoord?:string,
         public rechten?:string,
