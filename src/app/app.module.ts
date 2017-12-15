@@ -25,7 +25,7 @@ import { HoursOverviewFilterComponent } from './components/hours-overview-filter
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'registratie', component: RegisterHoursComponent},
-  { path: 'account_maken', component: CreateAccountComponent},
+  { path: 'accountmaken', component: CreateAccountComponent},
   { path: 'gebruikers', component: UserOverviewComponent},
   { path: 'urenoverzicht', component: HoursOverviewComponent},
   { path: 'accountinfo', component: AccountInfoComponent}
