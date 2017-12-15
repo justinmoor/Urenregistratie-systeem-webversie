@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService } from '../user/user.service';
+import {UserService } from '../../services/user.service';
 import { Observable } from 'rxjs/Observable';
-import { User } from '../user/user';
+import { User } from '../../models/user';
 
 @Component({
-  selector: 'app-usertable',
-  templateUrl: './usertable.component.html',
-  styleUrls: ['./usertable.component.css']
+  selector: 'app-user-overview',
+  templateUrl: './user-overview.component.html',
+  styleUrls: ['./user-overview.component.css']
 })
-export class UsertableComponent implements OnInit {
+export class UserOverviewComponent implements OnInit {
 
-  users:User[];
+  users: User[];
 
   constructor(private userService:UserService) {
     this.userService.getAll().subscribe(users => {
@@ -20,8 +20,8 @@ export class UsertableComponent implements OnInit {
 
   ngOnInit() {
   }
-  
-  setWerkzaam(user:User){
+
+  setAsEmployed(user: User){
     this.userService.setWerkzaam(user);
     console.log("userTable")
   }

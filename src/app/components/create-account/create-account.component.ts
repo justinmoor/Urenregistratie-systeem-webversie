@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../user/user';
-import { UserService } from '../user/user.service';
-import { ApiService } from '../services/api.service';
+import { User } from '../../models/user';
+import { UserService } from '../../services/user.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-account-aanmaken',
-  templateUrl: './account-aanmaken.component.html',
-  styleUrls: ['./account-aanmaken.component.css']
+  templateUrl: './create-account.component.html',
+  styleUrls: ['./create-account.component.css']
 })
-export class AccountAanmakenComponent implements OnInit {
+export class CreateAccountComponent implements OnInit {
 
   user: User = new User;
 
@@ -19,7 +19,7 @@ export class AccountAanmakenComponent implements OnInit {
   ngOnInit() {
   }
 
-  voegAccountToe() {
+  addAccount() {
     this.user.setWerkzaam('1'); // 1 = werkzaam
     this.user.setWachtwoord('Welkom123');
     console.log(this.user);

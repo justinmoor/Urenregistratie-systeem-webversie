@@ -5,23 +5,23 @@
     </tr>
     <tr>
       <td><label for="Voornaam">Voornaam: </label> </td>
-      <td><label type="text" id="Voornaam">Alex</label></td>
+      <td><label type="text" id="Voornaam"> {{ user.achternaam }}</label></td>
     </tr>
     <tr>
         <td><label for="tussen">Tussenvoegsel: </label> </td>
-        <td><label type="text" id="tussen">de </label></td>
+        <td><label type="text" id="tussen">{{ user.tussenvoegsel }} </label></td>
     </tr>
     <tr>
         <td><label for="achternaam">Achternaam: </label> </td>
-        <td><label type="text" id="achternaam">Bruin</label></td>
+        <td><label type="text" id="achternaam">{{ user.voornaam }}</label></td>
     </tr>
     <tr>
         <td><label for="Email">Email: </label> </td>
-        <td><label type="text" id="Email">s1103096@student.hsleiden.nl</label></td>
+        <td><label type="text" id="Email">{{user.email}}</label></td>
     </tr>
     <tr>
         <td><label for="wachtwoord">Wachtwoord: </label> </td>
-        <td><label type="text" id="wachtwoord">ipsen123</label></td>
+        <td><label type="text" id="wachtwoord">{{user.password}}</label></td>
     </tr>
     <tr>
       <td></td>
@@ -39,7 +39,7 @@
       <td><input type="text" class="form-control" id="herhaalNieuwWacht"></td>
     </tr>
     <tr>
-      <td colspan="2"><button type="button" class="btn btn-primary">Opslaan</button></td>
+      <td colspan="2"><button type="button" class="btn btn-primary" (click)="OpslaanGegevens()">Opslaan</button></td>
     </tr>
   </table>
 </div>

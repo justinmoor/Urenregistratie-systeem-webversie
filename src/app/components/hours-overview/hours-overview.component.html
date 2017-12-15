@@ -1,3 +1,4 @@
+<app-hours-overview-filter></app-hours-overview-filter>
 <h1>Weekoverzicht</h1>
 <div class="card">
     <table class="table">
@@ -16,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let uur of uren" >
+      <tr *ngFor="let uur of hours" >
         <td>{{uur.beginDatum}}</td>
         <td>{{uur.beginTijd}}</td>
         <td>{{uur.eindDatum}}</td>

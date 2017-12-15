@@ -20,13 +20,13 @@
       <td *ngIf="user.rechten == 1">Administrator</td>
       <td *ngIf="user.rechten != 1">Personeel</td>
       <td *ngIf="user.werkzaam != 1">
-      <select #selectElement (change)="setWerkzaam(user)"> 
+      <select #selectElement (change)="setAsEmployed(user)">
           <option>Nee</option>
           <option>Ja</option>
         </select>
         </td>
       <td *ngIf="user.werkzaam == 1">
-        <select #selectElement (change)="setWerkzaam(user)">
+        <select #selectElement (change)="setAsEmployed(user)">
           <option>Ja</option>
           <option>Nee</option>
         </select>
