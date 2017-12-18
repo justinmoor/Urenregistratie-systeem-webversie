@@ -22,7 +22,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users | filter : 'achternaam' : searchString |  sortBy: 'werkzaam'; let i = index" >
+    <tr *ngFor="let user of users | filter : 'achternaam' : searchString | sortBy: 'werkzaam'; let i = index" >
       <td >{{user.voornaam}}</td>
       <td>{{user.tussenvoegsel}}</td>
       <td>{{user.achternaam}}</td> <!-- Voornaam en achternaam worden omgedraaid -->

@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hours-overview-filter.component.css']
 })
 export class HoursOverviewFilterComponent implements OnInit {
-
+  public searchStartDate: string;
+  public searchEndDate;
+  public searchCustomer;
+  public searchProject;
+  public searchSubject;
   constructor() {
-
   }
 
   ngOnInit() {

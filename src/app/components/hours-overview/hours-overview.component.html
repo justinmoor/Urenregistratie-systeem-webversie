@@ -21,7 +21,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let uur of hours" >
+        <tr *ngFor="let uur of hours | filter : 'klant' : searchCustomer; let i = index" >
           <td>{{uur.beginDatum}}</td>
           <td>{{uur.beginTijd}}</td>
           <td>{{uur.eindDatum}}</td>

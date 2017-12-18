@@ -4,23 +4,23 @@
       <table>
         <tr class = "rightfloat">
           <td><label for="einddatum">Begindatum: </label></td>
-          <td><input type="date" class="form-control" id="begindatum" date-set=""></td>
+          <td><input type="date" class="form-control" id="begindatum" date-set="" [(ngModel)]="searchStartDate"></td>
         </tr>
         <tr class = "rightfloat">
           <td><label for="einddatum">Einddatum: </label></td>
-          <td><input type="date" class="form-control" id="einddatum"></td>
+          <td><input type="date" class="form-control" id="einddatum" [(ngModel)]="searchEndDate"></td>
         </tr>
         <tr class = "rightfloat">
           <td><label for="klant">Klant: </label> </td>
-          <td><input type="text" class="form-control" id="klant"></td>
+          <td><input type="text" class="form-control" id="klant" [(ngModel)]="searchCustomer"></td>
         </tr>
         <tr class = "rightfloat">
           <td><label for="project">Project: </label> </td>
-          <td><input type="text" class="form-control" id="project"></td>
+          <td><input type="text" class="form-control" id="project" [(ngModel)]="searchProject"></td>
         </tr>
         <tr class = "rightfloat">
           <td><label for="onderwerp">Onderwerp: </label> </td>
-          <td><input type="text" class="form-control" id="onderwerp"></td>
+          <td><input type="text" class="form-control" id="onderwerp" [(ngModel)]="searchSubject"></td>
         </tr>
       </table>
     </div>

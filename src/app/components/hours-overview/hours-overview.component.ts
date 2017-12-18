@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Hours } from "../../models/hours"
-import { HoursService } from '../../services/hours.service'
+import { Hours } from '../../models/hours';
+import { HoursService } from '../../services/hours.service';
 import { Observable } from 'rxjs/Observable';
+import { HoursOverviewFilterComponent} from '../hours-overview-filter/hours-overview-filter.component';
 
 @Component({
   selector: 'app-hours-overview',
