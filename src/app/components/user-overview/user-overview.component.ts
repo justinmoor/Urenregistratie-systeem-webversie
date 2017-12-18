@@ -9,8 +9,8 @@ import { User } from '../../models/user';
   styleUrls: ['./user-overview.component.css']
 })
 export class UserOverviewComponent implements OnInit {
-
   users: User[];
+  public searchString:string;
 
   constructor(private userService: UserService) {
     this.userService.getAll().subscribe(users => {
