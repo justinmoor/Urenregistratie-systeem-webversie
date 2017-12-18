@@ -16,7 +16,8 @@ import { UserOverviewComponent } from './components/user-overview/user-overview.
 import { HoursOverviewComponent } from './components/hours-overview/hours-overview.component';
 import { HoursService } from './services/hours.service';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
-import { HoursOverviewFilterComponent } from './components/hours-overview-filter/hours-overview-filter.component';
+import { FilterPipe } from './pipes/filter-pipe.pipe';
+import { SortByPipe } from './pipes/sort-by.pipe';
 
 // import { ApiService } from './services/api.service';
 // import { AuthorizationService } from './services/authorization.service';
@@ -25,7 +26,7 @@ import { HoursOverviewFilterComponent } from './components/hours-overview-filter
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'registratie', component: RegisterHoursComponent},
-  { path: 'account_maken', component: CreateAccountComponent},
+  { path: 'accountmaken', component: CreateAccountComponent},
   { path: 'gebruikers', component: UserOverviewComponent},
   { path: 'urenoverzicht', component: HoursOverviewComponent},
   { path: 'accountinfo', component: AccountInfoComponent}
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     UserOverviewComponent,
     HoursOverviewComponent,
     AccountInfoComponent,
-    HoursOverviewFilterComponent
+    FilterPipe,
+    SortByPipe
   ],
   imports: [
     BrowserModule,
