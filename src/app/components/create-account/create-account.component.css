@@ -13,6 +13,7 @@ label {
     margin-top: 4px;
 }
 
+
 .btn-primary:hover {
     background-color: #00675b;
     border-color: #00675b;
@@ -20,7 +21,7 @@ label {
     
   }
   
-  .btn-primary {
+.btn-primary {
     color: #fff;
     background-color: #009688;
     border-color: #009688;
