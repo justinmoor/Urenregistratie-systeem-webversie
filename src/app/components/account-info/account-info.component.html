@@ -1,8 +1,7 @@
 <div class="container">
+  <h1>Account</h1>
   <table>
-    <tr>
-      <th colspan="2"><h1>Account informatie</h1></th>
-    </tr>
+    <div class="card" style="padding: 20px;">
     <tr>
       <td><label for="Voornaam">Voornaam: </label> </td>
       <td><label type="text" id="Voornaam"> {{ user.achternaam }}</label></td>
@@ -27,19 +26,23 @@
       <td></td>
       <td></td>
     </tr>
+    </div>
+
+    <div class="card" style="padding: 20px;">
     <tr>
-      <td colspan="2"><h5>Verander uw wachtwoord</h5></td>
+      <td colspan="2"><h4>Verander uw wachtwoord</h4></td>
     </tr>
     <tr>
-      <td><label for="nieuwWacht">Nieuw wachtwoord</label></td>
+      <td><label for="nieuwWacht">Nieuw wachtwoord:</label></td>
       <td><input type="password" class="form-control" id="nieuwWacht"></td>
     </tr>
     <tr>
-      <td><label for="herhaalNieuwWacht">Herhaal wachtwoord</label></td>
+      <td><label for="herhaalNieuwWacht">Herhaal wachtwoord:</label></td>
       <td><input type="text" class="form-control" id="herhaalNieuwWacht"></td>
     </tr>
     <tr>
       <td colspan="2"><button type="button" class="btn btn-primary" (click)="OpslaanGegevens()">Opslaan</button></td>
     </tr>
+    </div>
   </table>
 </div>
