@@ -1,4 +1,14 @@
 <h1>Gebruikers</h1>
+
+
+<div class="block">
+  <img src="../../assets/users.png">
+  </div>
+  <div class="block">
+  <input type="text" class="form-control" name="searchString" placeholder="Zoek op achternaam..." [(ngModel)]="searchString">
+</div>
+<br>
+<br>
 <div class = "card">
 <table class="table">
   <thead>
@@ -12,10 +22,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users" >
-      <td >{{user.achternaam}}</td>
+    <tr *ngFor="let user of users | filter : 'achternaam' : searchString |  sortBy: 'werkzaam'; let i = index" >
+      <td >{{user.voornaam}}</td>
       <td>{{user.tussenvoegsel}}</td>
-      <td>{{user.voornaam}}</td> <!-- Voornaam en achternaam worden omgedraaid -->
+      <td>{{user.achternaam}}</td> <!-- Voornaam en achternaam worden omgedraaid -->
       <td>{{user.email}}</td>
       <td *ngIf="user.rechten == 1">Administrator</td>
       <td *ngIf="user.rechten != 1">Personeel</td>
