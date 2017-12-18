@@ -1,3 +1,13 @@
 .card{
     box-shadow: 0 2px 4px 0 #a3a3a3
 }
+
+section {
+  width: 35%;
+  float: left;
+  margin-right: 10%;
+}
+
+.container{
+  width: 100%;
+}
