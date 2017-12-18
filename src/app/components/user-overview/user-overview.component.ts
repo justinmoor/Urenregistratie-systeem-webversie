@@ -12,10 +12,10 @@ export class UserOverviewComponent implements OnInit {
   users: User[];
   public searchString:string;
 
-  constructor(private userService:UserService) {
+  constructor(private userService: UserService) {
     this.userService.getAll().subscribe(users => {
       this.users = users;
-    })
+    });
   }
 
   ngOnInit() {
@@ -23,6 +23,5 @@ export class UserOverviewComponent implements OnInit {
 
   setAsEmployed(user: User){
     this.userService.setWerkzaam(user);
-    console.log("userTable")
   }
 }

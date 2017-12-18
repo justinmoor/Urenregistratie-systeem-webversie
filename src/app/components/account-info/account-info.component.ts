@@ -9,9 +9,9 @@ import { User } from '../../models/user';
 })
 export class AccountInfoComponent implements OnInit {
 
-  user:User
+  user: User;
 
-  constructor(private userService:UserService) {
+  constructor(private userService: UserService) {
     this.user = JSON.parse(sessionStorage.getItem('activeUser'));
     console.log(this.user);
 
