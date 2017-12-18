@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Hours } from '../../models/hours';
 import { HoursService } from '../../services/hours.service';
 import { Observable } from 'rxjs/Observable';
-import { HoursOverviewFilterComponent} from '../hours-overview-filter/hours-overview-filter.component';
 
 @Component({
   selector: 'app-hours-overview',
@@ -11,14 +10,25 @@ import { HoursOverviewFilterComponent} from '../hours-overview-filter/hours-over
 })
 export class HoursOverviewComponent implements OnInit {
   hours: Hours[];
+  public searchStartDate: string;
+  public searchEndDate: string;
+  public searchCustomer: string;
+  public searchProject: string;
+  public searchSubject: string;
+
 
   constructor(private hoursService: HoursService) {
     this.hoursService.getAll().subscribe(hours => {
       this.hours = hours;
     });
+    
   }
 
-  ngOnInit() {
+  ngOnInit(){
+
   }
+
+
+
 
 }

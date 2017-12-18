@@ -16,7 +16,6 @@ import { UserOverviewComponent } from './components/user-overview/user-overview.
 import { HoursOverviewComponent } from './components/hours-overview/hours-overview.component';
 import { HoursService } from './services/hours.service';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
-import { HoursOverviewFilterComponent } from './components/hours-overview-filter/hours-overview-filter.component';
 import { FilterPipe } from './pipes/filter-pipe.pipe';
 import { SortByPipe } from './pipes/sort-by.pipe';
 
@@ -43,7 +42,6 @@ const appRoutes: Routes = [
     UserOverviewComponent,
     HoursOverviewComponent,
     AccountInfoComponent,
-    HoursOverviewFilterComponent,
     FilterPipe,
     SortByPipe
   ],

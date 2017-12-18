@@ -11,3 +11,12 @@ section {
 .container{
   width: 100%;
 }
+
+.naarlinks{
+  float: left;
+}
+
+.naarrechts{
+  float: none;
+}
+
