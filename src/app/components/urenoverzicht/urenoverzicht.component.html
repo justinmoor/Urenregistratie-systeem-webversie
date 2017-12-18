@@ -1,7 +1,6 @@
-<app-hours-overview-filter></app-hours-overview-filter>
 <h1>Weekoverzicht</h1>
+<div class="card">
     <table class="table">
-    <div class="card">
     <thead>
       <tr>
         <th scope="col">Begindatum</th>
@@ -17,20 +16,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let uur of hours" >
-        <td>{{uur.beginDatum}}</td>
-        <td>{{uur.beginTijd}}</td>
-        <td>{{uur.eindDatum}}</td>
-        <td>{{uur.eindTijd}}</td>
+      <tr *ngFor="let uur of uren" >
+        <td>{{uur.begindatum}}</td>
+        <td>{{uur.begintijd}}</td>
+        <td>{{uur.einddatum}}</td>
+        <td>{{uur.eindtijd}}</td>
         <td>{{uur.commentaar}}</td>
-        <td>{{uur.persoonNaam}}</td>
-        <td>{{uur.klantNaam}}</td>
-        <td>{{uur.projectNaam}}</td>
-        <td>{{uur.onderwerpNaam}}</td>
+        <td>{{uur.personeelsnaam}}</td>
+        <td>{{uur.klantnaam}}</td>
+        <td>{{uur.projectnaam}}</td>
+        <td>{{uur.onderwerpnaam}}</td>
         <td *ngIf="uur.goedgekeurd == true">Ja</td>
-        <td *ngIf="uur.goedgekeurd == false">Nee</td>
+        <td *ngIf="uur.rechten == false">Nee</td>     
       </tr>
     </tbody>
-  </div>
   </table>
-
+</div>
