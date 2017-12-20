@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { ApiService } from '../../services/api.service';
@@ -11,9 +12,14 @@ import { ApiService } from '../../services/api.service';
 export class LoginComponent {
 
   user: User = new User();
+  show = true;
 
-  constructor(private userService:UserService, private apiService:ApiService) {
-      console.log("Constructor ran...")
+  toggleShow() {
+    this.show = !this.show;
+  }
+
+  constructor(private userService: UserService, private apiService: ApiService) {
+      console.log('Constructor ran...');
    }
 
   logIn() {
