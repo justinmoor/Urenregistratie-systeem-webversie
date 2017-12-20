@@ -9,14 +9,29 @@ import { User } from '../../models/user';
 })
 export class AccountInfoComponent implements OnInit {
 
-  user: User;
+  user:User;
+  id:number;
+  oldPassword:string;
+  newPassword:string;
+  repeatNewPassword:string;
 
-  constructor(private userService: UserService) {
+
+  constructor(private userService:UserService) {
     this.user = JSON.parse(sessionStorage.getItem('activeUser'));
+    this.id = this.user.personeelID;
     console.log(this.user);
 
   }
 
   ngOnInit() {
+  }
+
+  opslaanGegevens() {
+    console.log(this.newPassword + " " + this.repeatNewPassword + " " + this.oldPassword + " " + this.user.password)
+    if(this.newPassword == this.repeatNewPassword && this.user.password == this.oldPassword) {
+
+    this.userService.changePassword(this.id, this.newPassword)
+    this.user.password = this.newPassword;
+  }
   }
 }
