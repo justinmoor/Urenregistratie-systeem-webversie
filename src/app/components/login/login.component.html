@@ -20,13 +20,13 @@
             <div class="form-group">
               <label>Password</label>
               <input type="password" [(ngModel)]="user.wachtwoord" name="wachtwoord" required class="form-control">
-              <div ngShow="ngForm.pass.$error.required &amp;&amp; ngForm.pass.$touched" class="error">Required!</div>
+              <div *ngIf="misluk" class="error">Verkeerde inloggegevens</div>
             </div>
           </div>
 
           <div class="col-md-12">
             <div class="form-group">
-              <button class="btn btn-primary" (click)='logIn(); toggleMe()'>Login</button>
+              <button class="btn btn-primary" (click)='logIn()'>Login</button>
               <div class="clearfix"></div>
             </div>
           </div>

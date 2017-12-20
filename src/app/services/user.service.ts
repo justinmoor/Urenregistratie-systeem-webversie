@@ -6,6 +6,7 @@ import { ApiService } from './api.service';
 import { AuthorizationService } from './authorization.service';
 
 import { User } from '../models/user';
+import { LoginComponent } from '../components/login/login.component';
 
 @Injectable()
 export class UserService {
@@ -20,18 +21,19 @@ public getAll(): Observable<User[]> {
     return this.api.getUsers<User[]>();
 }
 
+test : LoginComponent
 
 public login(user: User, remember: boolean): void{
     this.authService.setAuthorization(user.email, user.wachtwoord);
-
     this.api.get<User>('personeel/login').subscribe(
-        authenticator => {
+        authenticator => {   
+            
             this.authService.storeAuthorization(authenticator, remember);
             sessionStorage.setItem('activeUser', JSON.stringify(authenticator));
             this.router.navigate(['/registratie']);
         },
         error => {
-            alert('Inloggen is mislukt!');
+            
         }
     );
 }

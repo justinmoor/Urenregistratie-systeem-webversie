@@ -12,13 +12,9 @@ import { ApiService } from '../../services/api.service';
 export class LoginComponent {
 
   user: User = new User();
-  show = true;
+  public mislukt = false;
 
-  toggleShow() {
-    this.show = !this.show;
-  }
-
-  constructor(private userService: UserService, private apiService: ApiService) {
+  constructor(private userService: UserService) {
       console.log('Constructor ran...');
    }
 
