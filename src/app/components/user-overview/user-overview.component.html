@@ -25,7 +25,7 @@
     <tr *ngFor="let user of users | filter : 'achternaam' : searchString | sortBy: 'werkzaam'; let i = index" >
       <td >{{user.voornaam}}</td>
       <td>{{user.tussenvoegsel}}</td>
-      <td>{{user.achternaam}}</td> <!-- Voornaam en achternaam worden omgedraaid -->
+      <td>{{user.achternaam}}</td> 
       <td>{{user.email}}</td>
       <td *ngIf="user.rechten == 1">Administrator</td>
       <td *ngIf="user.rechten != 1">Personeel</td>
