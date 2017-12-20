@@ -7,15 +7,14 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
 
   user: User = new User();
-  show = true;
 
-  toggleShow() {
-    this.show = !this.show;
+  show() {
+    
   }
 
   constructor(private userService: UserService, private apiService: ApiService) {
