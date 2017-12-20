@@ -7,14 +7,17 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
 
   user: User = new User();
-  public mislukt = false;
 
-  constructor(private userService: UserService) {
+  show() {
+    
+  }
+
+  constructor(private userService: UserService, private apiService: ApiService) {
       console.log('Constructor ran...');
    }
 

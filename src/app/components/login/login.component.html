@@ -12,7 +12,6 @@
             <div class="form-group">
               <label>Email</label>
               <input type="email" [(ngModel)]="user.email" name="email" required class="form-control">
-              <div *ngIf="show" class="error">Required!</div>
             </div>
           </div>
 
@@ -20,13 +19,12 @@
             <div class="form-group">
               <label>Password</label>
               <input type="password" [(ngModel)]="user.wachtwoord" name="wachtwoord" required class="form-control">
-              <div *ngIf="misluk" class="error">Verkeerde inloggegevens</div>
             </div>
           </div>
 
           <div class="col-md-12">
             <div class="form-group">
-              <button class="btn btn-primary" (click)='logIn()'>Login</button>
+              <button [disabled]="!user.wachtwoord||!user.email" class="btn btn-secondary" (click)='logIn()'>Login</button>
               <div class="clearfix"></div>
             </div>
           </div>
