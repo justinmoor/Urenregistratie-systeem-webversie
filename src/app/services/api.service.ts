@@ -90,5 +90,4 @@ export class ApiService{
         console.log("api")
         return this.http.post(uri, data).subscribe();
     }
-
 }

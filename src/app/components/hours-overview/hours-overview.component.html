@@ -48,7 +48,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let uur of hours | filter : 'klantNaam' : searchCustomer; let i = index" >
+        <tr *ngFor="let uur of hours |  filter: 'klantNaam': searchCustomer | filter: 'projectNaam' : searchProject | filter: 'onderwerpNaam' : searchSubject" >
           <td>{{uur.beginDatum}}</td>
           <td>{{uur.beginTijd}}</td>
           <td>{{uur.eindDatum}}</td>
