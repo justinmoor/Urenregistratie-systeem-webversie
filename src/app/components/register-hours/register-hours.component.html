@@ -7,30 +7,46 @@
     <table>
       <tr>
         <td><label for="klant">Klant: </label> </td>
-        <td><input type="text" class="form-control" id="klant"></td>
+        <td><input type="text" class="form-control" id="klant"
+          [(ngModel)]="hour.customerName"
+          name=customerName></td>
         <td><label for="begintijd">Begin tijd: </label></td>
-        <td><input type="time" class="form-control" id="begintijd"></td>
+        <td><input type="time" class="form-control" id="begintijd"
+          [(ngModel)]="hour.startingTime"
+          name="startingTime"></td>
       </tr>
       <tr>
         <td><label for="project">Project: </label> </td>
-        <td><input type="text" class="form-control" id="project"></td>
+        <td><input type="text" class="form-control" id="project"
+          [(ngModel)]="hour.projectName"
+          name="projectName"></td>
         <td><label for="begindatum">Begin datum: </label></td>
-        <td><input type="date" class="form-control" id="begindatum"></td>
+        <td><input type="date" class="form-control" id="begindatum"
+          [(ngModel)]="hour.startingDate"
+          name="StartingDate"></td>
       </tr>
       <tr>
         <td><label for="onderwerp">Onderwerp: </label> </td>
-        <td><input type="text" class="form-control" id="onderwerp"></td>
+        <td><input type="text" class="form-control" id="onderwerp"
+          [(ngModel)]="hour.subjectName"
+          name="subjectName"></td>
         <td><label for="eindtijd">Eind tijd: </label></td>
-        <td><input type="time" class="form-control" id="eindtijd"></td>
+        <td><input type="time" class="form-control" id="eindtijd"
+          [(ngModel)]="hour.endingTime"
+          name="endingTime"></td>
       </tr>
       <tr>
         <td><label for="commentaar">Commentaar: </label> </td>
-        <td><input type="text" class="form-control" id="commentaar"></td>
+        <td><input type="text" class="form-control" id="commentaar"
+          [(ngModel)]="hour.comment"
+          name="comment"></td>
         <td><label for="einddatum">Eind datum: </label></td>
-        <td><input type="date" class="form-control" id="einddatum"></td>
+        <td><input type="date" class="form-control" id="einddatum"
+          [(ngModel)]="hour.endingDate"
+          name="endingDate"></td>
       </tr>
       <tr>
-        <td colspan="4"><button type="button" class="btn btn-primary">Opslaan</button></td>
+        <td colspan="4"><button type="button" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>
       </tr>
 
     </table>

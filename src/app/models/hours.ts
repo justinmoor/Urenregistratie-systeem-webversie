@@ -1,7 +1,7 @@
 export class Hours{
 
     constructor(
-        public hoursId?:number,
+        public hourId?:number,
         public employeeId?:number,
         public startingDate?:string,
         public startingTime?:string,
