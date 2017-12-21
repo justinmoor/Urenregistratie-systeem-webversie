@@ -7,13 +7,15 @@ import { error } from 'selenium-webdriver';
 
 import { User } from '../models/user'
 import { URLSearchParams } from '@angular/http';
+import { HourRegister } from '../models/hour-register';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ApiService{
 
     constructor(private http: HttpClient, private authService: AuthorizationService){
 
-    }
+    }  
 
     private createQueryString(queryParameters: Object): string
     {
@@ -99,6 +101,27 @@ export class ApiService{
         let uri = this.createURI('personeel/wachtwoord', data);
 
         return this.http.post(uri, data).subscribe();
+    }
+
+    public setHour(hour:HourRegister, employeeID) {
+        let data ={
+            startingDate : hour.startingDate,
+            startingTime : hour.startingTime,
+            endingDate : hour.endingDate,
+            endingTime : hour.endingTime,
+            customerName : hour.customerName,
+            projectName : hour.projectName,
+            subjectName : hour.subjectName,
+            comment : hour.comment,
+            employeeId : employeeID
+        }
+        console.log(data)
+        let uri = this.createURI('uren/setHour', null)
+        return this.http.post(uri, data).subscribe();
+    }
+
+    public getKlantenByName<T>(klantenaam:string) {
+        return this.http.get<T>("http://localhost:8080/uren/")
     }
 
 }

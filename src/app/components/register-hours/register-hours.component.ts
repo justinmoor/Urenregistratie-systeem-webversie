@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HourRegister } from '../../models/hour-register';
+import { User } from '../../models/user';
+import { HoursService } from '../../services/hours.service';
 
 @Component({
   selector: 'app-register-hours',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterHoursComponent implements OnInit {
 
-  constructor() { }
+  hour:HourRegister = new HourRegister;
+
+  constructor(private hourservice:HoursService) { 
+  }
 
   ngOnInit() {
+  }
+
+  public saveHour(){
+    console.log(this.hour);
+  
+
+    this.hourservice.setHour(this.hour);
+
   }
 
 }
