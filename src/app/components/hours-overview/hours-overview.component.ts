@@ -16,7 +16,6 @@ export class HoursOverviewComponent implements OnInit {
   public searchProject: string;
   public searchSubject: string;
 
-
   constructor(private hoursService: HoursService) {
     this.hoursService.getAll().subscribe(hours => {
       this.hours = hours;

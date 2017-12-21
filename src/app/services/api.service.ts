@@ -47,7 +47,7 @@ export class ApiService{
         return headers;
     }
 
-    private createURI(path: string, queryParameters: Object): string
+    private createURI(path: string, queryParameters?: Object): string
     {
         let queryString = this.createQueryString(queryParameters);
 
@@ -55,18 +55,21 @@ export class ApiService{
     }
 
     public get<T>(path:string, queryParameters?:Object):Observable<T>{
-  //      let uri = this.createURI(path, queryParameters);
+        let uri = this.createURI("auth/login");
         let headers = this.createRequestHeaders();
 
-        return this.http.get<T>("http://localhost:8080/personeel/login", {headers:headers});
+        return this.http.get<T>(uri, {headers:headers});
     }
 
     public getUrenVanUser<T>(id) {
-      return this.http.get('http://localhost:8080/uren/getbyid?id=' + id);
+      let uri = this.createURI("uren/getbyid?id=") // werkt niet?
+      return this.http.get("http://localhost:8080/uren/getbyid?id=" + id);
      }
 
     public getUsers<T>(queryParameters?: Object): Observable<T>{
-        return this.http.get<T>('http://localhost:8080/personeel/getall');
+        let uri = this.createURI("personeel/getall")
+        let headers = this.createRequestHeaders();
+        return this.http.get<T>(uri, {headers: headers});
     }
 
     public setWerkzaam( userModel: User){
@@ -89,7 +92,6 @@ export class ApiService{
             werkzaam: user.werkzaam
         }
         let uri = this.createURI('personeel/add', null);
-        console.log("api")
         return this.http.post(uri, data).subscribe();
     }
 
@@ -99,7 +101,6 @@ export class ApiService{
             wachtwoord : newPassword
         };
         let uri = this.createURI('personeel/wachtwoord', data);
-
         return this.http.post(uri, data).subscribe();
     }
 
