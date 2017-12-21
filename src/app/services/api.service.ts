@@ -56,7 +56,7 @@ export class ApiService{
   //      let uri = this.createURI(path, queryParameters);
         let headers = this.createRequestHeaders();
 
-        return this.http.get<T>("http://localhost:8080/personeel/login", {headers:headers});
+        return this.http.get<T>("http://localhost:8080/auth/login", {headers:headers});
     }
 
     public getUrenVanUser<T>(id) {
@@ -65,6 +65,7 @@ export class ApiService{
 
     public getUsers<T>(queryParameters?: Object): Observable<T>{
         return this.http.get<T>('http://localhost:8080/personeel/getall');
+
     }
 
     public setWerkzaam( userModel: User){
