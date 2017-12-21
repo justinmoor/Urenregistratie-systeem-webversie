@@ -9,11 +9,16 @@
 
     <div class="w3-bar w3-theme w3-xlarge">
       <a class="w3-bar-item w3-button" routerLink=""><i class="fa fa-bars"></i></a>
+<<<<<<< HEAD
+      
+       
+=======
+>>>>>>> 93e9864cc651243beb8b046e1f5150649e5dd015
       <span class="w3-bar-item">WebEdu</span>
       <a class="w3-bar-item w3-button w3-right"></a>
     </div>
 
-    <div class="w3-bar w3-theme">
+    <div *ngIf="auth.getAuthenticator()" class="w3-bar w3-theme">
       <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/registratie">Uren registreren</a>
       <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/urenoverzicht">Weekoverzicht</a>
       <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/gebruikers">Gebruikers</a>

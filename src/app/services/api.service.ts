@@ -53,10 +53,10 @@ export class ApiService{
     }
 
     public get<T>(path:string, queryParameters?:Object):Observable<T>{
-  //      let uri = this.createURI(path, queryParameters);
+        let uri = this.createURI("auth/login");
         let headers = this.createRequestHeaders();
 
-        return this.http.get<T>("http://localhost:8080/auth/login", {headers:headers});
+        return this.http.get<T>("http://localhost:8080/personeel/login", {headers:headers});
     }
 
     public getUrenVanUser<T>(id) {
@@ -64,8 +64,9 @@ export class ApiService{
      }
 
     public getUsers<T>(queryParameters?: Object): Observable<T>{
-        return this.http.get<T>('http://localhost:8080/personeel/getall');
-
+        let uri = this.createURI("personeel/getall")
+        let headers = this.createRequestHeaders();
+        return this.http.get<T>(uri, {headers: headers});
     }
 
     public setWerkzaam( userModel: User){
