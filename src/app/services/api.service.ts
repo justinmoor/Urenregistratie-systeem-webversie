@@ -7,6 +7,7 @@ import { error } from 'selenium-webdriver';
 
 import { User } from '../models/user'
 import { URLSearchParams } from '@angular/http';
+import { RequestOptions } from '@angular/http/src/base_request_options';
 
 @Injectable()
 export class ApiService{
@@ -40,8 +41,9 @@ export class ApiService{
         if (this.authService.hasAuthorization())
         {
             headers = headers.set('Authorization', this.authService.createAuthorizationString());
+            console.log(this.authService.createAuthorizationString())
         }
-
+       
         return headers;
     }
 
@@ -49,7 +51,7 @@ export class ApiService{
     {
         let queryString = this.createQueryString(queryParameters);
 
-        return `http://localhost:8080/${path}/${queryString}`;
+        return `http://localhost:8080/api/${path}/${queryString}`;
     }
 
     public get<T>(path:string, queryParameters?:Object):Observable<T>{
@@ -61,13 +63,13 @@ export class ApiService{
 
     public getUrenVanUser<T>(id) {
       let uri = this.createURI("uren/getbyid?id=") // werkt niet?
-      return this.http.get("http://localhost:8080/uren/getbyid?id=" + id);
+      return this.http.get("http://localhost:8080/api/uren/getbyid?id=" + id);
      }
 
     public getUsers<T>(queryParameters?: Object): Observable<T>{
         let uri = this.createURI("personeel/getall")
         let headers = this.createRequestHeaders();
-        return this.http.get<T>(uri, {headers: headers});
+        return this.http.get<T>(uri, {headers:headers});
     }
 
     public setWerkzaam( userModel: User){
@@ -90,7 +92,8 @@ export class ApiService{
             werkzaam: user.werkzaam
         }
         let uri = this.createURI('personeel/add', null);
-        return this.http.post(uri, data).subscribe();
+        let headers = this.createRequestHeaders();
+        return this.http.post(uri, data, {headers:headers}).subscribe();
     }
 
     public changePassword(id:number, newPassword:String) {
