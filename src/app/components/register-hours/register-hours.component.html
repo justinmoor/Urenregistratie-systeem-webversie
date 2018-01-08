@@ -7,11 +7,15 @@
     <table>
       <tr>
         <td><label for="klant">Klant: </label> </td>
-        <td><input type="text" class="form-control" id="klant"
+        <td>
+          <select (change)="getProjects()" class="form-control" id="klant"
           [(ngModel)]="hour.customerName"
-          name=customerName
-          <select></select>
-          ></td>
+          name=customerName>
+            <option></option>
+            <option *ngFor="let customer of customers">{{ customer.customerName }}</option>
+          </select>
+        </td>
+
         <td><label for="begintijd">Begin tijd: </label></td>
         <td><input type="time" class="form-control" id="begintijd"
           [(ngModel)]="hour.startingTime"
@@ -19,9 +23,14 @@
       </tr>
       <tr>
         <td><label for="project">Project: </label> </td>
-        <td><input type="text" class="form-control" id="project"
+        <td><select [disabled]="!hour.customerName"
+          (change)="getSubjects()" class="form-control" id="project"
           [(ngModel)]="hour.projectName"
-          name="projectName"></td>
+          name=projectName>
+            <option></option>
+            <option *ngFor="let project of projects">{{ project.projectName }}</option>
+          </select></td>
+
         <td><label for="begindatum">Begin datum: </label></td>
         <td><input type="date" class="form-control" id="begindatum"
           [(ngModel)]="hour.startingDate"
@@ -29,9 +38,14 @@
       </tr>
       <tr>
         <td><label for="onderwerp">Onderwerp: </label> </td>
-        <td><input type="text" class="form-control" id="onderwerp"
+        <td><select [disabled]="!hour.projectName" 
+          class="form-control" id="Subject"
           [(ngModel)]="hour.subjectName"
-          name="subjectName"></td>
+          name=subjectName>
+            <option></option>
+            <option *ngFor="let subject of subjects">{{ subject.subjectName }}</option>
+          </select></td>
+
         <td><label for="eindtijd">Eind tijd: </label></td>
         <td><input type="time" class="form-control" id="eindtijd"
           [(ngModel)]="hour.endingTime"
@@ -42,6 +56,7 @@
         <td><input type="text" class="form-control" id="commentaar"
           [(ngModel)]="hour.comment"
           name="comment"></td>
+
         <td><label for="einddatum">Eind datum: </label></td>
         <td><input type="date" class="form-control" id="einddatum"
           [(ngModel)]="hour.endingDate"

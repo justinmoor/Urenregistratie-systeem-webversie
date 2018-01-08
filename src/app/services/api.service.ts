@@ -12,7 +12,6 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class ApiService{
-
     constructor(private http: HttpClient, private authService: AuthorizationService){
 
     }  
@@ -124,7 +123,19 @@ export class ApiService{
     }
 
     public getKlantenByName<T>(klantenaam:string) {
-        return this.http.get<T>("http://localhost:8080/uren/")
+        return this.http.get<T>("http://localhost:8080/api/uren/")
     }
+
+    public getCustomers<T>(): Observable<T> {
+        return this.http.get<T>("http://localhost:8080/api/klanten/all");
+    }
+
+    public getProjects<T>(customerName:String): Observable<T> {
+        return this.http.get<T>("http://localhost:8080/api/projects/allByName?name="+ customerName);
+      }
+
+    public getSubjects<T>(projectName: String, customerName:String): Observable<T> {
+        return this.http.get<T>("http://localhost:8080/api/subjects/allByName?project="+projectName+"&klant="+customerName);
+      }
 
 }

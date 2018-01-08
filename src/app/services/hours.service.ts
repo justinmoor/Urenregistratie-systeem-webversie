@@ -4,6 +4,10 @@ import { HourRegister } from '../models/hour-register';
 import { ApiService } from './api.service';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../models/user';
+import { Customer } from '../models/customer';
+import { Project } from '../models/project';
+import { Subject } from '../models/Subject';
+  
 
 @Injectable()
 export class HoursService {
@@ -31,6 +35,17 @@ export class HoursService {
     this.api.setHour(hour,this.id);
   }
 
+  public getCustomers(): Observable<Customer[]> {
+    return this.api.getCustomers<Customer[]>();
+  }
+
+  public getProjects(CustomerName:String): Observable<Project[]> {
+    return this.api.getProjects<Project[]>(CustomerName);
+  }
+
+  public getSubjects(projectName:String, customerName:String): Observable<Subject[]> {
+    return this.api.getSubjects<Subject[]>(projectName,customerName);
+  }
   
 
 }
