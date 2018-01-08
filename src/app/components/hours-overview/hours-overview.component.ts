@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Hours } from '../../models/hours';
 import { HoursService } from '../../services/hours.service';
 import { Observable } from 'rxjs/Observable';
+import { AuthorizationService } from '../../services/authorization.service';
 
 @Component({
   selector: 'app-hours-overview',
@@ -16,7 +17,7 @@ export class HoursOverviewComponent implements OnInit {
   public searchProject: string;
   public searchSubject: string;
 
-  constructor(private hoursService: HoursService) {
+  constructor(private hoursService: HoursService, private auth : AuthorizationService) {
     this.hoursService.getAll().subscribe(hours => {
       this.hours = hours;
     });
@@ -25,6 +26,10 @@ export class HoursOverviewComponent implements OnInit {
 
   ngOnInit(){
 
+  }
+
+  setConfirmed(uur){
+    this.hoursService.setConfirmed(uur);
   }
 
 

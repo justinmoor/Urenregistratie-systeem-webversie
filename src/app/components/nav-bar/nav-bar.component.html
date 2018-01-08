@@ -8,16 +8,16 @@
   <body style="padding-bottom: 1em;">
 
     <div class="w3-bar w3-theme w3-xlarge">
-      <a class="w3-bar-item w3-button" routerLink=""><i class="fa fa-bars"></i></a>
+      <a class="w3-bar-item w3-button" ><i class="fa fa-bars"></i></a>
       <span class="w3-bar-item">WebEdu</span>
       <a class="w3-bar-item w3-button w3-right"></a>
     </div>
 
-    <div *ngIf="auth.getAuthenticator()" class="w3-bar w3-theme">
+    <div *ngIf= "auth.getActiveUser() != null" class="w3-bar w3-theme">
       <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/registratie">Uren registreren</a>
       <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/urenoverzicht">Weekoverzicht</a>
-      <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/gebruikers" *ngIf"auth.getActiveUser().rechten == 1">Gebruikers</a>
-      <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/accountmaken" *ngIf"auth.getActiveUser().rechten == 1">Account aanmaken</a>
+      <a *ngIf="auth.getActiveUser().rechten == 1" class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/gebruikers" >Gebruikers</a>
+      <a *ngIf="auth.getActiveUser().rechten == 1" class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/accountmaken" >Account aanmaken</a>
       <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/accountinfo">Accountinfo</a>
       <a class="w3-bar-item w3-button w3-hover-white" href="#" (click)="logOut()" routerLink="/">Logout</a>
     </div>

@@ -31,6 +31,9 @@ export class HoursService {
     this.api.setHour(hour,this.id);
   }
 
+  setConfirmed(uur){
+    this.api.setConfirmed(uur);
+  }
   
 
 }

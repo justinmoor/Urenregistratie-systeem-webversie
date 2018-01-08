@@ -82,6 +82,11 @@ export class ApiService{
         return this.http.post(uri, null).subscribe();
     }
 
+    public setConfirmed(uur){
+        let uri = this.createURI("uren/confirm")
+        return this.http.post(uri, uur ).subscribe();
+    }
+
     public voegAccountToe(user: User){
         let data = {
             achternaam : user.achternaam,
@@ -126,5 +131,7 @@ export class ApiService{
     public getKlantenByName<T>(klantenaam:string) {
         return this.http.get<T>("http://localhost:8080/uren/")
     }
+
+
 
 }
