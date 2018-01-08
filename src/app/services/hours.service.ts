@@ -8,14 +8,15 @@ import {User} from '../models/user';
 @Injectable()
 export class HoursService {
   user:User[]
-  id: number;
+  id: number = this.getActiveUserId();
   hour:HourRegister;
   constructor(private api: ApiService) {
   }
 
   public getAll(): Observable<Hours[]> {
-    console.log()
-    return this.api.getUrenVanUser<Hours[]>(this.getActiveUserId());
+  
+    console.log(this.id);
+    return this.api.getUrenVanUser<Hours[]>(this.id);
   }
 
   private getActiveUserId() {

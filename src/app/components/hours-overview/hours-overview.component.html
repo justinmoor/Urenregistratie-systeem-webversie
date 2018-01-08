@@ -48,18 +48,28 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let uur of hours |  filter: 'klantNaam': searchCustomer | filter: 'projectNaam' : searchProject | filter: 'onderwerpNaam' : searchSubject" >
-          <td>{{uur.beginDatum}}</td>
-          <td>{{uur.beginTijd}}</td>
-          <td>{{uur.eindDatum}}</td>
-          <td>{{uur.eindTijd}}</td>
-          <td>{{uur.commentaar}}</td>
-          <td>{{uur.persoonNaam}}</td>
-          <td>{{uur.klantNaam}}</td>
-          <td>{{uur.projectNaam}}</td>
-          <td>{{uur.onderwerpNaam}}</td>
-          <td *ngIf="uur.goedgekeurd == true">Ja</td>
-          <td *ngIf="uur.goedgekeurd == false">Nee</td>
+        <tr *ngFor="let uur of hours |  filter: 'customerName': searchCustomer | filter: 'projectName' : searchProject | filter: 'subjectName' : searchSubject" >
+          <td>{{uur.startingDate}}</td>
+          <td>{{uur.startingTime}}</td>
+          <td>{{uur.endingDate}}</td>
+          <td>{{uur.endingTime}}</td>
+          <td>{{uur.comment}}</td>
+          <td>{{uur.employeeName}}</td>
+          <td>{{uur.customerName}}</td>
+          <td>{{uur.projectName}}</td>
+          <td>{{uur.subjectName}}</td>
+          <td *ngIf="uur.confirmed === false">
+          <select #selectElement (change)="setConfirmed(uur)">
+              <option>Nee</option>
+              <option>Ja</option>
+            </select>
+            </td>
+          <td *ngIf="uur.confirmed">
+            <select #selectElement (change)="setConfirmed(uur)">
+              <option>Ja</option>
+              <option>Nee</option>
+            </select>
+          </td>
         </tr>
         </tbody>
       </table>

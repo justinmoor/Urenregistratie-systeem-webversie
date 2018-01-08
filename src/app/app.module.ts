@@ -18,6 +18,7 @@ import { HoursService } from './services/hours.service';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { FilterPipe } from './pipes/filter-pipe.pipe';
 import { SortByPipe } from './pipes/sort-by.pipe';
+import { PathGuardGuard } from './guards/path-guard.guard';
 
 // import { ApiService } from './services/api.service';
 // import { AuthorizationService } from './services/authorization.service';
@@ -25,7 +26,7 @@ import { SortByPipe } from './pipes/sort-by.pipe';
 // Create ruotes
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'registratie', component: RegisterHoursComponent},
+  { path: 'registratie', component: RegisterHoursComponent, canActivate:[PathGuardGuard]},
   { path: 'accountmaken', component: CreateAccountComponent},
   { path: 'gebruikers', component: UserOverviewComponent},
   { path: 'urenoverzicht', component: HoursOverviewComponent},
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService, ApiService, AuthorizationService, HoursService],
+  providers: [UserService, ApiService, AuthorizationService, HoursService, PathGuardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
