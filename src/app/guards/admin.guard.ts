@@ -5,19 +5,19 @@ import { AuthorizationService } from '../services/authorization.service';
 import { Router } from '@angular/router';
 
 @Injectable()
-export class PathGuardGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
 
   constructor(private auth : AuthorizationService, private router:Router){
 
   }
 
   canActivate(){
-    console.log("guard");
-    if(this.auth.getActiveUser() != null){
+    console.log("adminGuard");
+    if(this.auth.getActiveUser() != null && this.auth.getActiveUser().rechten == 1 ){
       return true;
     } else {
-      alert("Log in!")
-      this.router.navigate(['/']);
+      alert("Niet bevoegd!")
+      this.router.navigate(['/registratie']);
       return false;
     }
   }
