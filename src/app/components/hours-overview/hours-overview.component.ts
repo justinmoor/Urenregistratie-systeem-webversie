@@ -3,6 +3,7 @@ import { Hours } from '../../models/hours';
 import { HoursService } from '../../services/hours.service';
 import { CsvService } from 'angular2-json2csv';
 import { FilterPipe } from '../../pipes/filter-pipe.pipe';
+import {AuthorizationService} from '../../services/authorization.service';
 
 @Component({
   selector: 'app-hours-overview',
@@ -19,7 +20,7 @@ export class HoursOverviewComponent implements OnInit {
   public searchProject: string;
   public searchSubject: string;
 
-  constructor(private hoursService: HoursService, private csvService: CsvService, private filterPipe: FilterPipe) {
+  constructor(private hoursService: HoursService, private csvService: CsvService, private filterPipe: FilterPipe, private auth: AuthorizationService) {
     this.hoursService.getAll().subscribe(hours => {
       this.hours = hours;
     });
@@ -35,6 +36,10 @@ export class HoursOverviewComponent implements OnInit {
 
   ngOnInit(){
 
+  }
+
+  setConfirmed(uur){
+    this.hoursService.setConfirmed(uur);
   }
 
 
