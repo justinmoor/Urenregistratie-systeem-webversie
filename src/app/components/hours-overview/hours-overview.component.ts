@@ -31,6 +31,7 @@ export class HoursOverviewComponent implements OnInit {
     this.filteredHours = this.filterPipe.transform(this.hours, 'customerName', this.searchCustomer);
     this.filteredHours = this.filterPipe.transform(this.filteredHours, 'projectName', this.searchProject);
     this.filteredHours = this.filterPipe.transform(this.filteredHours, 'subjectName', this.searchSubject);
+
     this.csvService.download(this.filteredHours, 'Gewerkte Uren '+new Date().toDateString());
   }
 
