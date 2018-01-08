@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { User } from '../models/user';
 
 @Injectable()
 export class AuthorizationService
@@ -7,6 +8,7 @@ export class AuthorizationService
     private login: string = null;
     private wachtwoord: string = null;
     private authenticator: Object = null;
+    private activeUser: User;
     
     public authorized$ = new Subject<boolean>();
 
@@ -53,6 +55,7 @@ export class AuthorizationService
         this.wachtwoord = null;
         this.authenticator = null;
 
+        sessionStorage.removeItem('activeUser');
         sessionStorage.removeItem('authorization');
         localStorage.removeItem('authorization');
         
@@ -67,6 +70,11 @@ export class AuthorizationService
     public setAuthenticator(authenticator: Object): void
     {
         this.authenticator = authenticator;
+    }
+
+    public getActiveUser() {
+        this.activeUser = JSON.parse(sessionStorage.getItem("activeUser"));
+        return this.activeUser;
     }
 
 }

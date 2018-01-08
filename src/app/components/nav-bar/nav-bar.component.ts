@@ -17,4 +17,9 @@ export class NavBarComponent implements OnInit {
 
   }
 
+  logOut(){
+    
+    this.auth.deleteAuthorization();
+  }
+
 }
