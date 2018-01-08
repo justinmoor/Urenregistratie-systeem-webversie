@@ -46,6 +46,10 @@ export class HoursService {
   public getSubjects(projectName:String, customerName:String): Observable<Subject[]> {
     return this.api.getSubjects<Subject[]>(projectName,customerName);
   }
+
+  public setConfirmed(uur){
+    this.api.setConfirmed(uur);
+  }
   
 
 }

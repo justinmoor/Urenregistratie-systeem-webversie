@@ -10,7 +10,6 @@ td {
 
 label {
     margin-right: 20px;
-    margin-top: 4px;
 }
 
 button {
@@ -20,6 +19,10 @@ button {
     width: 100%;
     height: 50px;
   }
+
+.button {
+    padding-bottom: 0px;
+}
 
 button:hover {
     background-color: #00675b;

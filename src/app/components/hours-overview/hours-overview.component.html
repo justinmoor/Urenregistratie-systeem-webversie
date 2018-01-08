@@ -4,7 +4,7 @@
   <div class="naarlinks">
       <div class="card" style="padding: 20px;">
         <div class="form-group">
-          <table>
+          <table class="filters">
             <tr class = "rightfloat">
               <td><label for="einddatum">Begindatum: </label></td>
               <td><input type="date" class="form-control" id="begindatum" date-set="" [(ngModel)]="searchStartDate"></td>
@@ -25,8 +25,10 @@
               <td><label for="onderwerp">Onderwerp: </label> </td>
               <td><input type="text" class="form-control" id="onderwerp" [(ngModel)]="searchSubject"></td>
             </tr>
+
           </table>
         </div>
+        <button type="button" class="btn" (click)='createCsv()'>Download CSV</button>
       </div>
     </div>
   <section>
@@ -44,7 +46,7 @@
           <th scope="col">Klant</th>
           <th scope="col">Project</th>
           <th scope="col">Onderwerp</th>
-          <th scope="col">Goedgekeurd</th>
+          <th *ngIf="auth.getActiveUser().rechten == 1" scope="col">Goedgekeurd</th>
         </tr>
         </thead>
         <tbody>
@@ -58,13 +60,13 @@
           <td>{{uur.customerName}}</td>
           <td>{{uur.projectName}}</td>
           <td>{{uur.subjectName}}</td>
-          <td *ngIf="uur.confirmed === false">
+          <td *ngIf="uur.confirmed === false && auth.getActiveUser().rechten == 1">
           <select #selectElement (change)="setConfirmed(uur)">
               <option>Nee</option>
               <option>Ja</option>
             </select>
             </td>
-          <td *ngIf="uur.confirmed">
+          <td *ngIf="uur.confirmed && auth.getActiveUser().rechten == 1">
             <select #selectElement (change)="setConfirmed(uur)">
               <option>Ja</option>
               <option>Nee</option>

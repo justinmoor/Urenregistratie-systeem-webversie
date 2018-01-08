@@ -8,7 +8,7 @@ import { error } from 'selenium-webdriver';
 import { User } from '../models/user'
 import { URLSearchParams } from '@angular/http';
 import { HourRegister } from '../models/hour-register';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from '../models/Subject';
 
 @Injectable()
 export class ApiService{
@@ -79,6 +79,11 @@ export class ApiService{
         }
         let uri = this.createURI("personeel/werkzaam",user);
         return this.http.post(uri, null).subscribe();
+    }
+
+    public setConfirmed(uur){
+        let uri = this.createURI("uren/confirm")
+        return this.http.post(uri, uur ).subscribe();
     }
 
     public voegAccountToe(user: User){

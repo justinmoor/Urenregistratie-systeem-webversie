@@ -21,10 +21,8 @@ import { SortByPipe } from './pipes/sort-by.pipe';
 import { PathGuardGuard } from './guards/path-guard.guard';
 import { AdminGuard } from './guards/admin.guard';
 
-// import { ApiService } from './services/api.service';
-// import { AuthorizationService } from './services/authorization.service';
+import { CsvService } from 'angular2-json2csv';
 
-// Create ruotes
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'registratie', component: RegisterHoursComponent, canActivate:[PathGuardGuard]},
@@ -53,7 +51,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService, ApiService, AuthorizationService, HoursService, PathGuardGuard, AdminGuard],
+  providers: [UserService, ApiService, AuthorizationService, HoursService, PathGuardGuard, AdminGuard, CsvService, FilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
