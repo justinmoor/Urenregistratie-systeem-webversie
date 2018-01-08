@@ -19,6 +19,7 @@ import { AccountInfoComponent } from './components/account-info/account-info.com
 import { FilterPipe } from './pipes/filter-pipe.pipe';
 import { SortByPipe } from './pipes/sort-by.pipe';
 import { PathGuardGuard } from './guards/path-guard.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 // import { ApiService } from './services/api.service';
 // import { AuthorizationService } from './services/authorization.service';
@@ -27,10 +28,10 @@ import { PathGuardGuard } from './guards/path-guard.guard';
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'registratie', component: RegisterHoursComponent, canActivate:[PathGuardGuard]},
-  { path: 'accountmaken', component: CreateAccountComponent},
-  { path: 'gebruikers', component: UserOverviewComponent},
-  { path: 'urenoverzicht', component: HoursOverviewComponent},
-  { path: 'accountinfo', component: AccountInfoComponent}
+  { path: 'accountmaken', component: CreateAccountComponent, canActivate:[PathGuardGuard, AdminGuard]},
+  { path: 'gebruikers', component: UserOverviewComponent, canActivate:[PathGuardGuard, AdminGuard]},
+  { path: 'urenoverzicht', component: HoursOverviewComponent, canActivate:[PathGuardGuard]},
+  { path: 'accountinfo', component: AccountInfoComponent, canActivate:[PathGuardGuard]}
 ];
 
 @NgModule({
@@ -52,7 +53,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService, ApiService, AuthorizationService, HoursService, PathGuardGuard],
+  providers: [UserService, ApiService, AuthorizationService, HoursService, PathGuardGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
