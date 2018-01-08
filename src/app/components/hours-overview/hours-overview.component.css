@@ -8,8 +8,20 @@ section {
   margin-right: 10%;
 }
 
-.container{
-  width: 100%;
+td {
+  padding: 5px;
+}
+
+label {
+  padding-top: 3px;
+}
+
+table {
+  font-size: 14px;
+}
+
+th {
+  padding: 10px;
 }
 
 .naarlinks{
