@@ -11,15 +11,15 @@ export class HoursService {
   id: number;
   hour:HourRegister;
   constructor(private api: ApiService) {
-
   }
 
   public getAll(): Observable<Hours[]> {
+    console.log()
     return this.api.getUrenVanUser<Hours[]>(this.getActiveUserId());
   }
 
   private getActiveUserId() {
-    // sessionStorage.getItem('activeUser');
+    sessionStorage.getItem('activeUser');
     let user: User = JSON.parse(sessionStorage.getItem('activeUser'));
     console.log(user.personeelID)
     return user.personeelID;

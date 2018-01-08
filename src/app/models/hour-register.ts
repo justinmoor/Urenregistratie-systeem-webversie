@@ -1,7 +1,7 @@
 export class HourRegister{
     
         constructor(
-            public startingDate?:String,
+            public startingDate?:string,
             public startingTime?:string,
             public endingDate?:string,
             public endingTime?:string,

@@ -51,7 +51,7 @@ export class ApiService{
     {
         let queryString = this.createQueryString(queryParameters);
 
-        return `http://localhost:8080/${path}/${queryString}`;
+        return `http://localhost:8080/api/${path}/${queryString}`;
     }
 
     public get<T>(path:string, queryParameters?:Object):Observable<T>{
@@ -63,7 +63,7 @@ export class ApiService{
 
     public getUrenVanUser<T>(id) {
       let uri = this.createURI("uren/getbyid?id=") // werkt niet?
-      return this.http.get("http://localhost:8080/uren/getbyid?id=" + id);
+      return this.http.get("http://localhost:8080/api/uren/getbyid?id=" + id);
      }
 
     public getUsers<T>(queryParameters?: Object): Observable<T>{
