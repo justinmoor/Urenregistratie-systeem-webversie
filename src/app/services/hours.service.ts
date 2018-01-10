@@ -7,7 +7,6 @@ import {User} from '../models/user';
 import { Customer } from '../models/customer';
 import { Project } from '../models/project';
 import { Subject } from '../models/Subject';
-  
 
 @Injectable()
 export class HoursService {
@@ -49,6 +48,10 @@ export class HoursService {
 
   public setConfirmed(uur){
     this.api.setConfirmed(uur);
+  }
+
+  public getDate():Observable<string> {
+    return this.api.getDate<string>();
   }
   
 

@@ -11,22 +11,49 @@ import { Subject } from '../../models/subject';
   templateUrl: './register-hours.component.html',
   styleUrls: ['./register-hours.component.css']
 })
+
+
 export class RegisterHoursComponent implements OnInit {
 
   hour:HourRegister = new HourRegister;
   customers:Customer[];
   projects:Project[];
   subjects:Subject[];
+  today;
+  year;
+  month;
+  day;
 
+  date:string;
 
   constructor(private hourservice:HoursService) { 
     this.hourservice.getCustomers().subscribe(customer =>{
     this.customers=customer;
     });
-    // this.hoursService.getAll().subscribe(hours => {
-      // this.hours = hours;
-    // });
+
+    this.today = new Date();
+
+    this.year = this.today.getFullYear();
+    this.month = this.today.getMonth() + 1;
+    if(this.month < 10){
+      this.month = 0 +"" + this.month;
+    }
+    this.day = this.today.getDate();
+    if(this.day < 10){
+      this.day = 0 +"" + this.day;
+    }
+    this.date = ""+ this.year.toString() +"-" + this.month.toString()+ "-"+ this.day.toString();
+    console.log(this.date)
+
+
+
+  //  this.hourservice.getDate().subscribe(date =>{
+  //    this.today = date;
+  //  });
+   
+   console.log(this.today);
   }
+  
 
   ngOnInit() {
   }
