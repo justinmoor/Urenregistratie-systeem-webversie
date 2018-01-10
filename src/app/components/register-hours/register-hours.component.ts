@@ -24,11 +24,14 @@ export class RegisterHoursComponent implements OnInit {
   year:number;
   month;
   day;
+  date:string;
   timeHour;
   timeMinute;
   time;
 
-  date:string;
+  customer: Customer = new Customer;
+  project: Project = new Project;
+  subject: Subject = new Subject;
 
   constructor(private hourservice:HoursService) { 
 
@@ -56,15 +59,21 @@ export class RegisterHoursComponent implements OnInit {
   ngOnInit() {
   }
 
-  public saveHour(){
+  addCategory() {
+    // if (klant input > 0) addCustomer() 
+    // if (project input > 0) addProject() 
+    // if (subject input > 0) addSubject()
+  }
+
+  public saveHour() {
     console.log(this.hour);
     this.hourservice.setHour(this.hour);
   }
 
   public getProjects() {
     this.hourservice.getProjects(this.hour.customerName).subscribe(project => {
-      this.projects=project;
-    })
+      this.projects = project;
+    });
   }
 
   public getSubjects() {

@@ -11,14 +11,11 @@ export class NavBarComponent implements OnInit {
   constructor(public auth : AuthorizationService) {
 
   }
-         
-
   ngOnInit() {
 
   }
 
   logOut(){
-    
     this.auth.deleteAuthorization();
   }
 

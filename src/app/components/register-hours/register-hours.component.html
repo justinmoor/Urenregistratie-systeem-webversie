@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <h1>Uren registreren</h1>
   <div class="card" style="padding: 20px;">
@@ -23,7 +21,7 @@
       </tr>
       <tr>
         <td><label for="project">Project: </label> </td>
-        <td><select [disabled]="!hour.customerName"
+        <td class="td"><select [disabled]="!hour.customerName"
           (change)="getSubjects()" class="form-control" id="project"
           [(ngModel)]="hour.projectName"
           name=projectName>
@@ -54,7 +52,7 @@
       </tr>
       <tr>
         <td><label for="commentaar">Commentaar: </label> </td>
-        <td><input type="text" class="form-control" id="commentaar"
+        <td class="td"><input type="text" class="form-control" id="commentaar"
           [(ngModel)]="hour.comment"
           name="comment"></td>
 
@@ -63,10 +61,48 @@
          
       </tr>
       <tr>
-        <td colspan="4"><button type="button" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>
+        <td colspan="4" class="td-button"><button type="button" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>
       </tr>
 
     </table>
   </div>
+  </div>
+</div>
+
+<div class="addingstuff-container">
+    <div class="card" style="padding: 20px;">
+      <table>
+        <tr>
+          <td>
+            <label>Klant:</label>
+          </td>
+          <td>
+            <input type="klant" [(ngModel)]="customer.customerName" name="klant" required class="form-control">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Project:</label>
+          </td>
+          <td>
+            <input type="project" [(ngModel)]="project.projectName" name="project" required class="form-control">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Onderwerp:</label>
+          </td>
+          <td>
+            <input type="onderwerp" [(ngModel)]="subject.subjectName" name="onderwerp" required class="form-control">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="td-button">
+            <div class="form-group">
+              <button type="button" class="btn btn-secondary btn-block" (click)='addCategory()'>Toevoegen</button>
+            </div>
+          </td>
+        </tr>
+      </table>
   </div>
 </div>

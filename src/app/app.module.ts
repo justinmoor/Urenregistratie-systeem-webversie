@@ -21,7 +21,7 @@ import { SortByPipe } from './pipes/sort-by.pipe';
 import { PathGuardGuard } from './guards/path-guard.guard';
 import { AdminGuard } from './guards/admin.guard';
 
-//import { CsvService } from 'angular2-json2csv';
+import { CsvService } from 'angular2-json2csv';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
