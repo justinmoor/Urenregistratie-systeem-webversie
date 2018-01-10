@@ -152,4 +152,20 @@ export class ApiService{
     public getSubjects<T>(projectName: String, customerName:String): Observable<T> {
         return this.http.get<T>("http://localhost:8080/api/subjects/allByName?project="+projectName+"&klant="+customerName);
       }
+    public updateHour(hour:HourRegister, employeeID){
+        let data ={
+            startingDate : hour.startingDate,
+            startingTime : hour.startingTime,
+            endingDate : hour.endingDate,
+            endingTime : hour.endingTime,
+            customerName : hour.customerName,
+            projectName : hour.projectName,
+            subjectName : hour.subjectName,
+            comment : hour.comment,
+            employeeId : employeeID
+        }
+        console.log(data)
+        let uri = this.createURI('uren/updateHour', null)
+        return this.http.post(uri, data).subscribe();
+    }
 }
