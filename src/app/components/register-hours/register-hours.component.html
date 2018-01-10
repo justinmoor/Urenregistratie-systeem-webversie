@@ -41,9 +41,8 @@
           [(ngModel)]="hour.comment"
           name="comment"></td>
         <td><label for="einddatum">Eind datum: </label></td>
-        <td><input type="date" class="form-control" id="einddatum"
-          [(ngModel)]="hour.endingDate"
-          name="endingDate"></td>
+        <td><input type="date" value="{{datum}}" value="{{date}}" class="form-control" id="einddatum"
+          ></td>
       </tr>
       <tr>
         <td colspan="4"><button type="button" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>
