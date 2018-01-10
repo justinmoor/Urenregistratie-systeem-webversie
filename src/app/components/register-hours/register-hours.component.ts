@@ -11,17 +11,21 @@ import { Subject } from '../../models/subject';
   templateUrl: './register-hours.component.html',
   styleUrls: ['./register-hours.component.css']
 })
+
 export class RegisterHoursComponent implements OnInit {
 
-  hour:HourRegister = new HourRegister;
-  customers:Customer[];
-  projects:Project[];
-  subjects:Subject[];
+  hour: HourRegister = new HourRegister;
+  customers: Customer[];
+  projects: Project[];
+  subjects: Subject[];
 
+  customer: Customer = new Customer;
+  project: Project = new Project;
+  subject: Subject = new Subject;
 
-  constructor(private hourservice:HoursService) { 
-    this.hourservice.getCustomers().subscribe(customer =>{
-    this.customers=customer;
+  constructor(private hourservice: HoursService) {
+    this.hourservice.getCustomers().subscribe(customer => {
+    this.customers = customer;
     });
     // this.hoursService.getAll().subscribe(hours => {
       // this.hours = hours;
@@ -31,15 +35,21 @@ export class RegisterHoursComponent implements OnInit {
   ngOnInit() {
   }
 
-  public saveHour(){
+  addCategory() {
+    // if (klant input > 0) addCustomer()
+    // if (project input > 0) addProject()
+    // if (subject input > 0) addSubject()
+  }
+
+  public saveHour() {
     console.log(this.hour);
     this.hourservice.setHour(this.hour);
   }
 
   public getProjects() {
     this.hourservice.getProjects(this.hour.customerName).subscribe(project => {
-      this.projects=project;
-    })
+      this.projects = project;
+    });
   }
 
   public getSubjects() {
@@ -47,5 +57,4 @@ export class RegisterHoursComponent implements OnInit {
       this.subjects = subject;
     });
   }
-
 }

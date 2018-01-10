@@ -50,7 +50,6 @@ export class HoursService {
   public setConfirmed(uur){
     this.api.setConfirmed(uur);
   }
-  
 
 }
 

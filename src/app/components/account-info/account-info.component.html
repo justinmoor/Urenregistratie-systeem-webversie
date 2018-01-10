@@ -1,89 +1,89 @@
 <div class="container">
   <h1>Account</h1>
-  <table>
-    <div class="card" style="padding: 20px;">
-    <tr>
-      <td><label for="Voornaam">Voornaam: </label> </td>
-      <td><label type="text" id="Voornaam"> {{ user.achternaam }}</label></td>
-    </tr>
-    <tr>
-        <td><label for="tussen">Tussenvoegsel: </label> </td>
-        <td><label type="text" id="tussen">{{ user.tussenvoegsel }} </label></td>
-    </tr>
-    <tr>
-        <td><label for="achternaam">Achternaam: </label> </td>
-        <td><label type="text" id="achternaam">{{ user.voornaam }}</label></td>
-    </tr>
-    <tr>
-        <td><label for="Email">Email: </label> </td>
-        <td><label type="text" id="Email">{{user.email}}</label></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-    </tr>
-    </div>
+    <table>
+      <div class="card" style="padding: 20px;">
+      <tr>
+        <td><label for="Voornaam">Voornaam: </label> </td>
+        <td><label type="text" id="Voornaam"> {{ user.achternaam }}</label></td>
+      </tr>
+      <tr>
+          <td><label for="tussen">Tussenvoegsel: </label> </td>
+          <td><label type="text" id="tussen">{{ user.tussenvoegsel }} </label></td>
+      </tr>
+      <tr>
+          <td><label for="achternaam">Achternaam: </label> </td>
+          <td><label type="text" id="achternaam">{{ user.voornaam }}</label></td>
+      </tr>
+      <tr>
+          <td><label for="Email">Email: </label> </td>
+          <td><label type="text" id="Email">{{user.email}}</label></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      </div>
 
-    <div class="card" style="padding: 20px;">
-    <tr>
-      <td colspan="2"><h4>Verander uw wachtwoord</h4></td>
-    </tr>
-    <tr>
-        <td><label for="oldPass">Oude wachtwoord: </label> </td>
+      <div class="card" style="padding: 20px;">
+      <tr>
+        <td colspan="2"><h4>Verander uw wachtwoord</h4></td>
+      </tr>
+      <tr>
+          <td><label for="oldPass">Oude wachtwoord: </label> </td>
+          <td><input 
+            type="password"
+            class="form-control"
+            id="oldPass"
+            [ngClass]="{'is-invalid' : oldPass.errors?.required && oldPass.touched}"
+            [(ngModel)]="oldPassword" 
+            #oldPass="ngModel"
+            name="oldPassword"
+            required></td>
+      </tr>
+      <tr *ngIf="oldPass.errors?.required && oldPass.touched" class="invalid-feedback">
+          Dit veld is verplicht
+      </tr>
+      <tr>
+        <td><label for="newPass">Nieuw wachtwoord</label></td>
         <td><input 
-          type="password"
-          class="form-control"
-          id="oldPass"
-          [ngClass]="{'is-invalid' : oldPass.errors?.required && oldPass.touched}"
-          [(ngModel)]="oldPassword" 
-          #oldPass="ngModel"
-          name="oldPassword"
+          type="password" 
+          class="form-control" 
+          id="newPass"
+          [ngClass]="{'is-invalid' : newPass.errors?.required && newPass.touched || newPass.errors?.minlength && newPass.touched}"
+          [(ngModel)]="newPassword"
+          name="newPassword"
+          #newPass="ngModel"
+          minlength="8"
           required></td>
-    </tr>
-    <tr *ngIf="oldPass.errors?.required && oldPass.touched" class="invalid-feedback">
+      </tr>
+      <tr *ngIf="newPass.errors?.required && newPass.touched" class="invalid-feedback">
         Dit veld is verplicht
-    </tr>
-    <tr>
-      <td><label for="newPass">Nieuw wachtwoord</label></td>
-      <td><input 
-        type="password" 
-        class="form-control" 
-        id="newPass"
-        [ngClass]="{'is-invalid' : newPass.errors?.required && newPass.touched || newPass.errors?.minlength && newPass.touched}"
-        [(ngModel)]="newPassword"
-        name="newPassword"
-        #newPass="ngModel"
-        minlength="8"
-        required></td>
-    </tr>
-    <tr *ngIf="newPass.errors?.required && newPass.touched" class="invalid-feedback">
-      Dit veld is verplicht
-    </tr>
-    <tr *ngIf="newPass.errors?.minlength && newPass.touched" class="invalid-feedback">
-      Wachtwoord moet minimaal 8 tekens lang zijn
-    </tr>
-    <tr>
-      <td><label for="repeatNewPass">Herhaal nieuw wachtwoord</label></td>
-      <td><input 
-        type="password" 
-        class="form-control" 
-        id="repeatNewPass"
-        [ngClass]="{'is-invalid' : repeatNewPass.errors?.required && repeatNewPass.touched || repeatNewPass.errors?.minlength && repeatNewPass.touched}"
-        [(ngModel)]="repeatNewPassword"
-        name="repeatNewPassword"
-        #repeatNewPass="ngModel"
-        minlength="8"
-        required></td>
-    </tr>
-    <tr *ngIf="repeatNewPass.errors?.required && repeatNewPass.touched" class="invalid-feedback">
-      Dit veld is verplicht
-    </tr>
-    <tr *ngIf="repeatNewPass.errors?.minlength && repeatNewPass.touched" class="invalid-feedback">
-      Wachtwoord moet minimaal 8 tekens lang zijn
-    </tr>
-    <tr>
-      <td colspan="2"><button type="button" class="btn btn-primary" (click)="opslaanGegevens()" >Opslaan</button></td>
-    </tr>
-    </div>
-  </table>
+      </tr>
+      <tr *ngIf="newPass.errors?.minlength && newPass.touched" class="invalid-feedback">
+        Wachtwoord moet minimaal 8 tekens lang zijn
+      </tr>
+      <tr>
+        <td><label for="repeatNewPass">Herhaal nieuw wachtwoord</label></td>
+        <td><input 
+          type="password" 
+          class="form-control" 
+          id="repeatNewPass"
+          [ngClass]="{'is-invalid' : repeatNewPass.errors?.required && repeatNewPass.touched || repeatNewPass.errors?.minlength && repeatNewPass.touched}"
+          [(ngModel)]="repeatNewPassword"
+          name="repeatNewPassword"
+          #repeatNewPass="ngModel"
+          minlength="8"
+          required></td>
+      </tr>
+      <tr *ngIf="repeatNewPass.errors?.required && repeatNewPass.touched" class="invalid-feedback">
+        Dit veld is verplicht
+      </tr>
+      <tr *ngIf="repeatNewPass.errors?.minlength && repeatNewPass.touched" class="invalid-feedback">
+        Wachtwoord moet minimaal 8 tekens lang zijn
+      </tr>
+      <tr>
+        <td colspan="2"><button type="button" class="btn btn-primary" (click)="opslaanGegevens()" >Opslaan</button></td>
+      </tr>
+      </div>
+    </table>
 </div>
