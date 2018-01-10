@@ -1,6 +1,9 @@
 <h1>Gebruikers</h1>
 
-
+<div *ngIf="fout" class="alert alert-danger">
+  Geen gegevens om te laden!
+</div>
+<div *ngIf="!fout">
 <div class="block">
   <img src="../../assets/users.png">
   </div>
@@ -44,4 +47,5 @@
     </tr>
   </tbody>
 </table>
+</div>
 </div>

@@ -19,10 +19,15 @@ export class HoursOverviewComponent implements OnInit {
   public searchCustomer: string;
   public searchProject: string;
   public searchSubject: string;
+
+  fout : boolean = false;
 // , private csvService: CsvService
   constructor(private hoursService: HoursService, private filterPipe: FilterPipe, private auth: AuthorizationService) {
     this.hoursService.getAll().subscribe(hours => {
       this.hours = hours;
+    },
+    error => {
+      this.fout = true;
     });
   }
 

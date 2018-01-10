@@ -33,10 +33,15 @@ export class RegisterHoursComponent implements OnInit {
   project: Project = new Project;
   subject: Subject = new Subject;
 
+  fout:boolean = false;
+
   constructor(private hourservice:HoursService) { 
 
     this.hourservice.getCustomers().subscribe(customer =>{
     this.customers=customer;
+    },
+    error => {
+      this.fout = true;
     });
 
     this.today = new Date();
@@ -124,5 +129,4 @@ export class RegisterHoursComponent implements OnInit {
 public getDate() {
   this.today = new Date();
 }
-
 }
