@@ -5,7 +5,8 @@ import { Observable } from 'rxjs/Observable';
 import { AuthorizationService } from './authorization.service';
 import { error } from 'selenium-webdriver';
 
-import { User } from '../models/user'
+import { User } from '../models/user';
+import { Customer } from '../models/customer';
 import { URLSearchParams } from '@angular/http';
 import { HourRegister } from '../models/hour-register';
 import { Subject } from '../models/Subject';
@@ -98,7 +99,16 @@ export class ApiService{
         }
         let uri = this.createURI('personeel/add', null);
         let headers = this.createRequestHeaders();
-        return this.http.post(uri, data, {headers:headers}).subscribe();
+        return this.http.post(uri, data, {headers: headers}).subscribe();
+    }
+
+    public voegKlantToe(customer: Customer) {
+        let data = {
+            customerName: customer.customerName,
+        }
+        let uri = this.createURI('customer/add', null);
+        let headers = this.createRequestHeaders();
+        return this.http.post(uri, data, { headers: headers }).subscribe();
     }
 
     public changePassword(id:number, newPassword:String) {
@@ -142,9 +152,4 @@ export class ApiService{
     public getSubjects<T>(projectName: String, customerName:String): Observable<T> {
         return this.http.get<T>("http://localhost:8080/api/subjects/allByName?project="+projectName+"&klant="+customerName);
       }
-
-      public getDate<T>():Observable<T>{
-        return this.http.get<T>("http://localhost:8080/api/uren/date");
-      }
-
 }

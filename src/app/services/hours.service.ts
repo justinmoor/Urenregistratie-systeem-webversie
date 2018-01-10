@@ -49,11 +49,5 @@ export class HoursService {
   public setConfirmed(uur){
     this.api.setConfirmed(uur);
   }
-
-  public getDate():Observable<string> {
-    return this.api.getDate<string>();
-  }
-  
-
 }
 

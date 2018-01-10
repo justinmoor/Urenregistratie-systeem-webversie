@@ -11,8 +11,6 @@ export class NavBarComponent implements OnInit {
   constructor(public auth : AuthorizationService) {
 
   }
-         
-
   ngOnInit() {
 
   }
