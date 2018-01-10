@@ -153,4 +153,8 @@ export class ApiService{
         return this.http.get<T>("http://localhost:8080/api/subjects/allByName?project="+projectName+"&klant="+customerName);
       }
 
+      public getDate<T>():Observable<T>{
+        return this.http.get<T>("http://localhost:8080/api/uren/date");
+      }
+
 }

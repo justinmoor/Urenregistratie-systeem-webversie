@@ -12,32 +12,49 @@ import { Subject } from '../../models/subject';
   styleUrls: ['./register-hours.component.css']
 })
 
+
 export class RegisterHoursComponent implements OnInit {
 
   hour: HourRegister = new HourRegister;
   customers: Customer[];
   projects: Project[];
   subjects: Subject[];
+  today;
+  year;
+  month;
+  day;
 
   customer: Customer = new Customer;
   project: Project = new Project;
   subject: Subject = new Subject;
 
+  date: string;
+
   constructor(private hourservice: HoursService) {
     this.hourservice.getCustomers().subscribe(customer => {
-    this.customers = customer;
+      this.customers = customer;
     });
-    // this.hoursService.getAll().subscribe(hours => {
-      // this.hours = hours;
-    // });
+
+    this.today = new Date();
+
+    this.year = this.today.getFullYear();
+    this.month = this.today.getMonth() + 1;
+    if (this.month < 10) {
+      this.month = 0 + "" + this.month;
+    }
+    this.day = this.today.getDate();
+    if (this.day < 10) {
+      this.day = 0 + "" + this.day;
+    }
+    this.date = "" + this.year.toString() + "-" + this.month.toString() + "-" + this.day.toString();
   }
 
   ngOnInit() {
   }
 
   addCategory() {
-    // if (klant input > 0) addCustomer()
-    // if (project input > 0) addProject()
+    // if (klant input > 0) addCustomer() 
+    // if (project input > 0) addProject() 
     // if (subject input > 0) addSubject()
   }
 
@@ -57,4 +74,5 @@ export class RegisterHoursComponent implements OnInit {
       this.subjects = subject;
     });
   }
+
 }

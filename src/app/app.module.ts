@@ -51,7 +51,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [UserService, ApiService, AuthorizationService, HoursService, PathGuardGuard, AdminGuard, CsvService, FilterPipe],
+  // CsvService,
+  providers: [UserService, ApiService, AuthorizationService, HoursService, PathGuardGuard, AdminGuard,  FilterPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

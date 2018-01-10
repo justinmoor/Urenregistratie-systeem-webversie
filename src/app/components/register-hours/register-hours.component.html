@@ -30,7 +30,7 @@
           </select></td>
 
         <td><label for="begindatum">Begin datum: </label></td>
-        <td><input type="date" class="form-control" id="begindatum"
+        <td><input type="date" value="{{today}}"class="form-control" id="begindatum"
           [(ngModel)]="hour.startingDate"
           name="StartingDate"></td>
       </tr>
@@ -56,7 +56,8 @@
           name="comment"></td>
 
         <td><label for="einddatum">Eind datum: </label></td>
-        <td><input type="date" class="form-control" id="einddatum"
+
+         <td><input type="date" value="{{date}}" class="form-control" id="einddatum"
           [(ngModel)]="hour.endingDate"
           name="endingDate"></td>
       </tr>
