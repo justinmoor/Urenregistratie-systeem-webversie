@@ -8,7 +8,7 @@
       <tr>
         <td><label for="klant">Klant: </label> </td>
         <td>
-          <select (change)="getProjects()" class="form-control" id="klant"
+          <select (change)="getProjects() || setProjects()" class="form-control" id="klant"
           [(ngModel)]="hour.customerName"
           name=customerName>
             <option></option>
@@ -32,13 +32,13 @@
           </select></td>
 
         <td><label for="begindatum">Begin datum: </label></td>
-        <td><input type="date" class="form-control" id="begindatum"
+        <td><input type="date" value="{{date}}" class="form-control" id="einddatum"
           [(ngModel)]="hour.startingDate"
-          name="StartingDate"></td>
+          name="startingDate"></td>
       </tr>
       <tr>
         <td><label for="onderwerp">Onderwerp: </label> </td>
-        <td><select [disabled]="!hour.projectName" 
+        <td><select [disabled]="!hour.projectName || !hour.customerName" 
           class="form-control" id="Subject"
           [(ngModel)]="hour.subjectName"
           name=subjectName>
@@ -48,6 +48,7 @@
 
         <td><label for="eindtijd">Eind tijd: </label></td>
         <td><input type="time" class="form-control" id="eindtijd"
+          (click)="setEndTime()"
           [(ngModel)]="hour.endingTime"
           name="endingTime"></td>
       </tr>
@@ -59,9 +60,7 @@
 
         <td><label for="einddatum">Eind datum: </label></td>
 
-         <td><input type="date" value="{{date}}" class="form-control" id="einddatum"
-          [(ngModel)]="hour.endingDate"
-          name="endingDate"></td>
+         
       </tr>
       <tr>
         <td colspan="4"><button type="button" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>

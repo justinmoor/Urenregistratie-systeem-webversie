@@ -5,6 +5,7 @@ import { HoursService } from '../../services/hours.service';
 import { Customer } from '../../models/customer';
 import { Project } from '../../models/project';
 import { Subject } from '../../models/subject';
+import { Data } from '@angular/router/src/config';
 
 @Component({
   selector: 'app-register-hours',
@@ -19,41 +20,38 @@ export class RegisterHoursComponent implements OnInit {
   customers:Customer[];
   projects:Project[];
   subjects:Subject[];
-  today;
-  year;
+  today:Date;
+  year:number;
   month;
   day;
+  timeHour;
+  timeMinute;
+  time;
 
   date:string;
 
   constructor(private hourservice:HoursService) { 
+
     this.hourservice.getCustomers().subscribe(customer =>{
     this.customers=customer;
     });
 
     this.today = new Date();
-
     this.year = this.today.getFullYear();
     this.month = this.today.getMonth() + 1;
+    this.day = this.today.getDate();
     if(this.month < 10){
       this.month = 0 +"" + this.month;
     }
-    this.day = this.today.getDate();
     if(this.day < 10){
       this.day = 0 +"" + this.day;
     }
     this.date = ""+ this.year.toString() +"-" + this.month.toString()+ "-"+ this.day.toString();
-    console.log(this.date)
+    this.hour.startingDate = this.date;
 
-
-
-  //  this.hourservice.getDate().subscribe(date =>{
-  //    this.today = date;
-  //  });
-   
-   console.log(this.today);
+    this.setstartTime();
+    this.setEndTime();
   }
-  
 
   ngOnInit() {
   }
@@ -74,5 +72,45 @@ export class RegisterHoursComponent implements OnInit {
       this.subjects = subject;
     });
   }
+
+  public setDate(startingDate) {
+    this.hour.startingDate= startingDate;
+  }
+
+  
+  public setTime() {
+    this.time = null;
+    this.timeHour = this.today.getHours();
+    this.timeMinute = this.today.getMinutes();
+    if(this.timeHour < 10){
+      this.timeHour = 0 +"" + this.timeHour;
+    }
+    if(this.timeMinute < 10){
+      this.timeMinute = 0 +"" + this.timeMinute;
+    }
+    this.time = "" + this.timeHour + ":" + this.timeMinute; 
+  }
+
+  public setstartTime() {
+    this.setTime();
+    this.hour.startingTime = this.time;
+  }
+
+  public setEndTime() {
+    console.log("fire>>>>>>");
+    this.setTime();
+    console.log(this.time);
+    this.hour.setEndTime(this.time)
+    console.log(this.hour);
+  }
+
+
+
+  public setProjects() {
+    this.hour.projectName = null;
+    this.hour.subjectName = null;
+  }
+
+
 
 }

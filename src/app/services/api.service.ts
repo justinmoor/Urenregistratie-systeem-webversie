@@ -142,9 +142,4 @@ export class ApiService{
     public getSubjects<T>(projectName: String, customerName:String): Observable<T> {
         return this.http.get<T>("http://localhost:8080/api/subjects/allByName?project="+projectName+"&klant="+customerName);
       }
-
-      public getDate<T>():Observable<T>{
-        return this.http.get<T>("http://localhost:8080/api/uren/date");
-      }
-
 }

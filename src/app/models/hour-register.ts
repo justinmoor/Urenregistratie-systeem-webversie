@@ -11,4 +11,8 @@ export class HourRegister{
             public comment?:string
         ){
         }
+
+        public setEndTime(time){
+            this.endingTime = time;
+        }
     }
