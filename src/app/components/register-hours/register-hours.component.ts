@@ -33,43 +33,8 @@ export class RegisterHoursComponent implements OnInit {
   date:string;
 >>>>>>> 3ed344999faa3d1b528e221d376866933ba3beb3
 
-  date:string;
   constructor(private hourservice:HoursService) { 
-<<<<<<< HEAD
-    this.dag = this.datum.getDate().toString();
-    this.maand = (this.datum.getMonth() + 1).toString();
-    this.jaar = this.datum.getFullYear().toString();
-
-    this.date = this.jaar + "-" + this.maand + "-" + this.dag
-
-    console.log(this.date)
-=======
-    this.hourservice.getCustomers().subscribe(customer =>{
-    this.customers=customer;
-    });
-
-    this.today = new Date();
-
-    this.year = this.today.getFullYear();
-    this.month = this.today.getMonth() + 1;
-    if(this.month < 10){
-      this.month = 0 +"" + this.month;
-    }
-    this.day = this.today.getDate();
-    if(this.day < 10){
-      this.day = 0 +"" + this.day;
-    }
-    this.date = ""+ this.year.toString() +"-" + this.month.toString()+ "-"+ this.day.toString();
-    console.log(this.date)
-
-
-
-  //  this.hourservice.getDate().subscribe(date =>{
-  //    this.today = date;
-  //  });
    
-   console.log(this.today);
->>>>>>> 3ed344999faa3d1b528e221d376866933ba3beb3
   }
   
 
