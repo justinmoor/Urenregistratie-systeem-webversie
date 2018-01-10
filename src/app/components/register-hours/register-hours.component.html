@@ -32,9 +32,9 @@
           </select></td>
 
         <td><label for="begindatum">Begin datum: </label></td>
-        <td><input type="date" class="form-control" id="begindatum"
-          [(ngModel)]="hour.startingDate"
-          name="StartingDate"></td>
+        <td><input type="date" data-date-format="DD MMMM YYYY" value="{{date}}" class="form-control" id="begindatum"
+          [(ngModel)]="hour.startingDate" (change)="getDate()"
+          name="endingDate"></td>
       </tr>
       <tr>
         <td><label for="onderwerp">Onderwerp: </label> </td>
@@ -56,12 +56,6 @@
         <td><input type="text" class="form-control" id="commentaar"
           [(ngModel)]="hour.comment"
           name="comment"></td>
-
-        <td><label for="einddatum">Eind datum: </label></td>
-
-         <td><input type="date" value="{{date}}" class="form-control" id="einddatum"
-          [(ngModel)]="hour.endingDate"
-          name="endingDate"></td>
       </tr>
       <tr>
         <td colspan="4"><button type="button" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>

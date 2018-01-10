@@ -16,12 +16,6 @@ import { Subject } from '../../models/subject';
 export class RegisterHoursComponent implements OnInit {
 
   hour:HourRegister = new HourRegister;
-<<<<<<< HEAD
-  datum:Date = new Date();
-  dag:string;
-  maand:string;
-  jaar:string;
-=======
   customers:Customer[];
   projects:Project[];
   subjects:Subject[];
@@ -31,12 +25,27 @@ export class RegisterHoursComponent implements OnInit {
   day;
 
   date:string;
->>>>>>> 3ed344999faa3d1b528e221d376866933ba3beb3
 
   constructor(private hourservice:HoursService) { 
-   
+    this.hourservice.getCustomers().subscribe(customer =>{
+    this.customers=customer;
+    });
+
+    this.today = new Date();
+
+    this.year = this.today.getFullYear();
+    this.month = this.today.getMonth() + 1;
+    if(this.month < 10){
+      this.month = 0 +"" + this.month;
+    }
+    this.day = this.today.getDate();
+    if(this.day < 10){
+      this.day = 0 +"" + this.day;
+    }
+    this.hour.startingDate = ""+ this.year.toString() +"-" + this.month.toString()+ "-"+ this.day.toString();
+
+    console.log(this.hour.startingDate)
   }
-  
 
   ngOnInit() {
   }
@@ -56,6 +65,10 @@ export class RegisterHoursComponent implements OnInit {
     this.hourservice.getSubjects(this.hour.projectName, this.hour.customerName).subscribe(subject => {
       this.subjects = subject;
     });
+  }
+
+  public getDate(){
+    console.log(this.hour.startingDate)
   }
 
 }

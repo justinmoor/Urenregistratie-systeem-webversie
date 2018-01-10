@@ -6,12 +6,8 @@
         <div class="form-group">
           <table class="filters">
             <tr class = "rightfloat">
-              <td><label for="einddatum">Begindatum: </label></td>
+              <td><label for="einddatum">Datum: </label></td>
               <td><input type="date" class="form-control" id="begindatum" date-set="" [(ngModel)]="searchStartDate"></td>
-            </tr>
-            <tr class = "rightfloat">
-              <td><label for="einddatum">Einddatum: </label></td>
-              <td><input type="date" class="form-control" id="einddatum" [(ngModel)]="searchEndDate"></td>
             </tr>
             <tr class = "rightfloat">
               <td><label for="klant">Klant: </label> </td>
@@ -36,9 +32,8 @@
       <table class="table">
         <thead>
         <tr>
-          <th scope="col">Begindatum</th>
+          <th scope="col">Datum</th>
           <th scope="col">Begintijd</th>
-          <th scope="col">Einddatum</th>
           <th scope="col">Eindtijd</th>
           <th scope="col">Commentaar</th>
           <th scope="col">Personeelslid</th>
@@ -49,10 +44,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let uur of hours |  filter: 'customerName': searchCustomer | filter: 'projectName' : searchProject | filter: 'subjectName' : searchSubject" >
+        <tr *ngFor="let uur of hours |  filter: 'customerName': searchCustomer | filter: 'projectName' : searchProject | filter: 'subjectName' : searchSubject | filter:'startingDate' : searchStartDate" >
           <td>{{uur.startingDate}}</td>
           <td>{{uur.startingTime}}</td>
-          <td>{{uur.endingDate}}</td>
           <td>{{uur.endingTime}}</td>
           <td>{{uur.comment}}</td>
           <td>{{uur.employeeName}}</td>

@@ -23,7 +23,7 @@ public getAll(): Observable<User[]> {
 
 test : LoginComponent
 
-public login(user: User, remember: boolean): void{
+public login(user: User, remember: boolean): boolean{
     this.authService.setAuthorization(user.email, user.wachtwoord);
     this.api.get<User>('personeel/login').subscribe(
         authenticator => {   
@@ -31,11 +31,15 @@ public login(user: User, remember: boolean): void{
             this.authService.storeAuthorization(authenticator, remember);
             sessionStorage.setItem('activeUser', JSON.stringify(authenticator));
             this.router.navigate(['/registratie']);
+            return true;
         },
         error => {
-            
+            console.log("error")
+            return false
         }
     );
+
+    return false;
 }
 
 public setWerkzaam(user: User) {

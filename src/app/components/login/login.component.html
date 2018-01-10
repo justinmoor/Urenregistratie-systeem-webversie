@@ -26,6 +26,9 @@
             <div class="form-group">
               <button [disabled]="!user.wachtwoord||!user.email" class="btn btn-secondary" (click)='logIn()'>Login</button>
               <div class="clearfix"></div>
+              <div *ngIf="fout == false" class="alert alert-danger">
+                Foute ingloggegevens!
+              </div>
             </div>
           </div>
         </div>

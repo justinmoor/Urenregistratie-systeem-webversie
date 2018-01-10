@@ -24,26 +24,24 @@ export class HoursOverviewComponent implements OnInit {
     this.hoursService.getAll().subscribe(hours => {
       this.hours = hours;
     });
+  }
 
+  setDate(){
+    console.log(this.hours[0].startingDate)
   }
 
   createCsv(){
     this.filteredHours = this.filterPipe.transform(this.hours, 'customerName', this.searchCustomer);
     this.filteredHours = this.filterPipe.transform(this.filteredHours, 'projectName', this.searchProject);
     this.filteredHours = this.filterPipe.transform(this.filteredHours, 'subjectName', this.searchSubject);
-
     // this.csvService.download(this.filteredHours, 'Gewerkte Uren '+new Date().toDateString());
   }
 
   ngOnInit(){
-
+   
   }
 
   setConfirmed(uur){
     this.hoursService.setConfirmed(uur);
   }
-
-
-
-
 }

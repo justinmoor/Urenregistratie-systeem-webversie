@@ -1,8 +1,13 @@
 .card{
-    box-shadow: 0 2px 4px 0 #a3a3a3
+    box-shadow: 0 2px 4px 0 #a3a3a3;
+    height: 600px;
+    display: block;
+    overflow-y: scroll;
 }
 
 .block{
     float: left;
     padding: 3px;
 }
+
+
