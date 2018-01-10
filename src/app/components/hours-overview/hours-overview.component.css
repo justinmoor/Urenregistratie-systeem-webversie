@@ -9,11 +9,12 @@ section {
 }
 
 td {
-  padding: 5px;
+  padding: 5px 0px 5px 0px;
 }
 
 label {
   padding-top: 3px;
+  padding-right: 5px;
 }
 
 table {
@@ -22,6 +23,11 @@ table {
 
 th {
   padding: 10px;
+}
+
+button {
+  padding: 10px;
+  width: 100%;
 }
 
 .naarlinks{
