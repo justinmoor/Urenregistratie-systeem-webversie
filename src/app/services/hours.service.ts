@@ -51,7 +51,7 @@ export class HoursService {
   }
   public updateHour(uur:HourRegister){
     this.id  = this.getActiveUserId()
-    this.api.setHour(uur,this.id);
+    this.api.updateHour(uur,this.id);
   }
 }
 
