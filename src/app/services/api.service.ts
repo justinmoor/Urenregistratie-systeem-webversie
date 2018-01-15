@@ -9,13 +9,13 @@ import { User } from '../models/user';
 import { Customer } from '../models/customer';
 import { URLSearchParams } from '@angular/http';
 import { HourRegister } from '../models/hour-register';
-import { Subject } from '../models/Subject';
+import { Subject } from '../models/subject';
 
 @Injectable()
 export class ApiService{
     constructor(private http: HttpClient, private authService: AuthorizationService){
 
-    }  
+    }
 
     private createQueryString(queryParameters: Object): string
     {
@@ -44,7 +44,7 @@ export class ApiService{
             headers = headers.set('Authorization', this.authService.createAuthorizationString());
             console.log(this.authService.createAuthorizationString())
         }
-       
+
         return headers;
     }
 

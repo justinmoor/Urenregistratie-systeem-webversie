@@ -6,7 +6,7 @@ import {Observable} from 'rxjs/Observable';
 import {User} from '../models/user';
 import { Customer } from '../models/customer';
 import { Project } from '../models/project';
-import { Subject } from '../models/Subject';
+import { Subject } from '../models/subject';
 
 @Injectable()
 export class HoursService {
@@ -17,7 +17,7 @@ export class HoursService {
   }
 
   public getAll(): Observable<Hours[]> {
-  
+
     console.log(this.id);
     return this.api.getUrenVanUser<Hours[]>(this.id);
   }
