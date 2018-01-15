@@ -49,5 +49,9 @@ export class HoursService {
   public setConfirmed(uur){
     this.api.setConfirmed(uur);
   }
+  public updateHour(uur:HourRegister){
+    this.id  = this.getActiveUserId()
+    this.api.setHour(uur,this.id);
+  }
 }
 

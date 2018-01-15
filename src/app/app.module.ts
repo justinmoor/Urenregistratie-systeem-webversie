@@ -22,10 +22,12 @@ import { PathGuardGuard } from './guards/path-guard.guard';
 import { AdminGuard } from './guards/admin.guard';
 
 import { CsvService } from 'angular2-json2csv';
+import { UpdateHoursComponent } from './components/update-hours/update-hours.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'registratie', component: RegisterHoursComponent, canActivate:[PathGuardGuard]},
+  { path: 'wijzigen', component: UpdateHoursComponent, canActivate:[PathGuardGuard]},
   { path: 'accountmaken', component: CreateAccountComponent, canActivate:[PathGuardGuard, AdminGuard]},
   { path: 'gebruikers', component: UserOverviewComponent, canActivate:[PathGuardGuard, AdminGuard]},
   { path: 'urenoverzicht', component: HoursOverviewComponent, canActivate:[PathGuardGuard]},
@@ -43,7 +45,8 @@ const appRoutes: Routes = [
     HoursOverviewComponent,
     AccountInfoComponent,
     FilterPipe,
-    SortByPipe
+    SortByPipe,
+    UpdateHoursComponent
   ],
   imports: [
     BrowserModule,

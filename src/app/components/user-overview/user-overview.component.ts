@@ -11,11 +11,16 @@ import { User } from '../../models/user';
 export class UserOverviewComponent implements OnInit {
   users: User[];
   public searchString:string;
+  fout: boolean = false;
 
   constructor(private userService: UserService) {
     this.userService.getAll().subscribe(users => {
       this.users = users;
+    },
+    error =>{
+      this.fout = true
     });
+    
   }
 
   ngOnInit() {

@@ -61,10 +61,13 @@
          
       </tr>
       <tr>
-        <td colspan="4" class="td-button"><button type="button" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>
+        <td colspan="4" class="td-button"><button type="button" [disabled]="fout" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>
       </tr>
-
+  
     </table>
+    <div style="width: 100%;"*ngIf="fout" class="alert alert-danger">
+      Er is iets mis gegaan!
+    </div>
   </div>
   </div>
 </div>

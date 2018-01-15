@@ -1,6 +1,10 @@
 <div class = container-fluid>
   <h1>Weekoverzicht</h1>
 
+  <div style="width: 100%;"*ngIf="fout" class="alert alert-danger">
+    Er is iets mis gegaan!
+  </div>
+  <div *ngIf="!fout">
   <div class="naarlinks">
       <div class="card" style="padding: 20px;">
         <div class="form-group">
@@ -65,9 +69,13 @@
               <option>Nee</option>
             </select>
           </td>
+          <td>
+              <button type="button" ng-disabled="uur.confirmed" class="btn btn-primary" routerLink="/registratie">Wijzigen</button>
+          </td>
         </tr>
         </tbody>
       </table>
     </div>
   </section>
 </div>
+<div>
