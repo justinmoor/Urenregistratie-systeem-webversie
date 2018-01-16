@@ -12,6 +12,7 @@ import { ApiService } from '../../services/api.service';
 export class LoginComponent {
 
   user: User = new User();
+  fout : boolean = true;
 
   show() {
     
@@ -21,6 +22,6 @@ export class LoginComponent {
    }
 
   logIn() {
-    this.userService.login(this.user, false);
+    this.fout = this.userService.login(this.user, false);
   }
 }

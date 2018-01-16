@@ -111,11 +111,13 @@ export class ApiService{
         return this.http.post(uri, data, { headers: headers }).subscribe();
     }
 
-    public changePassword(id:number, newPassword:String) {
+    public changePassword(id:number, newPassword:String, oldPassword:string) {
         let data = {
             id : id,
-            wachtwoord : newPassword
+            wachtwoord:newPassword,
+            oldPassword:oldPassword
         };
+        console.log("l",oldPassword,"l")
         let uri = this.createURI('personeel/wachtwoord', data);
         return this.http.post(uri, data).subscribe();
     }
@@ -190,4 +192,20 @@ export class ApiService{
           this.http.post(uri, data, {headers: headers}).subscribe(() => console.log('success biatch!'),
           error => console.log(error));
       }
+    public updateHour(hour:HourRegister, employeeID){
+        let data ={
+            startingDate : hour.startingDate,
+            startingTime : hour.startingTime,
+            endingDate : hour.endingDate,
+            endingTime : hour.endingTime,
+            customerName : hour.customerName,
+            projectName : hour.projectName,
+            subjectName : hour.subjectName,
+            comment : hour.comment,
+            employeeId : employeeID
+        }
+        console.log(data)
+        let uri = this.createURI('uren/updateHour', null)
+        return this.http.post(uri, data).subscribe();
+    }
 }

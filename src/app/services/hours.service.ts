@@ -120,6 +120,11 @@ export class HoursService {
         this.api.addSubject(customerName, projectName, subjectName);
       }
     });
+  
+  }
+  public updateHour(uur:HourRegister) {
+    
+    this.id  = this.getActiveUserId()
+    this.api.updateHour(uur,this.id);
   }
 }
-

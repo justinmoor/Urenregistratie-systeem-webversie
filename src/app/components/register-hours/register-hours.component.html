@@ -13,7 +13,7 @@
             <option *ngFor="let customer of customers">{{ customer.customerName }}</option>
           </select>
         </td>
-        <td><label for="begindatum">Begin datum: </label></td>
+        <td><label for="begindatum">Begindatum: </label></td>
         <td><input type="date" value="{{date}}" class="form-control" id="einddatum"
           [(ngModel)]="hour.startingDate"
           name="startingDate"></td>
@@ -27,7 +27,7 @@
             <option></option>
             <option *ngFor="let project of projects">{{ project.projectName }}</option>
           </select></td>
-          <td><label for="begintijd">Begin tijd: </label></td>
+          <td><label for="begintijd">Begintijd: </label></td>
           <td><input type="time" class="form-control" id="begintijd"
             [(ngModel)]="hour.startingTime"
             name="startingTime"></td>
@@ -43,7 +43,7 @@
             <option *ngFor="let subject of subjects">{{ subject.subjectName }}</option>
           </select></td>
 
-        <td><label for="eindtijd">Eind tijd: </label></td>
+        <td><label for="eindtijd">Eindtijd: </label></td>
         <td><input type="time" class="form-control" id="eindtijd"
           (click)="setEndTime()"
           [(ngModel)]="hour.endingTime"
@@ -61,10 +61,13 @@
          
       </tr>
       <tr>
-        <td colspan="4" class="td-button"><button type="button" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>
+        <td colspan="4" class="td-button"><button type="button" [disabled]="fout" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>
       </tr>
-
+  
     </table>
+    <div style="width: 100%;"*ngIf="fout" class="alert alert-danger">
+      Er is iets mis gegaan!
+    </div>
   </div>
   </div>
 </div>

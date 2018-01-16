@@ -31,6 +31,13 @@ export class RegisterHoursComponent implements OnInit {
   customerName: string;
   projectName: string;
   subjectName: string
+
+  customer: Customer = new Customer;
+  project: Project = new Project;
+  subject: Subject = new Subject;
+
+  fout:boolean = false;
+
   constructor(private hourservice:HoursService) { 
     this.getCustomers();
 
@@ -116,5 +123,4 @@ export class RegisterHoursComponent implements OnInit {
     this.hour.projectName = null;
     this.hour.subjectName = null;
   }
-
 }

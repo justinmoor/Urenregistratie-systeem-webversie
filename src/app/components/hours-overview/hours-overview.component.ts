@@ -19,32 +19,34 @@ export class HoursOverviewComponent implements OnInit {
   public searchCustomer: string;
   public searchProject: string;
   public searchSubject: string;
-  private CsvService: CsvService
+
+  fout : boolean = false;
+  private csvService: CsvService
   constructor(private hoursService: HoursService, private filterPipe: FilterPipe, private auth: AuthorizationService) {
     this.hoursService.getAll().subscribe(hours => {
       this.hours = hours;
+    },
+    error => {
+      this.fout = true;
     });
-    console.log(this.hours)
+  }
 
+  setDate(){
+    console.log(this.hours[0].startingDate)
   }
 
   createCsv(){
     this.filteredHours = this.filterPipe.transform(this.hours, 'customerName', this.searchCustomer);
     this.filteredHours = this.filterPipe.transform(this.filteredHours, 'projectName', this.searchProject);
     this.filteredHours = this.filterPipe.transform(this.filteredHours, 'subjectName', this.searchSubject);
-
-    this.CsvService.download(this.filteredHours, 'Gewerkte Uren '+new Date().toDateString());
+    this.csvService.download(this.filteredHours, 'Gewerkte Uren '+new Date().toDateString());
   }
 
   ngOnInit(){
-
+   
   }
 
   setConfirmed(uur){
     this.hoursService.setConfirmed(uur);
   }
-
-
-
-
 }

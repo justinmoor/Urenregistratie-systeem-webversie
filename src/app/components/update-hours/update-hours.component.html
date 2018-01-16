@@ -1,0 +1,123 @@
+<div class="container">
+  <h1>Uren registreren</h1>
+  <div class="card" style="padding: 20px;">
+    <div class="form-group">
+      <table>
+        <tr>
+          <td>
+            <label for="klant">Klant: </label>
+          </td>
+          <td>
+            <select (change)="getProjects() || setProjects()" class="form-control" id="klant" [(ngModel)]="hour.customerName" name=customerName>
+              <option *ngFor="let customer of customers">{{ customer.customerName }}</option>
+            </select>
+          </td>
+
+          <td>
+            <label for="begintijd">Begin tijd: </label>
+          </td>
+          <td>
+            <input type="time" class="form-control" id="begintijd" [(ngModel)]="hour.startingTime" name="startingTime">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="project">Project: </label>
+          </td>
+          <td class="td">
+            <select [disabled]="!hour.customerName" (change)="getSubjects()" class="form-control" id="project" [(ngModel)]="hour.projectName"
+              name=projectName>
+              <option *ngFor="let project of projects">{{ project.projectName }}</option>
+            </select>
+          </td>
+
+          <td>
+            <label for="begindatum">Begin datum: </label>
+          </td>
+          <td>
+            <input type="date" value="{{date}}" class="form-control" id="einddatum" [(ngModel)]="hour.startingDate" name="startingDate">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="onderwerp">Onderwerp: </label>
+          </td>
+          <td>
+            <select [disabled]="!hour.projectName || !hour.customerName" class="form-control" id="Subject" [(ngModel)]="hour.subjectName"
+              name=subjectName>
+              <option *ngFor="let subject of subjects">{{ subject.subjectName }}</option>
+            </select>
+          </td>
+
+          <td>
+            <label for="eindtijd">Eind tijd: </label>
+          </td>
+          <td>
+            <input type="time" class="form-control" id="eindtijd" (click)="setEndTime()" [(ngModel)]="hour.endingTime" name="endingTime">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="commentaar">Commentaar: </label>
+          </td>
+          <td class="td">
+            <input type="text" class="form-control" id="commentaar" [(ngModel)]="hour.comment" name="comment">
+          </td>
+
+          <td>
+            <label for="einddatum">Eind datum: </label>
+          </td>
+
+
+        </tr>
+        <tr>
+          <td colspan="4" class="td-button">
+            <button type="button" class="btn btn-primary" (click)="updateHour()">Wijzigen</button>
+          </td>
+        </tr>
+
+      </table>
+      <div style="width: 100%;" *ngIf="fout" class="alert alert-danger">
+        Er is een fout opgetreden...
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content-container">
+  <div class="card" style="padding: 20px;">
+    <table>
+      <tr>
+        <td>
+          <label>Klant:</label>
+        </td>
+        <td>
+          <input type="klant" [(ngModel)]="customer.customerName" name="klant" required class="form-control">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Project:</label>
+        </td>
+        <td>
+          <input type="project" [(ngModel)]="project.projectName" name="project" required class="form-control">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Onderwerp:</label>
+        </td>
+        <td>
+          <input type="onderwerp" [(ngModel)]="subject.subjectName" name="onderwerp" required class="form-control">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="td-button">
+          <div class="form-group">
+            <button type="button" class="td-button" class="btn btn-primary" (click)='addCategory()'>Toevoegen</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

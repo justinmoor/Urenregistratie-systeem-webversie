@@ -18,12 +18,13 @@ export class UserService {
 
 }
 public getAll(): Observable<User[]> {
-    return this.api.getUsers<User[]>();
+    return this.api.getUsers<User[]>()
+
 }
 
 test : LoginComponent
 
-public login(user: User, remember: boolean): void{
+public login(user: User, remember: boolean): boolean{
     this.authService.setAuthorization(user.email, user.wachtwoord);
     this.api.get<User>('personeel/login').subscribe(
         authenticator => {   
@@ -31,11 +32,15 @@ public login(user: User, remember: boolean): void{
             this.authService.storeAuthorization(authenticator, remember);
             sessionStorage.setItem('activeUser', JSON.stringify(authenticator));
             this.router.navigate(['/registratie']);
+            return true;
         },
         error => {
-            
+            console.log("error")
+            return false
         }
     );
+
+    return false;
 }
 
 public setWerkzaam(user: User) {
@@ -51,8 +56,8 @@ public voegAccountToe(user: User) {
     this.api.voegAccountToe(user);
 }
 
-public changePassword(id:number, nieuwWachtwoord:string) {
-    this.api.changePassword(id, nieuwWachtwoord);
+public changePassword(id:number, nieuwWachtwoord:string, oldPassword:string) {
+    this.api.changePassword(id, nieuwWachtwoord, oldPassword);
 }
 
 }

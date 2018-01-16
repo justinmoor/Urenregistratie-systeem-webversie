@@ -28,10 +28,9 @@ export class AccountInfoComponent implements OnInit {
 
   opslaanGegevens() {
     console.log(this.newPassword + " " + this.repeatNewPassword + " " + this.oldPassword + " " + this.user.password)
-    if(this.newPassword == this.repeatNewPassword && this.user.password == this.oldPassword) {
+    if(this.newPassword == this.repeatNewPassword) {
 
-    this.userService.changePassword(this.id, this.newPassword)
-    this.user.password = this.newPassword;
-  }
+      this.userService.changePassword(this.id, this.newPassword, this.oldPassword)
+    }
   }
 }

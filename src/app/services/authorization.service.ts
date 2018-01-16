@@ -75,6 +75,7 @@ export class AuthorizationService
     public getActiveUser(){
         //Actieve user krijgen
         this.activeUser = JSON.parse(sessionStorage.getItem("activeUser"));
+  //      console.log(this.activeUser)
         return this.activeUser
     }
 
