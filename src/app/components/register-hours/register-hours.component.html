@@ -13,11 +13,10 @@
             <option *ngFor="let customer of customers">{{ customer.customerName }}</option>
           </select>
         </td>
-
-        <td><label for="begintijd">Begin tijd: </label></td>
-        <td><input type="time" class="form-control" id="begintijd"
-          [(ngModel)]="hour.startingTime"
-          name="startingTime"></td>
+        <td><label for="begindatum">Begin datum: </label></td>
+        <td><input type="date" value="{{date}}" class="form-control" id="einddatum"
+          [(ngModel)]="hour.startingDate"
+          name="startingDate"></td>
       </tr>
       <tr>
         <td><label for="project">Project: </label> </td>
@@ -28,11 +27,11 @@
             <option></option>
             <option *ngFor="let project of projects">{{ project.projectName }}</option>
           </select></td>
+          <td><label for="begintijd">Begin tijd: </label></td>
+          <td><input type="time" class="form-control" id="begintijd"
+            [(ngModel)]="hour.startingTime"
+            name="startingTime"></td>
 
-        <td><label for="begindatum">Begin datum: </label></td>
-        <td><input type="date" value="{{date}}" class="form-control" id="einddatum"
-          [(ngModel)]="hour.startingDate"
-          name="startingDate"></td>
       </tr>
       <tr>
         <td><label for="onderwerp">Onderwerp: </label> </td>
@@ -52,11 +51,12 @@
       </tr>
       <tr>
         <td><label for="commentaar">Commentaar: </label> </td>
-        <td class="td"><input type="text" class="form-control" id="commentaar"
+        <td colspan="3" class="td"><input type="text" class="form-control" id="commentaar"
           [(ngModel)]="hour.comment"
-          name="comment"></td>
+          name="comment" ></td>
 
-        <td><label for="einddatum">Eind datum: </label></td>
+       <td></td>
+       <td></td>
 
          
       </tr>
@@ -72,12 +72,13 @@
 <div class="addingstuff-container">
     <div class="card" style="padding: 20px;">
       <table>
+        <th colspan="2"><h3>Categorie toevoegen</h3></th>
         <tr>
           <td>
             <label>Klant:</label>
           </td>
           <td>
-            <input type="klant" [(ngModel)]="customer.customerName" name="klant" required class="form-control">
+            <input type="text" [(ngModel)]="customerName" name="klant" class="form-control">
           </td>
         </tr>
         <tr>
@@ -85,7 +86,7 @@
             <label>Project:</label>
           </td>
           <td>
-            <input type="project" [(ngModel)]="project.projectName" name="project" required class="form-control">
+            <input type="text" [(ngModel)]="projectName" name="project" class="form-control">
           </td>
         </tr>
         <tr>
@@ -93,13 +94,13 @@
             <label>Onderwerp:</label>
           </td>
           <td>
-            <input type="onderwerp" [(ngModel)]="subject.subjectName" name="onderwerp" required class="form-control">
+            <input type="text" [(ngModel)]="subjectName" name="onderwerp" class="form-control">
           </td>
         </tr>
         <tr>
           <td colspan="2" class="td-button">
             <div class="form-group">
-              <button type="button" class="td-button" class="btn btn-primary" (click)='addCategory()'>Toevoegen</button>
+              <button type="button" class="btn btn-primary" (click)='addCategory()'>Toevoegen</button>
             </div>
           </td>
         </tr>

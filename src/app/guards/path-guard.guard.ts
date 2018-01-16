@@ -12,7 +12,6 @@ export class PathGuardGuard implements CanActivate {
   }
 
   canActivate(){
-    console.log("guard");
     if(this.auth.getActiveUser() != null){
       return true;
     } else {

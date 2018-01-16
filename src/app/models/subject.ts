@@ -1,8 +1,8 @@
 export class Subject{
     constructor( 
-        public subjectID?:Number,
-        public subjectName?:String,
-        public projectID?:Number
+        public subjectID?:number,
+        public subjectName?:string,
+        public projectID?:number
         ) {
        
     }
@@ -12,7 +12,7 @@ export class Subject{
     }
 
     public getSubjectName() {
-        return this.getSubjectName;
+        return this.subjectName;
     }
 
 }

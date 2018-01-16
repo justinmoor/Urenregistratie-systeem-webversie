@@ -14,6 +14,7 @@ import { Subject } from '../models/Subject';
 @Injectable()
 export class ApiService{
     constructor(private http: HttpClient, private authService: AuthorizationService){
+  
 
     }  
 
@@ -42,7 +43,6 @@ export class ApiService{
         if (this.authService.hasAuthorization())
         {
             headers = headers.set('Authorization', this.authService.createAuthorizationString());
-            console.log(this.authService.createAuthorizationString())
         }
        
         return headers;
@@ -132,7 +132,6 @@ export class ApiService{
             comment : hour.comment,
             employeeId : employeeID
         }
-        console.log(data)
         let uri = this.createURI('uren/setHour', null)
         return this.http.post(uri, data).subscribe();
     }
@@ -151,5 +150,44 @@ export class ApiService{
 
     public getSubjects<T>(projectName: String, customerName:String): Observable<T> {
         return this.http.get<T>("http://localhost:8080/api/subjects/allByName?project="+projectName+"&klant="+customerName);
+      }
+
+
+    private data(customerName, projectName, subjectName) {
+        let data = {
+            klantnaam : customerName,
+            projectnaam : projectName,
+            onderwerpnaam : subjectName
+        }
+        return data;
+    }
+    public addCustomer(customerName: string, projectName: string, subjectName: string) {
+        console.log("api.service addCustomer", customerName, projectName, subjectName)
+        let data = this.data(customerName, projectName, subjectName);
+        let uri = this.createURI('klanten/add', null);
+        let headers = this.createRequestHeaders();
+
+        this.http.post(uri, data, {headers: headers}).subscribe(() => console.log('success biatch!'),
+        error => console.log(error));
+      }
+
+      public addProject(customerName: string, projectName: string, subjectName: string) {
+        console.log("api.service addProject", customerName, projectName, subjectName)
+        let data = this.data(customerName, projectName, subjectName);
+        let uri = this.createURI('projects/add', null);
+        let headers = this.createRequestHeaders();
+
+        this.http.post(uri, data, {headers: headers}).subscribe(() => console.log('success biatch!'),
+        error => console.log(error));
+      }
+
+      public addSubject(customerName:string, projectName:string, subjectName:string) {
+        console.log("api.service addSubject", customerName, projectName, subjectName)
+          let data = this.data(customerName, projectName, subjectName);
+          let uri = this.createURI('subjects/add', null);
+          let headers = this.createRequestHeaders();
+
+          this.http.post(uri, data, {headers: headers}).subscribe(() => console.log('success biatch!'),
+          error => console.log(error));
       }
 }
