@@ -1,8 +1,8 @@
 export class Project{
     constructor(
-        public projectID?:Number,
-        public projectName?:String,
-        public customerID?:Number
+        public projectID?:number,
+        public projectName?:string,
+        public customerID?:number
     ){
 
     }

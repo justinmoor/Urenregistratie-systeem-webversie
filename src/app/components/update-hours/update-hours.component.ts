@@ -29,7 +29,9 @@ export class UpdateHoursComponent implements OnInit {
   fout: boolean = false;
 
   constructor(private hourservice: HoursService) {
-
+    this.getProjects();
+    this.getSubjects();
+    this.getCustomers();
   }
 
   ngOnInit() {
@@ -43,9 +45,14 @@ export class UpdateHoursComponent implements OnInit {
     });
   }
   public getProjects() {
+    console.log(this.hour.customerName,"hoi");
     this.hourservice.getProjects(this.hour.customerName).subscribe(project => {
       this.projects = project;
     });
+  }
+  public getCustomers(){
+    this.hourservice.getCustomers().subscribe(customers =>{
+      this.customers=customers;})
   }
   public setTime() {
     this.getDate();

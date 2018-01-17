@@ -19,7 +19,6 @@ export class LoginComponent {
   }
 
   constructor(private userService: UserService, private apiService: ApiService) {
-      console.log('Constructor ran...');
    }
 
   logIn() {

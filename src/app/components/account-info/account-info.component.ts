@@ -27,11 +27,19 @@ export class AccountInfoComponent implements OnInit {
   }
 
   opslaanGegevens() {
+<<<<<<< HEAD
     console.log(this.newPassword + " " + this.repeatNewPassword + " " + this.oldPassword + " " + this.user.wachtwoord)
     if(this.newPassword == this.repeatNewPassword && this.user.wachtwoord == this.oldPassword) {
 
     this.userService.changePassword(this.id, this.newPassword)
     this.user.wachtwoord = this.newPassword;
   }
+=======
+    console.log(this.newPassword + " " + this.repeatNewPassword + " " + this.oldPassword + " " + this.user.password)
+    if(this.newPassword == this.repeatNewPassword) {
+
+      this.userService.changePassword(this.id, this.newPassword, this.oldPassword)
+    }
+>>>>>>> 5d38c0c76cc415837e76ff562399906262891556
   }
 }

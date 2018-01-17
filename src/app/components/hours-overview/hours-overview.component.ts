@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Hours } from '../../models/hours';
 import { HoursService } from '../../services/hours.service';
-// import { CsvService } from 'angular2-json2csv';
+import { CsvService } from 'angular2-json2csv';
 import { FilterPipe } from '../../pipes/filter-pipe.pipe';
 import {AuthorizationService} from '../../services/authorization.service';
 
@@ -21,7 +21,7 @@ export class HoursOverviewComponent implements OnInit {
   public searchSubject: string;
 
   fout : boolean = false;
-// , private csvService: CsvService
+  private csvService: CsvService
   constructor(private hoursService: HoursService, private filterPipe: FilterPipe, private auth: AuthorizationService) {
     this.hoursService.getAll().subscribe(hours => {
       this.hours = hours;
@@ -39,7 +39,7 @@ export class HoursOverviewComponent implements OnInit {
     this.filteredHours = this.filterPipe.transform(this.hours, 'customerName', this.searchCustomer);
     this.filteredHours = this.filterPipe.transform(this.filteredHours, 'projectName', this.searchProject);
     this.filteredHours = this.filterPipe.transform(this.filteredHours, 'subjectName', this.searchSubject);
-    // this.csvService.download(this.filteredHours, 'Gewerkte Uren '+new Date().toDateString());
+    this.csvService.download(this.filteredHours, 'Gewerkte Uren '+new Date().toDateString());
   }
 
   ngOnInit(){

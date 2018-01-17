@@ -28,6 +28,9 @@ export class RegisterHoursComponent implements OnInit {
   timeHour;
   timeMinute;
   time;
+  customerName: string;
+  projectName: string;
+  subjectName: string
 
   customer: Customer = new Customer;
   project: Project = new Project;
@@ -36,27 +39,9 @@ export class RegisterHoursComponent implements OnInit {
   fout:boolean = false;
 
   constructor(private hourservice:HoursService) { 
+    this.getCustomers();
 
-    this.hourservice.getCustomers().subscribe(customer =>{
-    this.customers=customer;
-    },
-    error => {
-      this.fout = true;
-    });
-
-    this.today = new Date();
-    this.year = this.today.getFullYear();
-    this.month = this.today.getMonth() + 1;
-    this.day = this.today.getDate();
-    if(this.month < 10){
-      this.month = 0 +"" + this.month;
-    }
-    if(this.day < 10){
-      this.day = 0 +"" + this.day;
-    }
-    this.date = ""+ this.year.toString() +"-" + this.month.toString()+ "-"+ this.day.toString();
-    this.hour.startingDate = this.date;
-
+    this.getDate();
     this.setstartTime();
     this.setEndTime();
   }
@@ -65,13 +50,10 @@ export class RegisterHoursComponent implements OnInit {
   }
 
   addCategory() {
-    // if (klant input > 0) addCustomer() 
-    // if (project input > 0) addProject() 
-    // if (subject input > 0) addSubject()
+    this.hourservice.addCategory(this.customerName, this.projectName, this.subjectName);
   }
 
   public saveHour() {
-    console.log(this.hour);
     this.hourservice.setHour(this.hour);
   }
 
@@ -87,11 +69,16 @@ export class RegisterHoursComponent implements OnInit {
     });
   }
 
-  public setDate(startingDate) {
-    this.hour.startingDate= startingDate;
+  public getCustomers() {
+    this.hourservice.getCustomers().subscribe(customers =>{
+      this.customers=customers;
+      });
   }
 
-  
+  public setDate(startingDate) {
+    this.hour.startingDate = startingDate;
+  }
+
   public setTime() {
     this.getDate();
     this.time = null;
@@ -112,21 +99,28 @@ export class RegisterHoursComponent implements OnInit {
   }
 
   public setEndTime() {
-    console.log("fire>>>>>>");
     this.setTime();
-    console.log(this.time);
-    this.hour.endingTime = this.time;
-    console.log(this.hour);
+    this.hour.setEndTime(this.time)
   }
 
+  public getDate() {
+    this.today = new Date();
+    this.year = this.today.getFullYear();
+    this.month = this.today.getMonth() + 1;
+    this.day = this.today.getDate();
+    if(this.month < 10){
+      this.month = 0 +"" + this.month;
+    }
+    if(this.day < 10){
+      this.day = 0 +"" + this.day;
+    }
+    this.date = ""+ this.year.toString() +"-" + this.month.toString()+ "-"+ this.day.toString();
+    this.hour.startingDate = this.date;
+  }
 
 
   public setProjects() {
     this.hour.projectName = null;
     this.hour.subjectName = null;
   }
-
-public getDate() {
-  this.today = new Date();
-}
 }
