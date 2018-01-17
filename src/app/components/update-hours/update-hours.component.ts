@@ -45,6 +45,7 @@ export class UpdateHoursComponent implements OnInit {
     });
   }
   public getProjects() {
+    console.log(this.hour.customerName,"hoi");
     this.hourservice.getProjects(this.hour.customerName).subscribe(project => {
       this.projects = project;
     });

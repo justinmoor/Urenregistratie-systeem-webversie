@@ -9,6 +9,7 @@
           </td>
           <td>
             <select (change)="getProjects() || setProjects()" class="form-control" id="klant" [(ngModel)]="hour.customerName" name=customerName>
+              <option></option>
               <option *ngFor="let customer of customers">{{ customer.customerName }}</option>
             </select>
           </td>
