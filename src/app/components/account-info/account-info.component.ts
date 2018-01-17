@@ -27,11 +27,11 @@ export class AccountInfoComponent implements OnInit {
   }
 
   opslaanGegevens() {
-    console.log(this.newPassword + " " + this.repeatNewPassword + " " + this.oldPassword + " " + this.user.password)
-    if(this.newPassword == this.repeatNewPassword && this.user.password == this.oldPassword) {
+    console.log(this.newPassword + " " + this.repeatNewPassword + " " + this.oldPassword + " " + this.user.wachtwoord)
+    if(this.newPassword == this.repeatNewPassword && this.user.wachtwoord == this.oldPassword) {
 
     this.userService.changePassword(this.id, this.newPassword)
-    this.user.password = this.newPassword;
+    this.user.wachtwoord = this.newPassword;
   }
   }
 }

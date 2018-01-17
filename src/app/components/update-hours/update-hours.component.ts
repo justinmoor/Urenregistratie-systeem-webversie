@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HourRegister } from '../../models/hour-register';
 import { Customer } from '../../models/customer';
 import { Project } from '../../models/project';
-import { Subject } from '../../models/Subject';
+import { Subject } from '../../models/subject';
 import { HoursService } from '../../services/hours.service';
 
 @Component({

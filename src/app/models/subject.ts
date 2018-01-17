@@ -1,8 +1,8 @@
 export class Subject{
     constructor( 
-        public subjectID?:Number,
+        public subjectID?:number,
         public subjectName?:String,
-        public projectID?:Number
+        public projectID?:number
         ) {
        
     }
