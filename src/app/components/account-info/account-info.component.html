@@ -30,11 +30,10 @@
             type="password"
             class="form-control"
             id="oldPass"
+            [(ngModel)]="oldPassword" 
+            #oldPass="ngModel"
             name="oldPassword"
-            required></td>
-      </tr>
-      <tr *ngIf="oldPass.errors?.required && oldPass.touched" class="invalid-feedback">
-          Dit veld is verplicht
+          ></td>
       </tr>
       <tr>
         <td><label for="newPass">Nieuw wachtwoord:</label></td>
@@ -42,15 +41,11 @@
           type="password" 
           class="form-control" 
           id="newPass"
+          [(ngModel)]="newPassword"
+          name="newPassword"
           #newPass="ngModel"
           minlength="8"
-          required></td>
-      </tr>
-      <tr *ngIf="newPass.errors?.required && newPass.touched" class="invalid-feedback">
-        Dit veld is verplicht
-      </tr>
-      <tr *ngIf="newPass.errors?.minlength && newPass.touched" class="invalid-feedback">
-        Wachtwoord moet minimaal 8 tekens lang zijn
+          ></td>
       </tr>
       <tr>
         <td><label for="repeatNewPass">Herhaal nieuw wachtwoord:</label></td>
@@ -58,15 +53,11 @@
           type="password" 
           class="form-control" 
           id="repeatNewPass"
+          [(ngModel)]="repeatNewPassword"
+          name="repeatNewPassword"
           #repeatNewPass="ngModel"
           minlength="8"
-          required></td>
-      </tr>
-      <tr *ngIf="repeatNewPass.errors?.required && repeatNewPass.touched" class="invalid-feedback">
-        Dit veld is verplicht
-      </tr>
-      <tr *ngIf="repeatNewPass.errors?.minlength && repeatNewPass.touched" class="invalid-feedback">
-        Wachtwoord moet minimaal 8 tekens lang zijn
+          ></td>
       </tr>
       <tr>
         <td colspan="2"><button type="button" class="btn btn-primary" (click)="opslaanGegevens()" >Opslaan</button></td>
