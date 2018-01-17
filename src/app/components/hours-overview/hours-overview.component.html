@@ -28,7 +28,7 @@
 
           </table>
         </div>
-        <button type="button" class="btn" (click)='createCsv()'>Download CSV</button>
+        <button type="button" class="btn" class="download" (click)='createCsv()'>Download CSV</button>
       </div>
     </div>
   <section>
@@ -45,6 +45,7 @@
           <th scope="col">Project</th>
           <th scope="col">Onderwerp</th>
           <th *ngIf="auth.getActiveUser().rechten == 1" scope="col">Goedgekeurd</th>
+          <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -70,7 +71,7 @@
             </select>
           </td>
           <td>
-              <button type="button" ng-disabled="uur.confirmed" class="btn btn-primary" routerLink="/wijzigen">Wijzigen</button>
+              <button type="button" [disabled]="uur.confirmed" class="btn btn-secondary" routerLink="/wijzigen">Wijzigen</button>
           </td>
         </tr>
         </tbody>
