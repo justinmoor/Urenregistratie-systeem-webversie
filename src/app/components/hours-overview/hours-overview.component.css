@@ -10,12 +10,16 @@ section {
 
 label {
   padding-top: 3px;
-  padding-right: 5px;
+  padding-right: 10px;
 }
 
 table {
   width: 100%;
   font-size: 13px;
+}
+
+.oi td {
+  padding-bottom: 10px;
 }
 
 .table td {
@@ -39,7 +43,7 @@ tr {
   vertical-align: middle;
 }
 
-tr:hover {
+.table tr:hover {
   background-color: rgb(251, 251, 251)
 }
 
