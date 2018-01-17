@@ -56,8 +56,8 @@ public voegAccountToe(user: User) {
     this.api.voegAccountToe(user);
 }
 
-public changePassword(id:number, nieuwWachtwoord:string) {
-    this.api.changePassword(id, nieuwWachtwoord);
+public changePassword(id:number, nieuwWachtwoord:string, oldPassword:string) {
+    this.api.changePassword(id, nieuwWachtwoord, oldPassword);
 }
 
 }
