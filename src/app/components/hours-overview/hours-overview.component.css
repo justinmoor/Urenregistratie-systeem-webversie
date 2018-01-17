@@ -1,7 +1,3 @@
-/* * {
-  padding: 0px;
-} */
-
 .card{
     box-shadow: 0 2px 4px 0 #a3a3a3
 }
@@ -18,11 +14,16 @@ label {
 }
 
 table {
+  width: 100%;
   font-size: 13px;
 }
 
 .table td {
   vertical-align: middle;
+}
+
+.table th {
+  border-bottom: none;
 }
 
 .download {
@@ -36,6 +37,15 @@ table {
 tr {
   height: 36px;
   vertical-align: middle;
+}
+
+tr:hover {
+  background-color: rgb(251, 251, 251)
+}
+
+th {
+  width: 150px;
+  background-color: rgb(251, 251, 251)
 }
 
 button {
