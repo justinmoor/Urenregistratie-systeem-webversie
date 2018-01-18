@@ -63,8 +63,9 @@ export class ApiService{
     }
 
     public getUrenVanAlleUsers<T>(): Observable<T> {
-      let uri = this.createURI("uren/getbyid?id=") // werkt niet?
-      return this.http.get<T>("http://localhost:8080/api/uren/getall");
+      let headers = this.createRequestHeaders();
+      let uri = this.createURI("uren/getall") // werkt niet?
+      return this.http.get<T>("http://localhost:8080/api/uren/getall", {headers : headers});
     }
     public getUrenVanUser<T>(id) : Observable<T> {
       let uri = this.createURI("uren/getbyid?id=") // werkt niet?
@@ -79,7 +80,7 @@ export class ApiService{
     }
 
     public setWerkzaam( userModel: User){
-        
+
         let data = {
             id : userModel.personeelID,
             werkzaam : userModel.werkzaam

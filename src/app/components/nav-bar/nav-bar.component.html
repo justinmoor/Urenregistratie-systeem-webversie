@@ -19,7 +19,7 @@
       <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/accountmaken" *ngIf="auth.getActiveUser().rechten == 1">Account aanmaken</a>
       <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/accountinfo">Accountinfo</a>
       <a class="w3-bar-item w3-button w3-hover-white" href="#" (click)="logOut()" routerLink="/">Logout</a>
-      <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/adminurenoverzicht">Urenoverzicht Personeel</a>
+      <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/adminurenoverzicht"*ngIf="auth.getActiveUser().rechten == 1">Urenoverzicht Personeel</a>
     </div>
   </body>
 </html>
