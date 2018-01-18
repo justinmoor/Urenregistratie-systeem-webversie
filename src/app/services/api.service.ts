@@ -14,7 +14,7 @@ import { Subject } from '../models/subject';
 @Injectable()
 export class ApiService{
     constructor(private http: HttpClient, private authService: AuthorizationService){
-  
+
 
     }
 
@@ -62,6 +62,10 @@ export class ApiService{
         return this.http.get<T>(uri, {headers:headers});
     }
 
+    public getUrenVanAlleUsers<T>(): Observable<T> {
+      let uri = this.createURI("uren/getbyid?id=") // werkt niet?
+      return this.http.get<T>("http://localhost:8080/api/uren/getall");
+    }
     public getUrenVanUser<T>(id) : Observable<T> {
       let uri = this.createURI("uren/getbyid?id=") // werkt niet?
       return this.http.get<T>("http://localhost:8080/api/uren/getbyid?id=" + id);

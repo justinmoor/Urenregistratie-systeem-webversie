@@ -27,8 +27,8 @@ test : LoginComponent
 public login(user: User, remember: boolean): boolean{
     this.authService.setAuthorization(user.email, user.wachtwoord);
     this.api.get<User>('personeel/login').subscribe(
-        authenticator => {   
-            
+        authenticator => {
+
             this.authService.storeAuthorization(authenticator, remember);
             sessionStorage.setItem('activeUser', JSON.stringify(authenticator));
             this.router.navigate(['/registratie']);

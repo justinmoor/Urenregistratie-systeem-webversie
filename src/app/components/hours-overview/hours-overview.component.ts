@@ -21,8 +21,7 @@ export class HoursOverviewComponent implements OnInit {
   public searchSubject: string;
 
   fout : boolean = false;
-  private csvService: CsvService
-  constructor(private hoursService: HoursService, private filterPipe: FilterPipe, private auth: AuthorizationService) {
+  constructor(private hoursService: HoursService, private filterPipe: FilterPipe, private auth: AuthorizationService, private csvService : CsvService) {
     this.hoursService.getAll().subscribe(hours => {
       this.hours = hours;
     },
@@ -43,10 +42,7 @@ export class HoursOverviewComponent implements OnInit {
   }
 
   ngOnInit(){
-   
-  }
 
-  setConfirmed(uur){
-    this.hoursService.setConfirmed(uur);
   }
+  
 }
