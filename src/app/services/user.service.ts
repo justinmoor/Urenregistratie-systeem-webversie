@@ -19,7 +19,6 @@ export class UserService {
 }
 public getAll(): Observable<User[]> {
     return this.api.getUsers<User[]>()
-
 }
 
 test : LoginComponent
