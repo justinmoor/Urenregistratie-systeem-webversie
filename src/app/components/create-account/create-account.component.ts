@@ -12,7 +12,7 @@ export class CreateAccountComponent implements OnInit {
 
   user: User = new User;
 
-  constructor(private userService: UserService, private apiService: ApiService) {
+  constructor(private userService: UserService) {
     console.log('Dingen gebeurde');
   }
 

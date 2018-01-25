@@ -71,6 +71,7 @@ export class ApiService{
     public getUsers<T>(queryParameters?: Object): Observable<T>{
         let uri = this.createURI("personeel/getall")
         let headers = this.createRequestHeaders();
+        console.log(headers)
         return this.http.get<T>(uri, {headers:headers});
     }
 
@@ -123,7 +124,8 @@ export class ApiService{
         };
         console.log("l",oldPassword,"l")
         let uri = this.createURI('personeel/wachtwoord', data);
-        return this.http.post(uri, data).subscribe();
+        let headers = this.createRequestHeaders();
+        return this.http.post(uri, data, {headers:headers}).subscribe();
     }
 
     public setHour(hour:HourRegister, employeeID) {

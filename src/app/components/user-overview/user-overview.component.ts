@@ -29,4 +29,5 @@ export class UserOverviewComponent implements OnInit {
   setAsEmployed(user: User){
     this.userService.setWerkzaam(user);
   }
+
 }
