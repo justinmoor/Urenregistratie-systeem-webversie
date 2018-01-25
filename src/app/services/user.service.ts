@@ -31,14 +31,13 @@ public login(user: User, remember: boolean): boolean{
             this.authService.storeAuthorization(authenticator, remember);
             sessionStorage.setItem('activeUser', JSON.stringify(authenticator));
             this.router.navigate(['/registratie']);
-            return true;
+            return false;
         },
         error => {
-            return false
+          return true;
         }
     );
-
-    return false;
+    return true;
 }
 
 public setWerkzaam(user: User) {

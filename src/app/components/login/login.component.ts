@@ -12,7 +12,7 @@ import { ApiService } from '../../services/api.service';
 export class LoginComponent {
 
   user: User = new User();
-  fout : boolean = true;
+  fout : boolean = false;
 
   show() {
 
