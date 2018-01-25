@@ -1,5 +1,5 @@
 <div class = container-fluid>
-  <h1>Weekoverzicht</h1>
+  <h1>Urenoverzicht</h1>
 
   <div style="width: 100%;"*ngIf="fout" class="alert alert-danger">
     Er is iets mis gegaan!
@@ -70,7 +70,11 @@
             </select>
           </td>
           <td>
+<<<<<<< HEAD
+              <button type="button" ng-disabled="uur.confirmed" class="btn btn-primary" (click)="sendHour(uur)" routerLink="/wijzigen">Wijzigen</button>
+=======
               <button type="button" [disabled]="uur.confirmed" class="btn btn-secondary" routerLink="/wijzigen">Wijzigen</button>
+>>>>>>> 0eb9ad408209a38ea5580923bbb1e9b9001b9f9c
           </td>
         </tr>
         </tbody>
