@@ -1,3 +1,7 @@
 li {
     padding-left: 10px;
 }
+
+.w3-white, .w3-hover-white:hover {
+    text-decoration: none;
+}

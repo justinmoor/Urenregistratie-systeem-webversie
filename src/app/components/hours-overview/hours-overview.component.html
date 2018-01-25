@@ -1,5 +1,5 @@
 <div class = container-fluid>
-  <h1>Weekoverzicht</h1>
+  <h1>Urenoverzicht</h1>
 
   <div style="width: 100%;"*ngIf="fout" class="alert alert-danger">
     Er is iets mis gegaan!
@@ -8,7 +8,7 @@
   <div class="naarlinks">
       <div class="card" style="padding: 20px;">
         <div class="form-group">
-          <table class="filters">
+          <table class="oi">
             <tr class = "rightfloat">
               <td><label for="einddatum">Datum: </label></td>
               <td><input type="date" class="form-control" id="begindatum" date-set="" [(ngModel)]="searchStartDate"></td>
@@ -28,7 +28,7 @@
 
           </table>
         </div>
-        <button type="button" class="btn" (click)='createCsv()'>Download CSV</button>
+        <button type="button" class="btn" class="download" (click)='createCsv()'>Download CSV</button>
       </div>
     </div>
   <section>
@@ -45,10 +45,11 @@
           <th scope="col">Project</th>
           <th scope="col">Onderwerp</th>
           <th *ngIf="auth.getActiveUser().rechten == 1" scope="col">Goedgekeurd</th>
+          <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let uur of hours |  filter: 'customerName': searchCustomer | filter: 'projectName' : searchProject | filter: 'subjectName' : searchSubject | filter:'startingDate' : searchStartDate" >
+        <tr *ngFor="let uur of hours | sortBy : 'confirmed' |  filter: 'customerName': searchCustomer | filter: 'projectName' : searchProject | filter: 'subjectName' : searchSubject | filter:'startingDate' : searchStartDate" >
           <td>{{uur.startingDate}}</td>
           <td>{{uur.startingTime}}</td>
           <td>{{uur.endingTime}}</td>
@@ -70,7 +71,11 @@
             </select>
           </td>
           <td>
+<<<<<<< HEAD
               <button type="button" ng-disabled="uur.confirmed" class="btn btn-primary" (click)="sendHour(uur)" routerLink="/wijzigen">Wijzigen</button>
+=======
+              <button type="button" [disabled]="uur.confirmed" class="btn btn-secondary" routerLink="/wijzigen">Wijzigen</button>
+>>>>>>> 0eb9ad408209a38ea5580923bbb1e9b9001b9f9c
           </td>
         </tr>
         </tbody>

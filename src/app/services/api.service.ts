@@ -64,7 +64,8 @@ export class ApiService{
 
     public getUrenVanUser<T>(id) : Observable<T> {
       let uri = this.createURI("uren/getbyid?id=") // werkt niet?
-      return this.http.get<T>("http://localhost:8080/api/uren/getbyid?id=" + id);
+      let headers = this.createRequestHeaders();
+      return this.http.get<T>("http://localhost:8080/api/uren/getbyid?id=" + id, {headers : headers});
      }
 
     public getUsers<T>(queryParameters?: Object): Observable<T>{
@@ -74,17 +75,20 @@ export class ApiService{
     }
 
     public setWerkzaam( userModel: User){
-        let user = {
+        
+        let data = {
             id : userModel.personeelID,
             werkzaam : userModel.werkzaam
         }
-        let uri = this.createURI("personeel/werkzaam",user);
-        return this.http.post(uri, null).subscribe();
+        let headers = this.createRequestHeaders();
+        let uri = this.createURI("personeel/werkzaam",data);
+        return this.http.post(uri, null,{headers:headers}).subscribe();
     }
 
     public setConfirmed(uur){
         let uri = this.createURI("uren/confirm")
-        return this.http.post(uri, uur ).subscribe();
+        let headers = this.createRequestHeaders();
+        return this.http.post(uri, uur, {headers:headers} ).subscribe();
     }
 
     public voegAccountToe(user: User){
@@ -135,23 +139,28 @@ export class ApiService{
             employeeId : employeeID
         }
         let uri = this.createURI('uren/setHour', null)
-        return this.http.post(uri, data).subscribe();
+        let headers = this.createRequestHeaders();
+        return this.http.post(uri, data,{headers:headers}).subscribe();
     }
 
     public getKlantenByName<T>(klantenaam:string) {
-        return this.http.get<T>("http://localhost:8080/api/uren/")
+        let headers = this.createRequestHeaders();
+        return this.http.get<T>("http://localhost:8080/api/uren/", {headers:headers})
     }
 
     public getCustomers<T>(): Observable<T> {
-        return this.http.get<T>("http://localhost:8080/api/klanten/all");
+        let headers = this.createRequestHeaders();
+        return this.http.get<T>("http://localhost:8080/api/klanten/all", {headers:headers});
     }
 
     public getProjects<T>(customerName:String): Observable<T> {
-        return this.http.get<T>("http://localhost:8080/api/projects/allByName?name="+ customerName);
+        let headers = this.createRequestHeaders();
+        return this.http.get<T>("http://localhost:8080/api/projects/allByName?name="+ customerName, {headers:headers});
       }
 
     public getSubjects<T>(projectName: String, customerName:String): Observable<T> {
-        return this.http.get<T>("http://localhost:8080/api/subjects/allByName?project="+projectName+"&klant="+customerName);
+        let headers = this.createRequestHeaders();
+        return this.http.get<T>("http://localhost:8080/api/subjects/allByName?project="+projectName+"&klant="+customerName, {headers:headers});
       }
 
 

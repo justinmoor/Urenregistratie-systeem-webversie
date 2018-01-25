@@ -9,8 +9,6 @@ export class User
         public wachtwoord?: string,
         public rechten?: number,
         public werkzaam?: number,
-        public password?: string,
-        public name?: string
     ){
 
     }
