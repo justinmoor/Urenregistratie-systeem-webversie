@@ -14,11 +14,12 @@
 
     <div *ngIf= "auth.getActiveUser() != null" class="w3-bar w3-theme">
       <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/registratie">Uren registreren</a>
-      <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/urenoverzicht">Urenoverzicht</a>
+      <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/urenoverzicht">Weekoverzicht</a>
       <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/gebruikers" *ngIf="auth.getActiveUser().rechten == 1">Gebruikers</a>
       <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/accountmaken" *ngIf="auth.getActiveUser().rechten == 1">Account aanmaken</a>
-      <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/accountinfo">Account</a>
-      <a class="w3-bar-item w3-button w3-hover-white" href="#" (click)="logOut()" routerLink="/">Log uit</a>
+      <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/accountinfo">Accountinfo</a>
+      <a class="w3-bar-item w3-button w3-hover-white" href="#" routerLink="/adminurenoverzicht"*ngIf="auth.getActiveUser().rechten == 1">Urenoverzicht Personeel</a>
+      <a class="w3-bar-item w3-button w3-hover-white w3-right" href="#" (click)="logOut()" routerLink="/">Logout</a>        
     </div>
   </body>
 </html>

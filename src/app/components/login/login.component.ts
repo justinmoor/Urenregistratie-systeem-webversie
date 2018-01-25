@@ -12,16 +12,16 @@ import { ApiService } from '../../services/api.service';
 export class LoginComponent {
 
   user: User = new User();
-  fout : boolean = true;
+  fout : boolean = false;
 
   show() {
-    
+
   }
 
   constructor(private userService: UserService, private apiService: ApiService) {
    }
 
   logIn() {
-    this.fout = this.userService.login(this.user, false);
+    this.fout = this.userService.login(this.user, true);
   }
 }

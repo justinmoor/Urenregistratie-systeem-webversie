@@ -1,23 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-
 import { AuthorizationService } from './authorization.service';
-import { error } from 'selenium-webdriver';
-
 import { User } from '../models/user';
 import { Customer } from '../models/customer';
-import { URLSearchParams } from '@angular/http';
 import { HourRegister } from '../models/hour-register';
-import { Subject } from '../models/Subject';
 import { Hours } from '../models/hours';
 
 @Injectable()
 export class ApiService{
     constructor(private http: HttpClient, private authService: AuthorizationService){
-  
 
-    }  
+
+    }
 
     private createQueryString(queryParameters: Object): string
     {
@@ -45,7 +40,7 @@ export class ApiService{
         {
             headers = headers.set('Authorization', this.authService.createAuthorizationString());
         }
-       
+
         return headers;
     }
 
@@ -63,6 +58,11 @@ export class ApiService{
         return this.http.get<T>(uri, {headers:headers});
     }
 
+    public getUrenVanAlleUsers<T>(): Observable<T> {
+      let headers = this.createRequestHeaders();
+      let uri = this.createURI("uren/getall") // werkt niet?
+      return this.http.get<T>("http://localhost:8080/api/uren/getall", {headers : headers});
+    }
     public getUrenVanUser<T>(id) : Observable<T> {
       let uri = this.createURI("uren/getbyid?id=") // werkt niet?
       let headers = this.createRequestHeaders();
@@ -76,7 +76,7 @@ export class ApiService{
     }
 
     public setWerkzaam( userModel: User){
-        
+
         let data = {
             id : userModel.personeelID,
             werkzaam : userModel.werkzaam
@@ -122,7 +122,7 @@ export class ApiService{
             wachtwoord:newPassword,
             oldPassword:oldPassword
         };
-        console.log("l",oldPassword,"l")
+
         let uri = this.createURI('personeel/wachtwoord', data);
         let headers = this.createRequestHeaders();
         return this.http.post(uri, data, {headers : headers}).subscribe();
@@ -175,7 +175,6 @@ export class ApiService{
         return data;
     }
     public addCustomer(customerName: string, projectName: string, subjectName: string) {
-        console.log("api.service addCustomer", customerName, projectName, subjectName)
         let data = this.data(customerName, projectName, subjectName);
         let uri = this.createURI('klanten/add', null);
         let headers = this.createRequestHeaders();
@@ -185,7 +184,6 @@ export class ApiService{
       }
 
       public addProject(customerName: string, projectName: string, subjectName: string) {
-        console.log("api.service addProject", customerName, projectName, subjectName)
         let data = this.data(customerName, projectName, subjectName);
         let uri = this.createURI('projects/add', null);
         let headers = this.createRequestHeaders();
@@ -195,7 +193,6 @@ export class ApiService{
       }
 
       public addSubject(customerName:string, projectName:string, subjectName:string) {
-        console.log("api.service addSubject", customerName, projectName, subjectName)
           let data = this.data(customerName, projectName, subjectName);
           let uri = this.createURI('subjects/add', null);
           let headers = this.createRequestHeaders();
@@ -203,9 +200,8 @@ export class ApiService{
           this.http.post(uri, data, {headers: headers}).subscribe(() => console.log('success biatch!'),
           error => console.log(error));
       }
+
     public updateHour(hour:Hours){
-        
-        console.log(hour)
         let uri = this.createURI('uren/updateHour', null)
         let headers = this.createRequestHeaders();
         return this.http.post(uri, hour, {headers : headers}).subscribe();

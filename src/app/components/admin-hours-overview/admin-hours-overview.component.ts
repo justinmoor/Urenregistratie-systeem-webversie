@@ -1,39 +1,34 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Hours } from '../../models/hours';
-import { HoursService } from '../../services/hours.service';
-import { CsvService } from 'angular2-json2csv';
-import { FilterPipe } from '../../pipes/filter-pipe.pipe';
+import { Component, OnInit } from '@angular/core';
+import {FilterPipe} from '../../pipes/filter-pipe.pipe';
+import {CsvService} from 'angular2-json2csv/index';
+import {HoursService} from '../../services/hours.service';
+import {Hours} from '../../models/hours';
 import {AuthorizationService} from '../../services/authorization.service';
-import { Router } from '@angular/router/src/router';
 
 @Component({
-  selector: 'app-hours-overview',
-  templateUrl: './hours-overview.component.html',
-  styleUrls: ['./hours-overview.component.css']
+  selector: 'app-admin-hours-overview',
+  templateUrl: './admin-hours-overview.component.html',
+  styleUrls: ['../hours-overview/hours-overview.component.css']
 })
-export class HoursOverviewComponent implements OnInit {
+export class AdminHoursOverviewComponent implements OnInit {
   hours: Hours[];
   filteredHours: Hours[];
-  router: Router
 
   public searchStartDate: string;
   public searchEndDate: string;
   public searchCustomer: string;
   public searchProject: string;
   public searchSubject: string;
+  public searchName : string;
 
   fout : boolean = false;
   constructor(private hoursService: HoursService, private filterPipe: FilterPipe, private auth: AuthorizationService, private csvService : CsvService) {
-    this.hoursService.getAll().subscribe(hours => {
-      this.hours = hours;
-    },
-    error => {
-      this.fout = true;
-    });
-  }
-
-  setDate(){
-    console.log(this.hours[0].startingDate)
+    this.hoursService.getAllFromAll().subscribe(hours => {
+        this.hours = hours;
+      },
+      error => {
+        this.fout = true;
+      });
   }
 
   createCsv(){
@@ -46,12 +41,7 @@ export class HoursOverviewComponent implements OnInit {
   ngOnInit(){
 
   }
-
   setConfirmed(uur){
     this.hoursService.setConfirmed(uur);
-  }
-
-  public sendHour(hour) {
-    sessionStorage.setItem("hourToChange", JSON.stringify(hour));
   }
 }

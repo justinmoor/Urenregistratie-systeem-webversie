@@ -12,7 +12,7 @@ import { Hours } from '../../models/hours';
   styleUrls: ['./update-hours.component.css']
 })
 export class UpdateHoursComponent implements OnInit {
- 
+
   hour: Hours;
   updatedHour: Hours;
 
@@ -71,15 +71,6 @@ export class UpdateHoursComponent implements OnInit {
     this.service.updateHour(this.hour)
   }
 
-
-
-
-
-
-
-
-
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   addCategory() {
     this.service.addCategory(this.customerName, this.projectName, this.subjectName);
   }

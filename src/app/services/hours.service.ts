@@ -6,9 +6,10 @@ import {Observable} from 'rxjs/Observable';
 import {User} from '../models/user';
 import { Customer } from '../models/customer';
 import { Project } from '../models/project';
-import { Subject } from '../models/Subject';
+
 import { Response } from '@angular/http/src/static_response';
 import { error } from 'selenium-webdriver';
+import {Subject} from '../models/subject';
 
 @Injectable()
 export class HoursService {
@@ -32,6 +33,10 @@ export class HoursService {
     return this.api.getUrenVanUser<Hours[]>(this.id);
   }
 
+  public getAllFromAll(): Observable<Hours[]> {
+    return this.api.getUrenVanAlleUsers();
+  }
+
   private getActiveUserId() {
     sessionStorage.getItem('activeUser');
     let user: User = JSON.parse(sessionStorage.getItem('activeUser'));
@@ -48,7 +53,6 @@ export class HoursService {
   }
 
   public getProjects(CustomerName:String): Observable<Project[]> {
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     return this.api.getProjects<Project[]>(CustomerName);
   }
 
@@ -61,17 +65,15 @@ export class HoursService {
   }
 
   public addCategory(customerName:string, projectName:string, subjectName:string) {
-    console.log("hourservice addCategroy",customerName, projectName, subjectName)
     this.customerExists = false;
 
 
     this.getCustomers().subscribe( customer =>{
        this.customers = customer;
-      
+
       for(let customer of this.customers) {
         if (customer.customerName.toLocaleLowerCase() === customerName.toLocaleLowerCase()){
           this.customerExists = true;
-          console.log(this.customerExists);
           if (this.customerExists){
             this.goFetch(customerName, projectName, subjectName);
           }
@@ -79,22 +81,20 @@ export class HoursService {
       }
       if (this.customerExists === false) {
         this.api.addCustomer(customerName, projectName, subjectName);
-      
-      }  
+
+      }
     });
-  }   
+  }
 
   private goFetch(customerName:string, projectName:string, subjectName:string){
     console.log("hourservice  geFetch",customerName, projectName, subjectName)
     this.projectExists = false;
     this.getProjects(customerName).subscribe(project =>{
       this.projects=project, error => console.log('error projects');
-      console.log(this.projects);
-      
+
       for(let project of this.projects) {
         if(project.projectName.toLocaleLowerCase() === projectName.toLocaleLowerCase()) {
           this.projectExists = true;
-          console.log(this.projectExists)
           this.getStick(customerName, projectName, subjectName);
         }
       }
@@ -105,7 +105,6 @@ export class HoursService {
   }
 
   private getStick(customerName:string, projectName:string, subjectName:string) {
-    console.log("hourservice  getStick",customerName, projectName, subjectName)
     this.subjectExists = false;
 
     this.getSubjects(projectName, customerName).subscribe(subject => {
@@ -114,14 +113,13 @@ export class HoursService {
       for (let subject of this.subjects) {
         if (subject.subjectName.toLocaleLowerCase() === subjectName.toLocaleLowerCase()){
           this.subjectExists = true;
-          console.log(this.subjectExists);
         }
       }
       if (this.subjectExists === false){
         this.api.addSubject(customerName, projectName, subjectName);
       }
     });
-  
+
   }
   public updateHour(hour:Hours) {
     console.log(hour)
@@ -136,3 +134,4 @@ export class HoursService {
     return this.hourToChange;
   }
 }
+

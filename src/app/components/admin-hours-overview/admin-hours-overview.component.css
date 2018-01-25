@@ -1,0 +1,40 @@
+.card{
+  box-shadow: 0 2px 4px 0 #a3a3a3
+}
+
+section {
+  width: 35%;
+  float: left;
+  margin-right: 10%;
+}
+
+td {
+  padding: 5px 0px 5px 0px;
+}
+
+label {
+  padding-top: 3px;
+  padding-right: 5px;
+}
+
+table {
+  font-size: 14px;
+}
+
+th {
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  width: 100%;
+}
+
+.naarlinks{
+  float: left;
+}
+
+.naarrechts{
+  float: none;
+}
+

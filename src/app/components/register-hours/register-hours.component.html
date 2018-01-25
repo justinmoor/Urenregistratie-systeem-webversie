@@ -35,7 +35,7 @@
       </tr>
       <tr>
         <td><label for="onderwerp">Onderwerp: </label> </td>
-        <td><select [disabled]="!hour.projectName || !hour.customerName" 
+        <td><select [disabled]="!hour.projectName || !hour.customerName"
           class="form-control" id="Subject"
           [(ngModel)]="hour.subjectName"
           name=subjectName>
@@ -58,14 +58,19 @@
        <td></td>
        <td></td>
 
-         
+
       </tr>
       <tr>
-        <td colspan="4" class="td-button"><button type="button" [disabled]="fout" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>
+        <td colspan="4" class="td-button">
+          <button type="button" [disabled]="fout" class="btn btn-primary" (click)="registerHours()">Opslaan</button>
+          <div *ngIf="registered" class="alert alert-success">
+            Uur geregistreerd!
+          </div>
+        </td>
       </tr>
-  
+
     </table>
-    <div style="width: 100%;"*ngIf="fout" class="alert alert-danger">
+    <div style="width: 100%;"*ngIf="fout" class="alert alert-success">
       Er is iets mis gegaan!
     </div>
   </div>
@@ -105,8 +110,12 @@
             <div class="form-group">
               <button type="button" class="btn btn-primary" (click)='addCategory()'>Toevoegen</button>
             </div>
+            <div *ngIf="categoryAdded" class="alert alert-success">
+              Categorie toegevoegd!
+            </div>
           </td>
         </tr>
+
       </table>
   </div>
 </div>

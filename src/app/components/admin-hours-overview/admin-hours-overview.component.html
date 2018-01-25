@@ -1,0 +1,85 @@
+<div class = container-fluid>
+  <h1>Weekoverzicht</h1>
+
+  <div style="width: 100%;"*ngIf="fout" class="alert alert-danger">
+    Er is iets mis gegaan!
+  </div>
+  <div *ngIf="!fout">
+    <div class="naarlinks">
+      <div class="card" style="padding: 20px;">
+        <div class="form-group">
+          <table class="filters">
+            <tr class = "rightfloat">
+              <td><label for="einddatum">Datum: </label></td>
+              <td><input type="date" class="form-control" id="begindatum" date-set="" [(ngModel)]="searchStartDate"></td>
+            </tr>
+            <tr class = "rightfloat">
+              <td><label for="klant">Klant: </label> </td>
+              <td><input type="text" class="form-control" id="klant" name="searchCustomer" [(ngModel)]="searchCustomer"></td>
+            </tr>
+            <tr class = "rightfloat">
+              <td><label for="project">Project: </label> </td>
+              <td><input type="text" class="form-control" id="project" [(ngModel)]="searchProject"></td>
+            </tr>
+            <tr class = "rightfloat">
+              <td><label for="onderwerp">Onderwerp: </label> </td>
+              <td><input type="text" class="form-control" id="onderwerp" [(ngModel)]="searchSubject"></td>
+            </tr>
+            <tr class = "rightfloat">
+              <td><label for="achternaam">Achternaam: </label> </td>
+              <td><input type="text" class="form-control" id="achternaam" [(ngModel)]="searchName"></td>
+            </tr>
+
+          </table>
+        </div>
+        <button type="button" class="btn" (click)='createCsv()'>Download CSV</button>
+      </div>
+    </div>
+    <section>
+      <div class="card" class="col-md-9">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">Datum</th>
+            <th scope="col">Begintijd</th>
+            <th scope="col">Eindtijd</th>
+            <th scope="col">Commentaar</th>
+            <th scope="col">Personeelslid</th>
+            <th scope="col">Klant</th>
+            <th scope="col">Project</th>
+            <th scope="col">Onderwerp</th>
+            <th *ngIf="auth.getActiveUser().rechten == 1" scope="col">Goedgekeurd</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let uur of hours |  filter: 'customerName': searchCustomer | filter: 'projectName' : searchProject | filter: 'subjectName' : searchSubject | filter:'startingDate' : searchStartDate | filter: 'employeeName' : searchName" >
+            <td>{{uur.startingDate}}</td>
+            <td>{{uur.startingTime}}</td>
+            <td>{{uur.endingTime}}</td>
+            <td>{{uur.comment}}</td>
+            <td>{{uur.employeeName}}</td>
+            <td>{{uur.customerName}}</td>
+            <td>{{uur.projectName}}</td>
+            <td>{{uur.subjectName}}</td>
+            <td *ngIf="uur.confirmed === false && auth.getActiveUser().rechten == 1">
+              <select #selectElement (change)="setConfirmed(uur)">
+                <option>Nee</option>
+                <option>Ja</option>
+              </select>
+            </td>
+            <td *ngIf="uur.confirmed && auth.getActiveUser().rechten == 1">
+              <select #selectElement (change)="setConfirmed(uur)">
+                <option>Ja</option>
+                <option>Nee</option>
+              </select>
+            </td>
+            <td>
+              <button type="button" ng-disabled="uur.confirmed" class="btn btn-primary" routerLink="/wijzigen">Wijzigen</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <div>
