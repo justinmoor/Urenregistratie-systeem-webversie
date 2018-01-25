@@ -56,5 +56,14 @@ public voegAccountToe(user: User) {
 public changePassword(id:number, nieuwWachtwoord:string, oldPassword:string) {
     this.api.changePassword(id, nieuwWachtwoord, oldPassword);
 }
+public checkPasswordRequirements(newPassword: string, repeatPassword: string): boolean{
+      if(newPassword != undefined && repeatPassword != undefined && newPassword === repeatPassword && newPassword.length > 7){
+        console.log('*teleports behind u* \n *returns true* \n "Nothing personnel kiddo"')
+        return true;
+      }
+      else{
+        false
+      }
+}
 
 }

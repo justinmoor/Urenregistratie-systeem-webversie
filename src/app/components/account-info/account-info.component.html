@@ -29,20 +29,20 @@
       </tr>
       <tr>
           <td><label for="oldPass">Oude wachtwoord: </label> </td>
-          <td><input 
+          <td><input
             type="password"
             class="form-control"
             id="oldPass"
-            [(ngModel)]="oldPassword" 
+            [(ngModel)]="oldPassword"
             #oldPass="ngModel"
             name="oldPassword"
           ></td>
       </tr>
       <tr>
         <td><label for="newPass">Nieuw wachtwoord:</label></td>
-        <td><input 
-          type="password" 
-          class="form-control" 
+        <td><input
+          type="password"
+          class="form-control"
           id="newPass"
           [(ngModel)]="newPassword"
           name="newPassword"
@@ -52,9 +52,9 @@
       </tr>
       <tr>
         <td><label for="repeatNewPass">Herhaal nieuw wachtwoord:</label></td>
-        <td><input 
-          type="password" 
-          class="form-control" 
+        <td><input
+          type="password"
+          class="form-control"
           id="repeatNewPass"
           [(ngModel)]="repeatNewPassword"
           name="repeatNewPassword"
@@ -63,7 +63,15 @@
           ></td>
       </tr>
       <tr>
-        <td colspan="2"><button type="button" class="btn btn-primary" (click)="opslaanGegevens()" >Opslaan</button></td>
+        <td colspan="2">
+          <button type="button" class="btn btn-primary" (click)="changePassword()" >Opslaan</button>
+          <div *ngIf="passwordMeetsRequirements == false" class="alert alert-danger">
+            Wachtwoorden zijn niet gelijk of het wachtwoord voldoet niet aan eisen (minimaal 8 karakters lang).
+          </div>
+          <div *ngIf="passwordChanged" class="alert alert-success">
+            Wachtwoord succesvol veranderd!
+          </div>
+        </td>
       </tr>
       </div>
     </table>

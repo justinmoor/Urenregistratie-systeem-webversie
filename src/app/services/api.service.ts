@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-
 import { AuthorizationService } from './authorization.service';
-import { error } from 'selenium-webdriver';
-
 import { User } from '../models/user';
 import { Customer } from '../models/customer';
-import { URLSearchParams } from '@angular/http';
 import { HourRegister } from '../models/hour-register';
-import { Subject } from '../models/subject';
+
 
 @Injectable()
 export class ApiService{
@@ -126,6 +122,7 @@ export class ApiService{
             wachtwoord:newPassword,
             oldPassword:oldPassword
         };
+
         let uri = this.createURI('personeel/wachtwoord', data);
         return this.http.post(uri, data).subscribe();
     }

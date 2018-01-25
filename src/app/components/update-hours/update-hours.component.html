@@ -19,7 +19,7 @@
       </tr>
       <tr>
         <td><label for="project">Project: </label> </td>
-        <td class="td"><select 
+        <td class="td"><select
           (change)="getSubjects()" class="form-control" id="project"
           [(ngModel)]="hour.projectName">
             <option></option>
@@ -33,7 +33,7 @@
       </tr>
       <tr>
         <td><label for="onderwerp">Onderwerp: </label> </td>
-        <td><select 
+        <td><select
           class="form-control" id="Subject"
           [(ngModel)]="hour.subjectName">
             <option></option>
@@ -55,12 +55,12 @@
        <td></td>
        <td></td>
 
-         
+
       </tr>
       <tr>
-        <td colspan="4" class="td-button"><button type="button" [disabled]="fout" class="btn btn-primary" (click)="saveHour()">Opslaan</button></td>
+        <td colspan="4" class="td-button"><button type="button" [disabled]="fout" class="btn btn-primary" (click)="registerHours()">Opslaan</button></td>
       </tr>
-  
+
     </table>
     <div style="width: 100%;"*ngIf="fout" class="alert alert-danger">
       Er is iets mis gegaan!
