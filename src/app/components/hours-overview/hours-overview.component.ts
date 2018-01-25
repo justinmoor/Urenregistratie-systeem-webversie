@@ -52,7 +52,7 @@ export class HoursOverviewComponent implements OnInit {
     this.hoursService.setConfirmed(uur);
   }
 
-  public sendHour(uur) {
-    sessionStorage.setItem("hourToChange", JSON.stringify(uur));
+  public sendHour(hour) {
+    sessionStorage.setItem("hourToChange", JSON.stringify(hour));
   }
 }

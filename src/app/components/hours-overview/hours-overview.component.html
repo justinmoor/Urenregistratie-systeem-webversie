@@ -49,33 +49,29 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let uur of hours | sortBy : 'confirmed' |  filter: 'customerName': searchCustomer | filter: 'projectName' : searchProject | filter: 'subjectName' : searchSubject | filter:'startingDate' : searchStartDate" >
-          <td>{{uur.startingDate}}</td>
-          <td>{{uur.startingTime}}</td>
-          <td>{{uur.endingTime}}</td>
-          <td>{{uur.comment}}</td>
-          <td>{{uur.employeeName}}</td>
-          <td>{{uur.customerName}}</td>
-          <td>{{uur.projectName}}</td>
-          <td>{{uur.subjectName}}</td>
-          <td *ngIf="uur.confirmed === false && auth.getActiveUser().rechten == 1">
-          <select #selectElement (change)="setConfirmed(uur)">
+        <tr *ngFor="let hour of hours | sortBy : 'confirmed' |  filter: 'customerName': searchCustomer | filter: 'projectName' : searchProject | filter: 'subjectName' : searchSubject | filter:'startingDate' : searchStartDate" >
+          <td>{{hour.startingDate}}</td>
+          <td>{{hour.startingTime}}</td>
+          <td>{{hour.endingTime}}</td>
+          <td>{{hour.comment}}</td>
+          <td>{{hour.employeeName}}</td>
+          <td>{{hour.customerName}}</td>
+          <td>{{hour.projectName}}</td>
+          <td>{{hour.subjectName}}</td>
+          <td *ngIf="hour.confirmed === false && auth.getActiveUser().rechten == 1">
+          <select #selectElement (change)="setConfirmed(hour)">
               <option>Nee</option>
               <option>Ja</option>
             </select>
             </td>
-          <td *ngIf="uur.confirmed && auth.getActiveUser().rechten == 1">
-            <select #selectElement (change)="setConfirmed(uur)">
+          <td *ngIf="hour.confirmed && auth.getActiveUser().rechten == 1">
+            <select #selectElement (change)="setConfirmed(hour)">
               <option>Ja</option>
               <option>Nee</option>
             </select>
           </td>
           <td>
-<<<<<<< HEAD
-              <button type="button" ng-disabled="uur.confirmed" class="btn btn-primary" (click)="sendHour(uur)" routerLink="/wijzigen">Wijzigen</button>
-=======
-              <button type="button" [disabled]="uur.confirmed" class="btn btn-secondary" routerLink="/wijzigen">Wijzigen</button>
->>>>>>> 0eb9ad408209a38ea5580923bbb1e9b9001b9f9c
+              <button type="button" [disabled]="hour.confirmed" class="btn btn-primary" (click)="sendHour(hour)" routerLink="/wijzigen">Wijzigen</button>
           </td>
         </tr>
         </tbody>

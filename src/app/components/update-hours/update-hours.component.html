@@ -8,12 +8,12 @@
         <td>
           <select (change)="setProjects() || getProjects()" class="form-control" id="klant"
           [(ngModel)]="hour.customerName">
-            <option value="{{hour.customerName}}"></option>
-            <option *ngFor="let customer of customers" [ngValue]="hour.customerName">{{ hour.customerName }}</option>
+            <option>{{ hour.customerName }}</option>
+            <option *ngFor="let customer of customers">{{ customer.customerName }}</option>
           </select>
         </td>
         <td><label for="begindatum">Begindatum: </label></td>
-        <td><input type="date" value="{{date}}" class="form-control" id="einddatum"
+        <td><input type="date" class="form-control" id="einddatum"
           [(ngModel)]="hour.startingDate"
           name="startingDate"></td>
       </tr>
@@ -22,8 +22,8 @@
         <td class="td"><select 
           (change)="getSubjects()" class="form-control" id="project"
           [(ngModel)]="hour.projectName">
-            <option></option>
-            <option *ngFor="let project of projects">{{ hour.projectName }}</option>
+            <option>{{ hour.projectName }}</option>
+            <option *ngFor="let project of projects">{{ project.projectName }}</option>
           </select></td>
           <td><label for="begintijd">Begintijd: </label></td>
           <td><input type="time" class="form-control" id="begintijd"
@@ -36,8 +36,8 @@
         <td><select 
           class="form-control" id="Subject"
           [(ngModel)]="hour.subjectName">
-            <option></option>
-            <option *ngFor="let subject of subjects">{{ hour.subjectName }}</option>
+            <option>{{ hour.subjectName }}</option>
+            <option *ngFor="let subject of subjects">{{ subject.subjectName }}</option>
           </select></td>
 
         <td><label for="eindtijd">Eindtijd: </label></td>

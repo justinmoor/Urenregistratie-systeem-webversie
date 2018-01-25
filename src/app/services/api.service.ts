@@ -10,6 +10,7 @@ import { Customer } from '../models/customer';
 import { URLSearchParams } from '@angular/http';
 import { HourRegister } from '../models/hour-register';
 import { Subject } from '../models/Subject';
+import { Hours } from '../models/hours';
 
 @Injectable()
 export class ApiService{
@@ -123,7 +124,8 @@ export class ApiService{
         };
         console.log("l",oldPassword,"l")
         let uri = this.createURI('personeel/wachtwoord', data);
-        return this.http.post(uri, data).subscribe();
+        let headers = this.createRequestHeaders();
+        return this.http.post(uri, data, {headers : headers}).subscribe();
     }
 
     public setHour(hour:HourRegister, employeeID) {
@@ -201,20 +203,11 @@ export class ApiService{
           this.http.post(uri, data, {headers: headers}).subscribe(() => console.log('success biatch!'),
           error => console.log(error));
       }
-    public updateHour(hour:HourRegister, employeeID){
-        let data ={
-            startingDate : hour.startingDate,
-            startingTime : hour.startingTime,
-            endingDate : hour.endingDate,
-            endingTime : hour.endingTime,
-            customerName : hour.customerName,
-            projectName : hour.projectName,
-            subjectName : hour.subjectName,
-            comment : hour.comment,
-            employeeId : employeeID
-        }
-        console.log(data)
+    public updateHour(hour:Hours){
+        
+        console.log(hour)
         let uri = this.createURI('uren/updateHour', null)
-        return this.http.post(uri, data).subscribe();
+        let headers = this.createRequestHeaders();
+        return this.http.post(uri, hour, {headers : headers}).subscribe();
     }
 }

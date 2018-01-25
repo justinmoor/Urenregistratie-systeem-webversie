@@ -14,6 +14,7 @@ import { Hours } from '../../models/hours';
 export class UpdateHoursComponent implements OnInit {
  
   hour: Hours;
+  updatedHour: Hours;
 
   customers: Customer[];
   projects: Project[];
@@ -27,6 +28,8 @@ export class UpdateHoursComponent implements OnInit {
 
     this.hour = this.getHours();
     this.getCustomers();
+    this.getProjects();
+    this.getSubjects();
   }
 
   ngOnInit() {
@@ -50,14 +53,22 @@ export class UpdateHoursComponent implements OnInit {
   }
 
   private getSubjects() {
+    console.log(this.hour.customerName, this.hour.projectName, "yess");
     this.service.getSubjects(this.hour.projectName, this.hour.customerName).subscribe(subject => {
       this.subjects = subject;
+
+      console.log(this.customers, this. projects, this.subjects);
     });
   }
 
   private setProjects() {
-    this.hour.projectName = null;
-    this.hour.subjectName = null;
+    this.projects = null;
+    this.subjects = null;
+  }
+
+  public saveHour(){
+    console.log(this.hour);
+    this.service.updateHour(this.hour)
   }
 
 
