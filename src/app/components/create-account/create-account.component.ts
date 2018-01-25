@@ -9,7 +9,7 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
-
+  accountCreated: boolean;
   user: User = new User;
 
   constructor(private userService: UserService, private apiService: ApiService) {
@@ -20,9 +20,17 @@ export class CreateAccountComponent implements OnInit {
   }
 
   addAccount() {
-    this.user.setWerkzaam('1'); // 1 = werkzaam
-    this.user.setWachtwoord('Welkom123');
-    this.userService.voegAccountToe(this.user);
+    if(this.userService.hasCorrectProperties(this.user)) {
+
+
+      this.user.setWerkzaam('1'); // 1 = werkzaam
+      this.user.setWachtwoord('Welkom123');
+      this.userService.voegAccountToe(this.user);
+      this.accountCreated = true;
+    }
+    else{
+      this.accountCreated = false;
+    }
   }
 
 }

@@ -64,6 +64,15 @@ public checkPasswordRequirements(newPassword: string, repeatPassword: string): b
       else{
         false
       }
+
+}
+public hasCorrectProperties(user: User): boolean{
+      if (user.achternaam.length > 2 && user.voornaam.length > 2 && user.achternaam.length < 41 && user.voornaam.length < 41 && user.tussenvoegsel.length < 10){
+          return true;
+        } else{
+          return false;
+        }
+
 }
 
 }
