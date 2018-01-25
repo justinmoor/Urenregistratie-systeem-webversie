@@ -126,7 +126,6 @@ export class ApiService{
             wachtwoord:newPassword,
             oldPassword:oldPassword
         };
-        console.log("l",oldPassword,"l")
         let uri = this.createURI('personeel/wachtwoord', data);
         return this.http.post(uri, data).subscribe();
     }

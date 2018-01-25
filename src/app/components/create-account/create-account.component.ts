@@ -13,7 +13,7 @@ export class CreateAccountComponent implements OnInit {
   user: User = new User;
 
   constructor(private userService: UserService, private apiService: ApiService) {
-    console.log('Dingen gebeurde');
+
   }
 
   ngOnInit() {
@@ -22,7 +22,6 @@ export class CreateAccountComponent implements OnInit {
   addAccount() {
     this.user.setWerkzaam('1'); // 1 = werkzaam
     this.user.setWachtwoord('Welkom123');
-    console.log(this.user);
     this.userService.voegAccountToe(this.user);
   }
 

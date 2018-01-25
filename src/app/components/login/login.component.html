@@ -2,7 +2,7 @@
 <div ng-app="myApp" ng-controller="myController" class="container">
   <form #myForm="ngForm">
     <div class="login-container">
-      
+
       <h1>Log in</h1>
 
       <div class = "card" style="padding: 20px;">
@@ -26,7 +26,7 @@
             <div class="form-group">
               <button [disabled]="!user.wachtwoord||!user.email" class="btn btn-secondary" (click)='logIn()'>Login</button>
               <div class="clearfix"></div>
-              <div *ngIf="fout == false" class="alert alert-danger">
+              <div *ngIf="fout == true" class="alert alert-danger">
                 Foute ingloggegevens!
               </div>
             </div>

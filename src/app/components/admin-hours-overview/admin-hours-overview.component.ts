@@ -8,7 +8,7 @@ import {AuthorizationService} from '../../services/authorization.service';
 @Component({
   selector: 'app-admin-hours-overview',
   templateUrl: './admin-hours-overview.component.html',
-  styleUrls: ['./admin-hours-overview.component.css']
+  styleUrls: ['../hours-overview/hours-overview.component.css']
 })
 export class AdminHoursOverviewComponent implements OnInit {
   hours: Hours[];
