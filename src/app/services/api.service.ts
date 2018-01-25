@@ -177,7 +177,6 @@ export class ApiService{
         return data;
     }
     public addCustomer(customerName: string, projectName: string, subjectName: string) {
-        console.log("api.service addCustomer", customerName, projectName, subjectName)
         let data = this.data(customerName, projectName, subjectName);
         let uri = this.createURI('klanten/add', null);
         let headers = this.createRequestHeaders();
@@ -187,7 +186,6 @@ export class ApiService{
       }
 
       public addProject(customerName: string, projectName: string, subjectName: string) {
-        console.log("api.service addProject", customerName, projectName, subjectName)
         let data = this.data(customerName, projectName, subjectName);
         let uri = this.createURI('projects/add', null);
         let headers = this.createRequestHeaders();
@@ -197,7 +195,6 @@ export class ApiService{
       }
 
       public addSubject(customerName:string, projectName:string, subjectName:string) {
-        console.log("api.service addSubject", customerName, projectName, subjectName)
           let data = this.data(customerName, projectName, subjectName);
           let uri = this.createURI('subjects/add', null);
           let headers = this.createRequestHeaders();
@@ -217,7 +214,6 @@ export class ApiService{
             comment : hour.comment,
             employeeId : employeeID
         }
-        console.log(data)
         let uri = this.createURI('uren/updateHour', null)
         return this.http.post(uri, data).subscribe();
     }

@@ -31,7 +31,7 @@ export class HoursOverviewComponent implements OnInit {
   }
 
   setDate(){
-    console.log(this.hours[0].startingDate)
+
   }
 
   createCsv(){
@@ -44,5 +44,5 @@ export class HoursOverviewComponent implements OnInit {
   ngOnInit(){
 
   }
-  
+
 }

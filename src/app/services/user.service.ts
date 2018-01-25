@@ -34,7 +34,6 @@ public login(user: User, remember: boolean): boolean{
             return true;
         },
         error => {
-            console.log("error")
             return false
         }
     );
@@ -47,7 +46,6 @@ public setWerkzaam(user: User) {
 }
 
 private goHome() {
-    console.log('goHome ran ..');
     this.router.navigate(['/Registratie']);
 }
 

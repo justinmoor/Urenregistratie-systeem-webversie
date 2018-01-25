@@ -19,8 +19,6 @@ export class AccountInfoComponent implements OnInit {
   constructor(private userService:UserService) {
     this.user = JSON.parse(sessionStorage.getItem('activeUser'));
     this.id = this.user.personeelID;
-    console.log(this.user);
-
   }
 
   ngOnInit() {

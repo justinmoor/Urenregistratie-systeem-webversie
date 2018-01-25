@@ -9,7 +9,7 @@ export class AuthorizationService
     private wachtwoord: string = null;
     private authenticator: Object = null;
     private activeUser : User;
-    
+
     public authorized$ = new Subject<boolean>();
 
     constructor() {
@@ -33,7 +33,7 @@ export class AuthorizationService
     public storeAuthorization(authenticator: Object, local: boolean)
     {
         this.authenticator = authenticator;
-        
+
         let authorization =
         {
             login: this.login,
@@ -45,7 +45,7 @@ export class AuthorizationService
         let storage = local ? localStorage : sessionStorage;
 
         storage.setItem('authorization', authorizationString);
-        
+
         this.authorized$.next(true);
     }
 
@@ -58,7 +58,7 @@ export class AuthorizationService
         sessionStorage.removeItem('activeUser');
         sessionStorage.removeItem('authorization');
         localStorage.removeItem('authorization');
-        
+
         this.authorized$.next(false);
     }
 
@@ -66,7 +66,7 @@ export class AuthorizationService
     {
         return this.authenticator;
     }
-    
+
     public setAuthenticator(authenticator: Object): void
     {
         this.authenticator = authenticator;
@@ -75,7 +75,6 @@ export class AuthorizationService
     public getActiveUser(){
         //Actieve user krijgen
         this.activeUser = JSON.parse(sessionStorage.getItem("activeUser"));
-  //      console.log(this.activeUser)
         return this.activeUser
     }
 

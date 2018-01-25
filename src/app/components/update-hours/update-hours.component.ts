@@ -45,7 +45,6 @@ export class UpdateHoursComponent implements OnInit {
     });
   }
   public getProjects() {
-    console.log(this.hour.customerName,"hoi");
     this.hourservice.getProjects(this.hour.customerName).subscribe(project => {
       this.projects = project;
     });
@@ -72,11 +71,8 @@ export class UpdateHoursComponent implements OnInit {
     this.hour.startingTime = this.time;
   }
   public setEndTime() {
-    console.log("fire>>>>>>");
     this.setTime();
-    console.log(this.time);
     this.hour.endingTime = this.time;
-    console.log(this.hour);
   }
   public setProjects() {
     this.hour.projectName = null;
@@ -87,7 +83,6 @@ export class UpdateHoursComponent implements OnInit {
   }
 
   public updateHour() {
-    console.log(this.hour);
     this.hourservice.updateHour(this.hour);
   }
 

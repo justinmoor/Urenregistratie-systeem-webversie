@@ -30,8 +30,6 @@ export class HoursService {
   }
 
   public getAll(): Observable<Hours[]> {
-
-    console.log(this.id);
     return this.api.getUrenVanUser<Hours[]>(this.id);
   }
 
@@ -67,7 +65,6 @@ export class HoursService {
   }
 
   public addCategory(customerName:string, projectName:string, subjectName:string) {
-    console.log("hourservice addCategroy",customerName, projectName, subjectName)
     this.customerExists = false;
 
 
@@ -77,7 +74,6 @@ export class HoursService {
       for(let customer of this.customers) {
         if (customer.customerName.toLocaleLowerCase() === customerName.toLocaleLowerCase()){
           this.customerExists = true;
-          console.log(this.customerExists);
           if (this.customerExists){
             this.goFetch(customerName, projectName, subjectName);
           }
@@ -95,12 +91,10 @@ export class HoursService {
     this.projectExists = false;
     this.getProjects(customerName).subscribe(project =>{
       this.projects=project, error => console.log('error projects');
-      console.log(this.projects);
 
       for(let project of this.projects) {
         if(project.projectName.toLocaleLowerCase() === projectName.toLocaleLowerCase()) {
           this.projectExists = true;
-          console.log(this.projectExists)
           this.getStick(customerName, projectName, subjectName);
         }
       }
@@ -111,7 +105,6 @@ export class HoursService {
   }
 
   private getStick(customerName:string, projectName:string, subjectName:string) {
-    console.log("hourservice  getStick",customerName, projectName, subjectName)
     this.subjectExists = false;
 
     this.getSubjects(projectName, customerName).subscribe(subject => {
@@ -120,7 +113,6 @@ export class HoursService {
       for (let subject of this.subjects) {
         if (subject.subjectName.toLocaleLowerCase() === subjectName.toLocaleLowerCase()){
           this.subjectExists = true;
-          console.log(this.subjectExists);
         }
       }
       if (this.subjectExists === false){

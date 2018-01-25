@@ -31,10 +31,6 @@ export class AdminHoursOverviewComponent implements OnInit {
       });
   }
 
-  setDate(){
-    console.log(this.hours[0].startingDate)
-  }
-
   createCsv(){
     this.filteredHours = this.filterPipe.transform(this.hours, 'customerName', this.searchCustomer);
     this.filteredHours = this.filterPipe.transform(this.filteredHours, 'projectName', this.searchProject);
