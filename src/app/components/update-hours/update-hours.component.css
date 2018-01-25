@@ -1,3 +1,4 @@
+
 td {
     padding: 10px;
     padding-bottom: 20px;
@@ -33,9 +34,14 @@ label {
     box-shadow: 0 2px 4px 0 #a3a3a3;
 }
 
-.acontent-container{
+.addingstuff-container{
     padding-top: 50px;
     max-width: 340px; 
     margin: auto;
     margin-bottom: 50px;
   }
+
+  #klant{
+      margin-right: 80px;
+  }
+  

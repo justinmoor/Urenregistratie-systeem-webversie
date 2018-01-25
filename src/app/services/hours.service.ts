@@ -21,7 +21,7 @@ export class HoursService {
   subjectExists:boolean;
   customer_ID:number;
   project_ID:number;
-
+  hourToChange:Hours;
   user:User[]
   id: number = this.getActiveUserId();
   hour:HourRegister;
@@ -48,6 +48,7 @@ export class HoursService {
   }
 
   public getProjects(CustomerName:String): Observable<Project[]> {
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
     return this.api.getProjects<Project[]>(CustomerName);
   }
 
@@ -126,5 +127,13 @@ export class HoursService {
     
     this.id  = this.getActiveUserId()
     this.api.updateHour(uur,this.id);
+  }
+
+  public setHourToChange(hour) {
+    this.hourToChange = hour;
+  }
+
+  public getHourToChange(): Hours {
+    return this.hourToChange;
   }
 }
