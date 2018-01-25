@@ -4,6 +4,7 @@ import { Customer } from '../../models/customer';
 import { Project } from '../../models/project';
 import { Subject } from '../../models/subject';
 import { HoursService } from '../../services/hours.service';
+import { Hours } from '../../models/hours';
 
 @Component({
   selector: 'app-update-hours',
@@ -11,79 +12,65 @@ import { HoursService } from '../../services/hours.service';
   styleUrls: ['./update-hours.component.css']
 })
 export class UpdateHoursComponent implements OnInit {
-  hour: HourRegister = new HourRegister;
+ 
+  hour: Hours;
+
   customers: Customer[];
   projects: Project[];
   subjects: Subject[];
-  today: Date;
-  year: number;
-  month;
-  day;
-  date: string;
-  timeHour;
-  timeMinute;
-  time;
-  customer: Customer = new Customer;
-  project: Project = new Project;
-  subject: Subject = new Subject;
-  fout: boolean = false;
 
-  constructor(private hourservice: HoursService) {
-    this.getProjects();
-    this.getSubjects();
+  customerName: string;
+  projectName: string;
+  subjectName: string;
+
+  constructor(private service: HoursService) {
+
+    this.hour = this.getHours();
     this.getCustomers();
   }
 
   ngOnInit() {
   }
-  public setDate(startingDate) {
-    this.hour.startingDate = startingDate;
+
+  private getHours():Hours{
+    return JSON.parse(sessionStorage.getItem("hourToChange"));
   }
-  public getSubjects() {
-    this.hourservice.getSubjects(this.hour.projectName, this.hour.customerName).subscribe(subject => {
-      this.subjects = subject;
-    });
+
+  private getCustomers() {
+    this.service.getCustomers().subscribe(customers =>{
+      this.customers=customers;
+      });
   }
-  public getProjects() {
-    this.hourservice.getProjects(this.hour.customerName).subscribe(project => {
+
+  private getProjects() {
+    console.log(this.hour.customerName, "yess");
+    this.service.getProjects(this.hour.customerName).subscribe(project => {
       this.projects = project;
     });
   }
-  public getCustomers(){
-    this.hourservice.getCustomers().subscribe(customers =>{
-      this.customers=customers;})
+
+  private getSubjects() {
+    this.service.getSubjects(this.hour.projectName, this.hour.customerName).subscribe(subject => {
+      this.subjects = subject;
+    });
   }
-  public setTime() {
-    this.getDate();
-    this.time = null;
-    this.timeHour = this.today.getHours();
-    this.timeMinute = this.today.getMinutes();
-    if (this.timeHour < 10) {
-      this.timeHour = 0 + "" + this.timeHour;
-    }
-    if (this.timeMinute < 10) {
-      this.timeMinute = 0 + "" + this.timeMinute;
-    }
-    this.time = "" + this.timeHour + ":" + this.timeMinute;
-  }
-  public setstartTime() {
-    this.setTime();
-    this.hour.startingTime = this.time;
-  }
-  public setEndTime() {
-    this.setTime();
-    this.hour.endingTime = this.time;
-  }
-  public setProjects() {
+
+  private setProjects() {
     this.hour.projectName = null;
     this.hour.subjectName = null;
   }
-  public getDate() {
-    this.today = new Date();
-  }
 
-  public updateHour() {
-    this.hourservice.updateHour(this.hour);
+
+
+
+
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+  addCategory() {
+    this.service.addCategory(this.customerName, this.projectName, this.subjectName);
   }
 
 }

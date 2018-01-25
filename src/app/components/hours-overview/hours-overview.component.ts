@@ -4,6 +4,7 @@ import { HoursService } from '../../services/hours.service';
 import { CsvService } from 'angular2-json2csv';
 import { FilterPipe } from '../../pipes/filter-pipe.pipe';
 import {AuthorizationService} from '../../services/authorization.service';
+import { Router } from '@angular/router/src/router';
 
 @Component({
   selector: 'app-hours-overview',
@@ -13,6 +14,7 @@ import {AuthorizationService} from '../../services/authorization.service';
 export class HoursOverviewComponent implements OnInit {
   hours: Hours[];
   filteredHours: Hours[];
+  router: Router
 
   public searchStartDate: string;
   public searchEndDate: string;
@@ -31,7 +33,7 @@ export class HoursOverviewComponent implements OnInit {
   }
 
   setDate(){
-
+    console.log(this.hours[0].startingDate)
   }
 
   createCsv(){
@@ -45,4 +47,11 @@ export class HoursOverviewComponent implements OnInit {
 
   }
 
+  setConfirmed(uur){
+    this.hoursService.setConfirmed(uur);
+  }
+
+  public sendHour(uur) {
+    sessionStorage.setItem("hourToChange", JSON.stringify(uur));
+  }
 }
