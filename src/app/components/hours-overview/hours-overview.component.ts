@@ -23,13 +23,15 @@ export class HoursOverviewComponent implements OnInit {
   public searchSubject: string;
 
   fout : boolean = false;
-  constructor(private hoursService: HoursService, private filterPipe: FilterPipe, private auth: AuthorizationService, private csvService : CsvService) {
+  
+  constructor(private csvService: CsvService, private hoursService: HoursService, private filterPipe: FilterPipe, private auth: AuthorizationService) {
     this.hoursService.getAll().subscribe(hours => {
       this.hours = hours;
     },
     error => {
       this.fout = true;
     });
+
   }
 
   setDate(){

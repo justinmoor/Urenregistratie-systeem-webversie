@@ -8,7 +8,7 @@
   <div class="naarlinks">
       <div class="card" style="padding: 20px;">
         <div class="form-group">
-          <table class="oi">
+          <table>
             <tr class = "rightfloat">
               <td><label for="einddatum">Datum: </label></td>
               <td><input type="date" class="form-control" id="begindatum" date-set="" [(ngModel)]="searchStartDate"></td>
@@ -25,7 +25,6 @@
               <td><label for="onderwerp">Onderwerp: </label> </td>
               <td><input type="text" class="form-control" id="onderwerp" [(ngModel)]="searchSubject"></td>
             </tr>
-
           </table>
         </div>
         <button type="button" class="btn" class="download" (click)='createCsv()'>Download CSV</button>
@@ -71,7 +70,11 @@
             </select>
           </td>
           <td>
+<<<<<<< HEAD
+              <button type="button" [disabled]="uur.confirmed" class="btn btn-primary" (click)="sendHour(uur)" routerLink="/wijzigen">Wijzigen</button>
+=======
               <button type="button" [disabled]="hour.confirmed" class="btn btn-primary" (click)="sendHour(hour)" routerLink="/wijzigen">Wijzigen</button>
+>>>>>>> 8d7afe1207255653d6e905d59d9280ed845f5ec0
           </td>
         </tr>
         </tbody>

@@ -72,6 +72,7 @@ export class ApiService{
     public getUsers<T>(queryParameters?: Object): Observable<T>{
         let uri = this.createURI("personeel/getall")
         let headers = this.createRequestHeaders();
+        console.log(headers)
         return this.http.get<T>(uri, {headers:headers});
     }
 

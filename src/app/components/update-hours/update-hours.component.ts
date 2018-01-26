@@ -74,5 +74,4 @@ export class UpdateHoursComponent implements OnInit {
   addCategory() {
     this.service.addCategory(this.customerName, this.projectName, this.subjectName);
   }
-
 }

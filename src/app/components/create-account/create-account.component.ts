@@ -11,26 +11,26 @@ import { ApiService } from '../../services/api.service';
 export class CreateAccountComponent implements OnInit {
   accountCreated: boolean;
   user: User = new User;
+  rechten : string;
+  gelukt : boolean = false;
 
-  constructor(private userService: UserService, private apiService: ApiService) {
-
+  constructor(private userService: UserService) {
+    console.log('Dingen gebeurde');
   }
 
   ngOnInit() {
   }
 
   addAccount() {
-    if(this.userService.hasCorrectProperties(this.user)) {
-
-
-      this.user.setWerkzaam('1'); // 1 = werkzaam
-      this.user.setWachtwoord('Welkom123');
-      this.userService.voegAccountToe(this.user);
-      this.accountCreated = true;
-    }
-    else{
-      this.accountCreated = false;
-    }
+    this.user.setWerkzaam('1'); // 1 = werkzaam
+    this.user.setWachtwoord('Welkom123');
+    this.user.setRechten((this.rechten == "Administratie" ? "1" : "0"))
+    console.log(this.user.rechten);
+    this.userService.voegAccountToe(this.user);
+    this.user.voornaam = ""
+    this.user.achternaam = ""
+    this.user.tussenvoegsel = ""
+    this.user.email = ""
+    this.gelukt = true;
   }
-
 }

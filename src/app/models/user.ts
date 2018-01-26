@@ -7,7 +7,7 @@ export class User
         public achternaam?: string,
         public email?: string,
         public wachtwoord?: string,
-        public rechten?: number,
+        public rechten?: string,
         public werkzaam?: number,
     ){
 
