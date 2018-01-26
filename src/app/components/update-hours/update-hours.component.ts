@@ -30,10 +30,6 @@ export class UpdateHoursComponent implements OnInit {
     this.getCustomers();
     this.getProjects();
     this.getSubjects();
-<<<<<<< HEAD
-    
-=======
->>>>>>> 8d7afe1207255653d6e905d59d9280ed845f5ec0
   }
 
   ngOnInit() {
@@ -70,14 +66,11 @@ export class UpdateHoursComponent implements OnInit {
     this.subjects = null;
   }
 
-<<<<<<< HEAD
-=======
   public saveHour(){
     console.log(this.hour);
     this.service.updateHour(this.hour)
   }
 
->>>>>>> 8d7afe1207255653d6e905d59d9280ed845f5ec0
   addCategory() {
     this.service.addCategory(this.customerName, this.projectName, this.subjectName);
   }

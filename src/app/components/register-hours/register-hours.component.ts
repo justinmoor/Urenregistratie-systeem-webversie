@@ -62,16 +62,11 @@ export class RegisterHoursComponent implements OnInit {
 
   public registerHours() {
     this.hourservice.setHour(this.hour);
-<<<<<<< HEAD
     this.hour.comment = ""
     this.hour.customerName=""
     this.hour.projectName=""
     this.hour.subjectName=""
     this.opgeslagen = true;
-=======
-    this.hour.comment = null;
-    this.registered = true;
->>>>>>> 8d7afe1207255653d6e905d59d9280ed845f5ec0
   }
 
   public getProjects() {

@@ -126,11 +126,7 @@ export class ApiService{
 
         let uri = this.createURI('personeel/wachtwoord', data);
         let headers = this.createRequestHeaders();
-<<<<<<< HEAD
-        return this.http.post(uri, data, {headers:headers}).subscribe();
-=======
         return this.http.post(uri, data, {headers : headers}).subscribe();
->>>>>>> 8d7afe1207255653d6e905d59d9280ed845f5ec0
     }
 
     public setHour(hour:HourRegister, employeeID) {

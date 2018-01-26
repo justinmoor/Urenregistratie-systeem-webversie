@@ -23,12 +23,8 @@ export class HoursOverviewComponent implements OnInit {
   public searchSubject: string;
 
   fout : boolean = false;
-<<<<<<< HEAD
   
   constructor(private csvService: CsvService, private hoursService: HoursService, private filterPipe: FilterPipe, private auth: AuthorizationService) {
-=======
-  constructor(private hoursService: HoursService, private filterPipe: FilterPipe, private auth: AuthorizationService, private csvService : CsvService) {
->>>>>>> 8d7afe1207255653d6e905d59d9280ed845f5ec0
     this.hoursService.getAll().subscribe(hours => {
       this.hours = hours;
     },
