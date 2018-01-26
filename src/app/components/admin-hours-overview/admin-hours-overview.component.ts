@@ -44,4 +44,8 @@ export class AdminHoursOverviewComponent implements OnInit {
   setConfirmed(uur){
     this.hoursService.setConfirmed(uur);
   }
+
+  public sendHour(hour) {
+    sessionStorage.setItem("hourToChange", JSON.stringify(hour));
+  }
 }
