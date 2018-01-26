@@ -26,20 +26,18 @@ test : LoginComponent
 public login(user: User, remember: boolean): boolean{
     this.authService.setAuthorization(user.email, user.wachtwoord);
     this.api.get<User>('personeel/login').subscribe(
-        authenticator => {   
-            
+        authenticator => {
+
             this.authService.storeAuthorization(authenticator, remember);
             sessionStorage.setItem('activeUser', JSON.stringify(authenticator));
             this.router.navigate(['/registratie']);
-            return true;
+            return false;
         },
         error => {
-            console.log("error")
-            return false
+          return true;
         }
     );
-
-    return false;
+    return true;
 }
 
 public setWerkzaam(user: User) {
@@ -47,7 +45,6 @@ public setWerkzaam(user: User) {
 }
 
 private goHome() {
-    console.log('goHome ran ..');
     this.router.navigate(['/Registratie']);
 }
 
@@ -57,6 +54,24 @@ public voegAccountToe(user: User) {
 
 public changePassword(id:number, nieuwWachtwoord:string, oldPassword:string) {
     this.api.changePassword(id, nieuwWachtwoord, oldPassword);
+}
+public checkPasswordRequirements(newPassword: string, repeatPassword: string): boolean{
+      if(newPassword != undefined && repeatPassword != undefined && newPassword === repeatPassword && newPassword.length > 7){
+        console.log('*teleports behind u* \n *returns true* \n "Nothing personnel kiddo"')
+        return true;
+      }
+      else{
+        false
+      }
+
+}
+public hasCorrectProperties(user: User): boolean{
+      if (user.achternaam.length > 2 && user.voornaam.length > 2 && user.achternaam.length < 41 && user.voornaam.length < 41 && user.tussenvoegsel.length < 10){
+          return true;
+        } else{
+          return false;
+        }
+
 }
 
 }

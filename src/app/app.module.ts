@@ -23,6 +23,7 @@ import { AdminGuard } from './guards/admin.guard';
 
 import { CsvService } from 'angular2-json2csv';
 import { UpdateHoursComponent } from './components/update-hours/update-hours.component';
+import { AdminHoursOverviewComponent } from './components/admin-hours-overview/admin-hours-overview.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
   { path: 'accountmaken', component: CreateAccountComponent, canActivate:[PathGuardGuard, AdminGuard]},
   { path: 'gebruikers', component: UserOverviewComponent, canActivate:[PathGuardGuard, AdminGuard]},
   { path: 'urenoverzicht', component: HoursOverviewComponent, canActivate:[PathGuardGuard]},
-  { path: 'accountinfo', component: AccountInfoComponent, canActivate:[PathGuardGuard]}
+  { path: 'accountinfo', component: AccountInfoComponent, canActivate:[PathGuardGuard]},
+  { path: 'adminurenoverzicht', component: AdminHoursOverviewComponent, canActivate:[AdminGuard]}
 ];
 
 @NgModule({
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     AccountInfoComponent,
     FilterPipe,
     SortByPipe,
-    UpdateHoursComponent
+    UpdateHoursComponent,
+    AdminHoursOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  
+
   providers: [UserService, ApiService, AuthorizationService, CsvService, HoursService, PathGuardGuard, AdminGuard,  FilterPipe],
   bootstrap: [AppComponent]
 })

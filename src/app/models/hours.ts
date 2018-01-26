@@ -5,7 +5,6 @@ export class Hours{
         public employeeId?:number,
         public startingDate?:string,
         public startingTime?:string,
-        public endingDate?:string,
         public endingTime?:string,
         public customerName?:string,
         public projectName?:string,

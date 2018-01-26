@@ -48,6 +48,7 @@
         </tr>
         </thead>
         <tbody>
+<<<<<<< HEAD
         <tr *ngFor="let uur of hours | filter: 'customerName': searchCustomer | filter: 'projectName' : searchProject | filter: 'subjectName' : searchSubject | filter:'startingDate' : searchStartDate" >
           <td>{{uur.startingDate}}</td>
           <td>{{uur.startingTime}}</td>
@@ -59,18 +60,35 @@
           <td>{{uur.subjectName}}</td>
           <td *ngIf="uur.confirmed === false && auth.getActiveUser().rechten == 1">
           <select #selectElement (change)="setConfirmed(uur)">
+=======
+        <tr *ngFor="let hour of hours | sortBy : 'confirmed' |  filter: 'customerName': searchCustomer | filter: 'projectName' : searchProject | filter: 'subjectName' : searchSubject | filter:'startingDate' : searchStartDate" >
+          <td>{{hour.startingDate}}</td>
+          <td>{{hour.startingTime}}</td>
+          <td>{{hour.endingTime}}</td>
+          <td>{{hour.comment}}</td>
+          <td>{{hour.employeeName}}</td>
+          <td>{{hour.customerName}}</td>
+          <td>{{hour.projectName}}</td>
+          <td>{{hour.subjectName}}</td>
+          <td *ngIf="hour.confirmed === false && auth.getActiveUser().rechten == 1">
+          <select #selectElement (change)="setConfirmed(hour)">
+>>>>>>> 8d7afe1207255653d6e905d59d9280ed845f5ec0
               <option>Nee</option>
               <option>Ja</option>
             </select>
             </td>
-          <td *ngIf="uur.confirmed && auth.getActiveUser().rechten == 1">
-            <select #selectElement (change)="setConfirmed(uur)">
+          <td *ngIf="hour.confirmed && auth.getActiveUser().rechten == 1">
+            <select #selectElement (change)="setConfirmed(hour)">
               <option>Ja</option>
               <option>Nee</option>
             </select>
           </td>
           <td>
+<<<<<<< HEAD
               <button type="button" [disabled]="uur.confirmed" class="btn btn-primary" (click)="sendHour(uur)" routerLink="/wijzigen">Wijzigen</button>
+=======
+              <button type="button" [disabled]="hour.confirmed" class="btn btn-primary" (click)="sendHour(hour)" routerLink="/wijzigen">Wijzigen</button>
+>>>>>>> 8d7afe1207255653d6e905d59d9280ed845f5ec0
           </td>
         </tr>
         </tbody>

@@ -56,6 +56,12 @@
               <div style="width: 100%;"*ngIf="gelukt" class="alert alert-success">
                 <strong>Gelukt!</strong> Nieuw account is toegevoegd.
               </div>
+              <div *ngIf="accountCreated" class="alert alert-success">
+                Account aangemaakt!
+              </div>
+              <div *ngIf="accountCreated == false" class="alert alert-danger">
+                Account niet aangemaakt!
+              </div>
             </td>
           </tr>
         </table>

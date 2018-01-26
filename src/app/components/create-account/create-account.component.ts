@@ -9,7 +9,7 @@ import { ApiService } from '../../services/api.service';
   styleUrls: ['./create-account.component.css']
 })
 export class CreateAccountComponent implements OnInit {
-
+  accountCreated: boolean;
   user: User = new User;
   rechten : string;
   gelukt : boolean = false;

@@ -6,6 +6,7 @@ import { Customer } from '../../models/customer';
 import { Project } from '../../models/project';
 import { Subject } from '../../models/subject';
 import { Data } from '@angular/router/src/config';
+import {noUndefined} from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-register-hours',
@@ -15,7 +16,8 @@ import { Data } from '@angular/router/src/config';
 
 
 export class RegisterHoursComponent implements OnInit {
-
+  registered: boolean = false;
+  categoryAdded: boolean = false;
   hour:HourRegister = new HourRegister;
   customers:Customer[];
   projects:Project[];
@@ -39,7 +41,7 @@ export class RegisterHoursComponent implements OnInit {
   fout:boolean = false;
   opgeslagen:boolean=false;
 
-  constructor(private hourservice:HoursService) { 
+  constructor(private hourservice:HoursService) {
     this.getCustomers();
 
     this.getDate();
@@ -52,15 +54,24 @@ export class RegisterHoursComponent implements OnInit {
 
   addCategory() {
     this.hourservice.addCategory(this.customerName, this.projectName, this.subjectName);
+    this.customerName = null;
+    this.projectName = null;
+    this.subjectName = null;
+    this.categoryAdded = true;
   }
 
-  public saveHour() {
+  public registerHours() {
     this.hourservice.setHour(this.hour);
+<<<<<<< HEAD
     this.hour.comment = ""
     this.hour.customerName=""
     this.hour.projectName=""
     this.hour.subjectName=""
     this.opgeslagen = true;
+=======
+    this.hour.comment = null;
+    this.registered = true;
+>>>>>>> 8d7afe1207255653d6e905d59d9280ed845f5ec0
   }
 
   public getProjects() {
@@ -96,7 +107,7 @@ export class RegisterHoursComponent implements OnInit {
     if(this.timeMinute < 10){
       this.timeMinute = 0 +"" + this.timeMinute;
     }
-    this.time = "" + this.timeHour + ":" + this.timeMinute; 
+    this.time = "" + this.timeHour + ":" + this.timeMinute;
   }
 
   public setstartTime() {

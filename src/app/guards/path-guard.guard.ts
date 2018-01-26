@@ -15,7 +15,7 @@ export class PathGuardGuard implements CanActivate {
     if(this.auth.getActiveUser() != null){
       return true;
     } else {
-      alert("Log in!")
+      alert("Om deze pagina te kunnen bezoeken moet je ingelogd zijn!")
       this.router.navigate(['/']);
       return false;
     }
