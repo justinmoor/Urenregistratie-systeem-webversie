@@ -42,7 +42,7 @@
               <label>Rechten:</label>
             </td>
             <td>
-              <select [(ngModel)]="user.rechten" name="rechten" class="form-control">
+              <select [(ngModel)]="rechten" name="user.rechten" class="form-control">
                 <option>Personeel</option>
                 <option>Administratie</option>
               </select>
@@ -51,7 +51,10 @@
           <tr>
             <td colspan="2" class="button">
               <div class="form-group">
-                <button [disabled]="!user.voornaam||!user.achternaam||!user.email||!user.rechten" type="button" class="btn btn-secondary btn-block" (click)='addAccount()'>Toevoegen</button>
+                <button [disabled]="!user.voornaam||!user.achternaam||!user.email||!rechten" type="button" class="btn btn-secondary btn-block" (click)='addAccount()'>Toevoegen</button>
+              </div>
+              <div style="width: 100%;"*ngIf="gelukt" class="alert alert-success">
+                <strong>Gelukt!</strong> Nieuw account is toegevoegd.
               </div>
             </td>
           </tr>

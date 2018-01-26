@@ -13,7 +13,7 @@ export class AdminGuard implements CanActivate {
 
   canActivate(){
     console.log("adminGuard");
-    if(this.auth.getActiveUser() != null && this.auth.getActiveUser().rechten == 1 ){
+    if(this.auth.getActiveUser() != null && this.auth.getActiveUser().rechten == "1" ){
       return true;
     } else {
       alert("Niet bevoegd!")

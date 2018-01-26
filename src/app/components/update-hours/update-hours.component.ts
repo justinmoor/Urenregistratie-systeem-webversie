@@ -27,6 +27,9 @@ export class UpdateHoursComponent implements OnInit {
 
     this.hour = this.getHours();
     this.getCustomers();
+    this.getProjects();
+    this.getSubjects();
+    
   }
 
   ngOnInit() {
@@ -60,17 +63,7 @@ export class UpdateHoursComponent implements OnInit {
     this.hour.subjectName = null;
   }
 
-
-
-
-
-
-
-
-
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   addCategory() {
     this.service.addCategory(this.customerName, this.projectName, this.subjectName);
   }
-
 }

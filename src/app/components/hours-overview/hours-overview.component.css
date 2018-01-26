@@ -72,6 +72,11 @@ button:hover {
   transition: 0.2s, ease-in-out;
 }
 
+button:disabled{
+  background-color: grey;
+  border-color: grey;
+}
+
 .naarlinks{
   float: left;
 }

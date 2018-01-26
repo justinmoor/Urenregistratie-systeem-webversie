@@ -11,6 +11,8 @@ import { ApiService } from '../../services/api.service';
 export class CreateAccountComponent implements OnInit {
 
   user: User = new User;
+  rechten : string;
+  gelukt : boolean = false;
 
   constructor(private userService: UserService) {
     console.log('Dingen gebeurde');
@@ -22,8 +24,13 @@ export class CreateAccountComponent implements OnInit {
   addAccount() {
     this.user.setWerkzaam('1'); // 1 = werkzaam
     this.user.setWachtwoord('Welkom123');
-    console.log(this.user);
+    this.user.setRechten((this.rechten == "Administratie" ? "1" : "0"))
+    console.log(this.user.rechten);
     this.userService.voegAccountToe(this.user);
+    this.user.voornaam = ""
+    this.user.achternaam = ""
+    this.user.tussenvoegsel = ""
+    this.user.email = ""
+    this.gelukt = true;
   }
-
 }
