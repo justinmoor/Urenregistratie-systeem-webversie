@@ -64,6 +64,9 @@ export class RegisterHoursComponent implements OnInit {
     if (this.hour.startingTime < this.hour.endingTime) {
       this.hourservice.setHour(this.hour);
       this.empty();
+      this.setstartTime();
+      this.setEndTime();
+      this.getCustomers();
       this.opgeslagen = true;
     }
     
