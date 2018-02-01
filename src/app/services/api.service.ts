@@ -169,9 +169,9 @@ export class ApiService{
 
     private data(customerName, projectName, subjectName) {
         let data = {
-            klantnaam : customerName,
-            projectnaam : projectName,
-            onderwerpnaam : subjectName
+            customerName : customerName,
+            projectName : projectName,
+            subjectName : subjectName
         }
         return data;
     }
