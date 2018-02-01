@@ -62,8 +62,8 @@
       </tr>
       <tr>
         <td colspan="4" class="td-button">
-          <button type="button" [disabled]="fout" class="btn btn-primary" (click)="registerHours()">Opslaan</button>
-          <div *ngIf="registered" class="alert alert-success">
+          <button type="button" [disabled]="fout" class="btn btn-primary" (click)="registerHours() || empty()">Opslaan</button>
+          <div *ngIf="registered" class="alert alert-success" >
             Uur geregistreerd!
           </div>
         </td>

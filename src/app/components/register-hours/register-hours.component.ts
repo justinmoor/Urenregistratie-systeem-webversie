@@ -61,12 +61,12 @@ export class RegisterHoursComponent implements OnInit {
   }
 
   public registerHours() {
-    this.hourservice.setHour(this.hour);
-    this.hour.comment = ""
-    this.hour.customerName=""
-    this.hour.projectName=""
-    this.hour.subjectName=""
-    this.opgeslagen = true;
+    if (this.hour.startingTime < this.hour.endingTime) {
+      this.hourservice.setHour(this.hour);
+      this.empty();
+      this.opgeslagen = true;
+    }
+    
   }
 
   public getProjects() {
@@ -134,5 +134,16 @@ export class RegisterHoursComponent implements OnInit {
   public setProjects() {
     this.hour.projectName = null;
     this.hour.subjectName = null;
+  }
+
+
+  public empty() {
+    this.hour.customerName = null;
+    this.projectName = null;
+    this.subjectName = null;
+    this.hour.comment = ""
+    this.hour.customerName=""
+    this.hour.projectName=""
+    this.hour.subjectName=""
   }
 }
